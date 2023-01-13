@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<IDataXMLCoder version="1.0">
+  <record javaclass="com.wm.data.ISMemDataImpl">
+    <record name="CVData" javaclass="com.wm.data.ISMemDataImpl">
+      <value name="name">Zaed</value>
+      <value name="age">20</value>
+      <value name="edcation">1215</value>
+      <value name="aboutyou">2121215115</value>
+    </record>
+    <record name="Approvers" javaclass="com.wm.data.ISMemDataImpl">
+      <value name="ID">Administrator</value>
+    </record>
+    <record name="Actions" javaclass="com.wm.data.ISMemDataImpl">
+      <value name="Actions">Approve</value>
+      <array name="actionLists" type="value" depth="1">
+        <value>check</value>
+        <value>list</value>
+      </array>
+    </record>
+  </record>
+</IDataXMLCoder>

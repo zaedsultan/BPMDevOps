@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:caf_f="http://webmethods.com/jsf/caf/core"
+	xmlns:caf_h="http://webmethods.com/jsf/caf/html">
+<ui:composition>
+	<caf_f:view pageManagedBean="PublicSLANotificationView">
+		<caf_f:design-time-attribute name="taskTypeID"
+			value="2D20E830-50AB-6E4C-2670-0B3D2342F6D8"></caf_f:design-time-attribute>
+		<caf_f:design-time-attribute name="taskClientName"
+			value="ValidaiteandApprove"></caf_f:design-time-attribute>
+		<caf_f:design-time-attribute name="notificationBeanName" value="null"></caf_f:design-time-attribute>
+		<caf_h:panelHideable id="taskDataPanel">
+			<caf_h:panelStaticRow width="100%" id="staticRow">
+				<caf_h:panelStaticCell id="staticCell">
+					<caf_h:outputText id="htmlOutputText"
+						value="You have a new task: #{activePageBean.currentTask.taskInfo.taskID}"></caf_h:outputText>
+				</caf_h:panelStaticCell>
+			</caf_h:panelStaticRow>
+			<caf_h:panelStaticRow width="100%" id="staticRow1">
+				<caf_h:panelStaticCell id="staticCell1">
+					<caf_h:outputLink id="htmlOutputLink"
+						value="#{activePageBean.currentTask.taskInfo.taskURL}"
+						label="Please click here to open the task."></caf_h:outputLink>
+				</caf_h:panelStaticCell>
+			</caf_h:panelStaticRow>
+		</caf_h:panelHideable>
+	</caf_f:view>
+</ui:composition>
+</html>

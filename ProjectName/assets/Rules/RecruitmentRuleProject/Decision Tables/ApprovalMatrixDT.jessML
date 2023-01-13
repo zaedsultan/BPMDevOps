@@ -1,0 +1,532 @@
+<?xml version='1.0' encoding='US-ASCII'?>
+<rulebase xmlns='http://www.jessrules.com/JessML/1.0'>
+<module>
+  <name>$$MODULENAME$$</name>
+</module>
+
+<funcall>
+  <name>import</name>
+  <value type='SYMBOL'>pkgRecruitmentRuleProject.pkgData20Models.DMApprovalMatrixDM</value>
+  
+</funcall>
+
+<template>
+  <name>$$MODULENAME$$::DMApprovalMatrixDM</name>
+  <comment>$JAVA-OBJECT$ pkgRecruitmentRuleProject.pkgData20Models.DMApprovalMatrixDM</comment>
+  <properties>
+    <property>
+      <name>from-class</name>
+      <value type='SYMBOL'>pkgRecruitmentRuleProject.pkgData20Models.DMApprovalMatrixDM</value>
+    </property>
+    <property>
+      <name>slot-specific</name>
+      <value type='SYMBOL'>TRUE</value>
+    </property>
+  </properties>
+</template>
+
+<rule>
+  <name>$$MODULENAME$$::ApprovalMatrixDT.decisiontable_dtrule1</name>
+  <lhs>
+    <group>
+      <name>and</name>
+      <pattern>
+        <name>$$MODULENAME$$::DMApprovalMatrixDM</name>
+        <slot>
+          <name>OBJECT</name>
+          <test>
+            <type>eq</type>
+            <value type='VARIABLE'>_DMApprovalMatrixDM_ApprovalMatrixDM_1</value>
+            
+          </test>
+          <test>
+            <type>eq</type>
+            <conjunction>and</conjunction>
+            <funcall>
+              <name>=</name>
+              <funcall>
+                <name>call</name>
+                <value type='VARIABLE'>_DMApprovalMatrixDM_ApprovalMatrixDM_1</value>
+                
+                <value type='SYMBOL'>getParameterName</value>
+                
+              </funcall>
+              
+              <value type='STRING'>ApprovalMatrixDM_1</value>
+              
+            </funcall>
+            
+          </test>
+        </slot>
+      </pattern>
+      <pattern>
+        <name>$$MODULENAME$$::DMApprovalMatrixDM</name>
+        <slot>
+          <name>slotDepartment</name>
+          <test>
+            <type>eq</type>
+            <value type='VARIABLE'>s0</value>
+            
+          </test>
+          <test>
+            <type>neq</type>
+            <conjunction>and</conjunction>
+            <value type='SYMBOL'>nil</value>
+            
+          </test>
+          <test>
+            <type>eq</type>
+            <conjunction>and</conjunction>
+            <funcall>
+              <name>checkEQ</name>
+              <value type='VARIABLE'>s0</value>
+              
+              <funcall>
+                <name>ParameterHelper.getJessString</name>
+                <value type='STRING'>applicat</value>
+                
+              </funcall>
+              
+            </funcall>
+            
+          </test>
+        </slot>
+        <slot>
+          <name>slotProcessType</name>
+          <test>
+            <type>eq</type>
+            <value type='VARIABLE'>s1</value>
+            
+          </test>
+          <test>
+            <type>neq</type>
+            <conjunction>and</conjunction>
+            <value type='SYMBOL'>nil</value>
+            
+          </test>
+          <test>
+            <type>eq</type>
+            <conjunction>and</conjunction>
+            <funcall>
+              <name>checkEQ</name>
+              <value type='VARIABLE'>s1</value>
+              
+              <funcall>
+                <name>ParameterHelper.getJessString</name>
+                <value type='STRING'>CVVerfication</value>
+                
+              </funcall>
+              
+            </funcall>
+            
+          </test>
+        </slot>
+        <slot>
+          <name>slotStage</name>
+          <test>
+            <type>eq</type>
+            <value type='VARIABLE'>s2</value>
+            
+          </test>
+          <test>
+            <type>neq</type>
+            <conjunction>and</conjunction>
+            <value type='SYMBOL'>nil</value>
+            
+          </test>
+          <test>
+            <type>eq</type>
+            <conjunction>and</conjunction>
+            <funcall>
+              <name>checkEQ</name>
+              <value type='VARIABLE'>s2</value>
+              
+              <funcall>
+                <name>ParameterHelper.getJessString</name>
+                <value type='STRING'>RecruiterReviewCV</value>
+                
+              </funcall>
+              
+            </funcall>
+            
+          </test>
+        </slot>
+        <slot>
+          <name>OBJECT</name>
+          <test>
+            <type>eq</type>
+            <value type='VARIABLE'>dm0</value>
+            
+          </test>
+          <test>
+            <type>eq</type>
+            <conjunction>and</conjunction>
+            <value type='VARIABLE'>_DMApprovalMatrixDM_ApprovalMatrixDM_1</value>
+            
+          </test>
+        </slot>
+      </pattern>
+    </group>
+  </lhs>
+  <rhs>
+    <funcall>
+      <name>setMember</name>
+      <value type='VARIABLE'>_DMApprovalMatrixDM_ApprovalMatrixDM_1</value>
+      
+      <funcall>
+        <name>create$</name>
+        <value type='STRING'>/ApprovalList;1;0</value>
+        
+      </funcall>
+      
+      <funcall>
+        <name>ParameterHelper.getJessString</name>
+        <value type='STRING'>Administrator</value>
+        
+      </funcall>
+      
+      <value type='SYMBOL'>FALSE</value>
+      
+      <value type='SYMBOL'>FALSE</value>
+      
+    </funcall>
+  </rhs>
+</rule>
+
+<rule>
+  <name>$$MODULENAME$$::ApprovalMatrixDT.decisiontable_dtrule2</name>
+  <lhs>
+    <group>
+      <name>and</name>
+      <pattern>
+        <name>$$MODULENAME$$::DMApprovalMatrixDM</name>
+        <slot>
+          <name>OBJECT</name>
+          <test>
+            <type>eq</type>
+            <value type='VARIABLE'>_DMApprovalMatrixDM_ApprovalMatrixDM_1</value>
+            
+          </test>
+          <test>
+            <type>eq</type>
+            <conjunction>and</conjunction>
+            <funcall>
+              <name>=</name>
+              <funcall>
+                <name>call</name>
+                <value type='VARIABLE'>_DMApprovalMatrixDM_ApprovalMatrixDM_1</value>
+                
+                <value type='SYMBOL'>getParameterName</value>
+                
+              </funcall>
+              
+              <value type='STRING'>ApprovalMatrixDM_1</value>
+              
+            </funcall>
+            
+          </test>
+        </slot>
+      </pattern>
+      <pattern>
+        <name>$$MODULENAME$$::DMApprovalMatrixDM</name>
+        <slot>
+          <name>slotDepartment</name>
+          <test>
+            <type>eq</type>
+            <value type='VARIABLE'>s3</value>
+            
+          </test>
+          <test>
+            <type>neq</type>
+            <conjunction>and</conjunction>
+            <value type='SYMBOL'>nil</value>
+            
+          </test>
+          <test>
+            <type>eq</type>
+            <conjunction>and</conjunction>
+            <funcall>
+              <name>checkEQ</name>
+              <value type='VARIABLE'>s3</value>
+              
+              <funcall>
+                <name>ParameterHelper.getJessString</name>
+                <value type='STRING'>applicat</value>
+                
+              </funcall>
+              
+            </funcall>
+            
+          </test>
+        </slot>
+        <slot>
+          <name>slotProcessType</name>
+          <test>
+            <type>eq</type>
+            <value type='VARIABLE'>s4</value>
+            
+          </test>
+          <test>
+            <type>neq</type>
+            <conjunction>and</conjunction>
+            <value type='SYMBOL'>nil</value>
+            
+          </test>
+          <test>
+            <type>eq</type>
+            <conjunction>and</conjunction>
+            <funcall>
+              <name>checkEQ</name>
+              <value type='VARIABLE'>s4</value>
+              
+              <funcall>
+                <name>ParameterHelper.getJessString</name>
+                <value type='STRING'>CVVerfication</value>
+                
+              </funcall>
+              
+            </funcall>
+            
+          </test>
+        </slot>
+        <slot>
+          <name>slotStage</name>
+          <test>
+            <type>eq</type>
+            <value type='VARIABLE'>s5</value>
+            
+          </test>
+          <test>
+            <type>neq</type>
+            <conjunction>and</conjunction>
+            <value type='SYMBOL'>nil</value>
+            
+          </test>
+          <test>
+            <type>eq</type>
+            <conjunction>and</conjunction>
+            <funcall>
+              <name>checkEQ</name>
+              <value type='VARIABLE'>s5</value>
+              
+              <funcall>
+                <name>ParameterHelper.getJessString</name>
+                <value type='STRING'>ValidaiteandApprove</value>
+                
+              </funcall>
+              
+            </funcall>
+            
+          </test>
+        </slot>
+        <slot>
+          <name>OBJECT</name>
+          <test>
+            <type>eq</type>
+            <value type='VARIABLE'>dm1</value>
+            
+          </test>
+          <test>
+            <type>eq</type>
+            <conjunction>and</conjunction>
+            <value type='VARIABLE'>_DMApprovalMatrixDM_ApprovalMatrixDM_1</value>
+            
+          </test>
+        </slot>
+      </pattern>
+    </group>
+  </lhs>
+  <rhs>
+    <funcall>
+      <name>setMember</name>
+      <value type='VARIABLE'>_DMApprovalMatrixDM_ApprovalMatrixDM_1</value>
+      
+      <funcall>
+        <name>create$</name>
+        <value type='STRING'>/ApprovalList;1;0</value>
+        
+      </funcall>
+      
+      <funcall>
+        <name>ParameterHelper.getJessString</name>
+        <value type='STRING'>Role2</value>
+        
+      </funcall>
+      
+      <value type='SYMBOL'>FALSE</value>
+      
+      <value type='SYMBOL'>FALSE</value>
+      
+    </funcall>
+  </rhs>
+</rule>
+
+<rule>
+  <name>$$MODULENAME$$::ApprovalMatrixDT.decisiontable_dtrule3</name>
+  <lhs>
+    <group>
+      <name>and</name>
+      <pattern>
+        <name>$$MODULENAME$$::DMApprovalMatrixDM</name>
+        <slot>
+          <name>OBJECT</name>
+          <test>
+            <type>eq</type>
+            <value type='VARIABLE'>_DMApprovalMatrixDM_ApprovalMatrixDM_1</value>
+            
+          </test>
+          <test>
+            <type>eq</type>
+            <conjunction>and</conjunction>
+            <funcall>
+              <name>=</name>
+              <funcall>
+                <name>call</name>
+                <value type='VARIABLE'>_DMApprovalMatrixDM_ApprovalMatrixDM_1</value>
+                
+                <value type='SYMBOL'>getParameterName</value>
+                
+              </funcall>
+              
+              <value type='STRING'>ApprovalMatrixDM_1</value>
+              
+            </funcall>
+            
+          </test>
+        </slot>
+      </pattern>
+      <pattern>
+        <name>$$MODULENAME$$::DMApprovalMatrixDM</name>
+        <slot>
+          <name>slotDepartment</name>
+          <test>
+            <type>eq</type>
+            <value type='VARIABLE'>s6</value>
+            
+          </test>
+          <test>
+            <type>neq</type>
+            <conjunction>and</conjunction>
+            <value type='SYMBOL'>nil</value>
+            
+          </test>
+          <test>
+            <type>eq</type>
+            <conjunction>and</conjunction>
+            <funcall>
+              <name>checkEQ</name>
+              <value type='VARIABLE'>s6</value>
+              
+              <funcall>
+                <name>ParameterHelper.getJessString</name>
+                <value type='STRING'>applicat</value>
+                
+              </funcall>
+              
+            </funcall>
+            
+          </test>
+        </slot>
+        <slot>
+          <name>slotProcessType</name>
+          <test>
+            <type>eq</type>
+            <value type='VARIABLE'>s7</value>
+            
+          </test>
+          <test>
+            <type>neq</type>
+            <conjunction>and</conjunction>
+            <value type='SYMBOL'>nil</value>
+            
+          </test>
+          <test>
+            <type>eq</type>
+            <conjunction>and</conjunction>
+            <funcall>
+              <name>checkEQ</name>
+              <value type='VARIABLE'>s7</value>
+              
+              <funcall>
+                <name>ParameterHelper.getJessString</name>
+                <value type='STRING'>CVVerfication</value>
+                
+              </funcall>
+              
+            </funcall>
+            
+          </test>
+        </slot>
+        <slot>
+          <name>slotStage</name>
+          <test>
+            <type>eq</type>
+            <value type='VARIABLE'>s8</value>
+            
+          </test>
+          <test>
+            <type>neq</type>
+            <conjunction>and</conjunction>
+            <value type='SYMBOL'>nil</value>
+            
+          </test>
+          <test>
+            <type>eq</type>
+            <conjunction>and</conjunction>
+            <funcall>
+              <name>checkEQ</name>
+              <value type='VARIABLE'>s8</value>
+              
+              <funcall>
+                <name>ParameterHelper.getJessString</name>
+                <value type='STRING'>RecruiterReviewCV</value>
+                
+              </funcall>
+              
+            </funcall>
+            
+          </test>
+        </slot>
+        <slot>
+          <name>OBJECT</name>
+          <test>
+            <type>eq</type>
+            <value type='VARIABLE'>dm2</value>
+            
+          </test>
+          <test>
+            <type>eq</type>
+            <conjunction>and</conjunction>
+            <value type='VARIABLE'>_DMApprovalMatrixDM_ApprovalMatrixDM_1</value>
+            
+          </test>
+        </slot>
+      </pattern>
+    </group>
+  </lhs>
+  <rhs>
+    <funcall>
+      <name>setMember</name>
+      <value type='VARIABLE'>_DMApprovalMatrixDM_ApprovalMatrixDM_1</value>
+      
+      <funcall>
+        <name>create$</name>
+        <value type='STRING'>/ApprovalList;1;0</value>
+        
+      </funcall>
+      
+      <funcall>
+        <name>ParameterHelper.getJessString</name>
+        <value type='STRING'>Role2</value>
+        
+      </funcall>
+      
+      <value type='SYMBOL'>FALSE</value>
+      
+      <value type='SYMBOL'>FALSE</value>
+      
+    </funcall>
+  </rhs>
+</rule>
+
+</rulebase>

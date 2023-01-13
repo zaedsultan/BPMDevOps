@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>10/29 04:19.21.613</comment>
+<entry key="0">Decision Tables/ApprovalMatrixDT.decisiontable</entry>
+<entry key="processingMode">inferentialProcessing</entry>
+</properties>

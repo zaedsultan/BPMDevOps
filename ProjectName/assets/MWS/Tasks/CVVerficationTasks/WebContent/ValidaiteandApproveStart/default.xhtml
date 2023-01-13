@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:caf_f="http://webmethods.com/jsf/caf/core"
+	xmlns:caf_h="http://webmethods.com/jsf/caf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition>
+	<caf_f:view pageManagedBean="ValidaiteandApproveStartDefaultxhtmlView"
+		preferencesBean="ValidaiteandApproveStart">
+		<caf_f:design-time-attribute name="taskTypeID"
+			value="2D20E830-50AB-6E4C-2670-0B3D2342F6D8"></caf_f:design-time-attribute>
+		<caf_f:design-time-attribute name="taskPortletType" value="taskStart"></caf_f:design-time-attribute>
+		<caf_f:design-time-attribute name="portlet"
+			value="ValidaiteandApproveStart"></caf_f:design-time-attribute>
+		<caf_h:form defaultFocus="_first" id="taskStartForm">
+			<caf_h:modalDialog id="statusDialog">
+				<caf_f:design-time-attribute name="rolledUp" value="true"></caf_f:design-time-attribute>
+				<f:facet name="title"></f:facet>
+				<f:facet name="submit"></f:facet>
+				<f:facet name="cancel"></f:facet>
+				<f:facet name="other"></f:facet>
+				<caf_h:panelBlock id="statusPanel">
+					<caf_h:formattedMessages>
+						<caf_f:design-time-attribute name="rolledUp" value="true"></caf_f:design-time-attribute>
+					</caf_h:formattedMessages>
+					<caf_h:panelBlockEdge id="blockEdgePanel">
+						<f:facet name="leftEdge">
+							<caf_h:outputLink id="link"
+								value="#{ValidaiteandApproveStartDefaultxhtmlView.validaiteandApprove.taskInfo.taskURL}"
+								rendered="#{ValidaiteandApproveStartDefaultxhtmlView.validaiteandApprove.taskInfo.taskURL != null}">
+								<caf_f:design-time-attribute name="rolledUp" value="false"></caf_f:design-time-attribute>
+								<caf_h:outputFormat id="htmlOutputFormat"
+									value='#{activePreferencesBean.portletResourcesProvider["start.task.open.task"]}'></caf_h:outputFormat>
+							</caf_h:outputLink>
+						</f:facet>
+						<f:facet name="rightEdge">
+							<caf_h:oneWayToggleButton for="statusDialog" id="okBtn"
+								value='#{activePreferencesBean.portletResourcesProvider["start.task.ok"]}'>
+								<caf_f:design-time-attribute name="controlGetterMethod"
+									value="getOkBtn"></caf_f:design-time-attribute>
+							</caf_h:oneWayToggleButton>
+						</f:facet>
+					</caf_h:panelBlockEdge>
+				</caf_h:panelBlock>
+			</caf_h:modalDialog>
+			<caf_h:panelPropertyGroup
+				label='#{activePreferencesBean.portletResourcesProvider["start.task.new.task"]}'>
+				<f:facet name="label"></f:facet>
+				<caf_h:panelPropertySubGroup id="taskDataSubGroup"
+					label='#{activePreferencesBean.portletResourcesProvider["start.task.data.todo"]}'
+					styleClass="portlet-form-field-label-todo">
+					<f:facet name="label"></f:facet>
+				</caf_h:panelPropertySubGroup>
+				<caf_h:oneWayToggleButton rendered="false" for="optionalPanel"
+					value='#{activePreferencesBean.portletResourcesProvider["start.task.toggle.optional.info"]}'>
+					<caf_f:design-time-attribute name="rolledUp" value="true"></caf_f:design-time-attribute>
+				</caf_h:oneWayToggleButton>
+				<caf_h:panelHideable id="optionalPanel">
+					<caf_f:design-time-attribute name="rolledUp" value="true"></caf_f:design-time-attribute>
+					<caf_h:panelPropertySubGroup>
+						<f:facet name="label"></f:facet>
+						<caf_h:panelPropertyLine
+							label='#{activePreferencesBean.portletResourcesProvider["start.task.name"]}'>
+							<caf_h:inputText
+								value="#{ValidaiteandApproveStartDefaultxhtmlView.validaiteandApprove.taskInfo.name}"
+								width="input20"></caf_h:inputText>
+						</caf_h:panelPropertyLine>
+						<caf_h:panelPropertyLine
+							label='#{activePreferencesBean.portletResourcesProvider["start.task.description"]}'>
+							<caf_h:inputTextarea
+								value="#{ValidaiteandApproveStartDefaultxhtmlView.validaiteandApprove.taskInfo.description}"
+								rows="3" width="input20"></caf_h:inputTextarea>
+						</caf_h:panelPropertyLine>
+						<caf_h:panelPropertyLine
+							label='#{activePreferencesBean.portletResourcesProvider["start.task.priority"]}'>
+							<caf_h:selectOneMenu enabledClass="enabled"
+								value="#{ValidaiteandApproveStartDefaultxhtmlView.validaiteandApprove.taskInfo.priority}"
+								disabledClass="disabled" width="input20">
+								<caf_f:selectItem></caf_f:selectItem>
+								<caf_f:selectItem itemValue="low"
+									itemLabel='#{activePreferencesBean.portletResourcesProvider["start.task.low"]}'></caf_f:selectItem>
+								<caf_f:selectItem itemValue="medium"
+									itemLabel='#{activePreferencesBean.portletResourcesProvider["start.task.medium"]}'></caf_f:selectItem>
+								<caf_f:selectItem itemValue="high"
+									itemLabel='#{activePreferencesBean.portletResourcesProvider["start.task.high"]}'></caf_f:selectItem>
+								<caf_f:selectItem itemValue="critical"
+									itemLabel='#{activePreferencesBean.portletResourcesProvider["start.task.critical"]}'></caf_f:selectItem>
+								<caf_f:selectItem itemValue="none"
+									itemLabel='#{activePreferencesBean.portletResourcesProvider["start.task.none"]}'></caf_f:selectItem>
+							</caf_h:selectOneMenu>
+						</caf_h:panelPropertyLine>
+						<caf_h:panelPropertyLine
+							label='#{activePreferencesBean.portletResourcesProvider["start.task.custom.task.id"]}'>
+							<caf_h:inputText
+								value="#{ValidaiteandApproveStartDefaultxhtmlView.validaiteandApprove.taskInfo.customTaskID}"
+								width="input20"></caf_h:inputText>
+						</caf_h:panelPropertyLine>
+						<caf_h:panelPropertyLine
+							label='#{activePreferencesBean.portletResourcesProvider["start.task.taskschedule.date"]}'>
+							<caf_h:inputDate
+								value="#{ValidaiteandApproveStartDefaultxhtmlView.validaiteandApprove.taskInfo.taskScheduleDate}"
+								width="input6"></caf_h:inputDate>
+						</caf_h:panelPropertyLine>
+					</caf_h:panelPropertySubGroup>
+				</caf_h:panelHideable>
+			</caf_h:panelPropertyGroup>
+			<caf_h:panelSubmitGroup>
+				<caf_f:design-time-attribute name="rolledUp" value="true"></caf_f:design-time-attribute>
+				<f:facet name="submit">
+					<caf_h:asyncCommandButton
+						action="#{ValidaiteandApproveStartDefaultxhtmlView.queueNewTask}"
+						id="startTaskCommandButton"
+						value='#{activePreferencesBean.portletResourcesProvider["start.task.start.task"]}'
+						onclick='CAF.model("#{ValidaiteandApproveStartDefaultxhtmlView.clientIds["statusDialog"]}").show()'
+						refresh="statusPanel"></caf_h:asyncCommandButton>
+				</f:facet>
+				<f:facet name="cancel">
+					<caf_h:commandButton
+						action="#{ValidaiteandApproveStartDefaultxhtmlView.doReturnURL}"
+						value='#{activePreferencesBean.portletResourcesProvider["start.task.return"]}'
+						rendered="#{not empty ValidaiteandApproveStart.returnUrl}"></caf_h:commandButton>
+				</f:facet>
+				<f:facet name="previous"></f:facet>
+				<f:facet name="next"></f:facet>
+			</caf_h:panelSubmitGroup>
+		</caf_h:form>
+	</caf_f:view>
+</ui:composition>
+</html>

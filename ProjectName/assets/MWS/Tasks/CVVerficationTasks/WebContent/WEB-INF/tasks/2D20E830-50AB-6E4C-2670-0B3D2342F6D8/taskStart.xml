@@ -1,0 +1,20 @@
+<CONFIG xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="http://www.webmethods.com/schema/xmlImport.xsd"
+>	<CONTEXT alias="2D20E830-50AB-6E4C-2670-0B3D2342F6D8.task.app">
+		<folder name="Validaiteand Approve Start" description="Validaiteand Approve Start" alias="2D20E830-50AB-6E4C-2670-0B3D2342F6D8.task.app.start.page" isTaskFolder="false">
+			<Mode type="sync">
+	            <page>
+	            	<row>
+	            		<column>
+	            			<cvverficationtasks___validaiteandapprovestart name="Task Start" alias="2D20E830-50AB-6E4C-2670-0B3D2342F6D8.task.app.start.portlet">
+	                            <layout name="titlebar" value="false"/>
+	                            <layout name="border" value="false"/>            			
+	            			</cvverficationtasks___validaiteandapprovestart>
+	                    </column>
+	                </row>
+	                <hobos/>
+	            </page>
+	        </Mode>
+        </folder>
+    </CONTEXT>
+</CONFIG>

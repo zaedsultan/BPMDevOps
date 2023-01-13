@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="sendNotifications_WSD" targetNamespace="http://SAG-7HQCWG3/cvapplicationServices.services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soapjms="http://www.w3.org/2010/soapjms/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://SAG-7HQCWG3/cvapplicationServices.services" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://SAG-7HQCWG3/cvapplicationServices.services" xmlns:tns="http://SAG-7HQCWG3/cvapplicationServices.services" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <xsd:element name="sendNotifications" type="tns:sendNotifications"/>
+          <xsd:complexType name="sendNotifications">
+            <xsd:sequence>
+            </xsd:sequence>
+          </xsd:complexType>
+        	</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="sendNotifications_WSD_PortType_sendNotifications">
+    <wsdl:part name="parameters" element="tns:sendNotifications">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="sendNotifications_WSD_PortType">
+    <wsdl:operation name="sendNotifications">
+      <wsdl:input message="tns:sendNotifications_WSD_PortType_sendNotifications">
+    </wsdl:input>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="cvapplicationServices_services_sendNotifications_WSD_Binder" type="tns:sendNotifications_WSD_PortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="sendNotifications">
+      <soap:operation soapAction="cvapplicationServices_services_sendNotifications_WSD_Binder_sendNotifications" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="cvapplicationServices.services.sendNotifications_WSD">
+    <wsdl:port name="cvapplicationServices_services_sendNotifications_WSD_Port" binding="tns:cvapplicationServices_services_sendNotifications_WSD_Binder">
+      <soap:address location="http://SAG-7HQCWG3:5555/ws/cvapplicationServices.services:sendNotifications_WSD/cvapplicationServices_services_sendNotifications_WSD_Port"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

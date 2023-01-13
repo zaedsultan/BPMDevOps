@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsclients>
+<webservice authenticationMethod="1" isConnectionURL="http://localhost:5555/ws/cvapplicationServices.services:sendNotifications_WSD?WSDL" isService="cvapplicationServices.services:sendNotifications_WSD" name="sendNotifications_WSD" package="caf.war.CVVerficationTasks.wsclient.cvapplicationservices.services.sendnotifications_wsd" password="{AES}MbYmPezV4NS3Ta31QMtyUQ==" requiresAuth="true" soapLibrary="wss" useNamespaceForPackage="false" username="Administrator" wsdlFile="src/caf/war/CVVerficationTasks/wsclient/cvapplicationservices/services/sendnotifications_wsd/sendNotifications_WSD.wsdl" wsdlURL="http://localhost:5555/ws/cvapplicationServices.services:sendNotifications_WSD?WSDL">
+<wsproxy className="caf.war.CVVerficationTasks.wsclient.cvapplicationservices.services.sendnotifications_wsd.CvapplicationServicesServicesSendNotifications_WSDStub">
+<wsclient annotated="true" managedBean="SendNotifications" operation="sendNotifications"/>
+</wsproxy>
+<generatedfile>caf\war\CVVerficationTasks\wsclient\cvapplicationservices\services\sendnotifications_wsd\CvapplicationServicesServicesSendNotifications_WSDStub.java</generatedfile>
+</webservice>
+</wsclients>
