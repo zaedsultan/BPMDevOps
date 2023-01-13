@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Copyright SADAD Paymet System, 2007-2013.
+
+Whilst every effort has been made to ensure that the SADAD message standards contained in this document are correct,
+SADAD,SAMA and any other party involved in the creation of the document
+hereby state that the document is provided without warranty, either expressed or implied, of accuracy or fitness for purpose,
+and hereby disclaim any liability, direct or indirect, for damages or loss relating to the use of this document.
+The document may be modified from time to time, subject to developments in technology, changes to the standards,
+or new legal requirements.--><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://sadad.com/schema/domain/Payment/1.0" xmlns:com="http://sadad.com/schema/Common/1.0" xmlns:moi="http://sadad.com/schema/definition/MOI/1.0" targetNamespace="http://sadad.com/schema/domain/Payment/1.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:import namespace="http://sadad.com/schema/Common/1.0" schemaLocation="cvapplicationServices.wsd.new_wsd?xsd=xsd1"/>
+  <xs:import namespace="http://sadad.com/schema/definition/MOI/1.0" schemaLocation="cvapplicationServices.wsd.new_wsd?xsd=xsd5"/>
+  <xs:complexType name="Payment_Type">
+    <xs:annotation>
+      <xs:documentation>Base Payment element. Any payment element needs to follow this general structure</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="BankDetails" type="BankDetails_Type"/>
+      <xs:element name="BillerId" type="com:BillerId_Type"/>
+      <xs:element name="CurAmt" type="com:Amount_Type"/>
+      <!--Changed PartnerService to PaymentReference-->
+      <!--Removed Payment reference and added choice between PrePaid Payment Reference and Post Paid Payment reference-->
+      <!--<xs:element name="PaymentReference" type="PaymentReference_Type"/>-->
+      <xs:element name="PmtRefInfo" type="PmtRefInfo_Type" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>This will include Fee Details, Sentence Details, MOIService aggregate for MOI payments.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Payor" type="com:CustId_Type" minOccurs="0"/>
+      <xs:element name="PrcDt" type="com:Date_Type"/>
+      <xs:element name="DueDt" type="com:Date_Type" minOccurs="0"/>
+      <xs:element name="EfftDt" type="com:Date_Type" minOccurs="0"/>
+      <xs:element name="SadadPmtId" type="com:PmtId_Type"/>
+      <xs:element name="BankPmtId" type="com:PmtId_Type" minOccurs="0"/>
+      <xs:element name="BankReversalId" type="com:PmtId_Type" minOccurs="0"/>
+      <xs:element name="PmtMethod" type="com:PmtMethod_Enum"/>
+      <xs:element name="ProxyPayor" type="com:CustId_Type" minOccurs="0"/>
+      <xs:element name="Status" type="PmtStatusCode_Type"/>
+      <xs:choice>
+        <xs:element name="PrePaidPaymentRef" type="PrePaidPaymentRef_Type"/>
+        <xs:element name="PostPaidPaymentRef" type="PostPaidPaymentRef_Type"/>
+        <xs:element name="MOIPaymentRef" type="MOIPaymentRef_Type"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PrePaidPaymentRef_Type">
+    <xs:sequence>
+      <!--removed ServiceType. Checked with Mehdi. The element is not used in current system. While populating Payment
+                  details, the value is fetched from Account.-->
+      <!--<xs:element name="ServiceType" type="com:ServiceType_Enum"/>-->
+      <xs:choice>
+        <xs:element name="BillingAcct" type="com:BillingAcct_Type"/>
+        <xs:element name="BeneficiaryPhoneNum" type="com:BeneficiaryPhoneNum_Type"/>
+      </xs:choice>
+      <xs:element name="ServiceCode" type="PmtType_Type">
+        <xs:annotation>
+          <xs:documentation>Currently called PmtType</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="BeneficiaryId" type="com:CustId_Type" minOccurs="0"/>
+      <xs:element name="ChkDigit" type="com:ChkDigit_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PostPaidPaymentRef_Type">
+    <xs:sequence>
+      <!--removed ServiceType. Checked with Mehdi. The element is not used in current system. While populating Payment
+                  details, the value is fetched from Account.-->
+      <!--<xs:element name="ServiceType" type="com:ServiceType_Enum"/>-->
+      <xs:choice>
+        <xs:annotation>
+          <xs:documentation>This is trying to achieve three possible scenario: 1. Only Billing Account is provided. 2. Only Bill Number is provided. 3. Both Billing Account and Bill Number are provided</xs:documentation>
+        </xs:annotation>
+        <xs:element name="BillingAcct" type="com:BillingAcct_Type"/>
+        <xs:element name="BillNumber" type="com:BillNumber_Type"/>
+        <xs:element name="BillNumberWithAccount" type="BillNumberWithAccount_Type"/>
+      </xs:choice>
+      <xs:element name="BillCycle" type="com:NC16_Type" minOccurs="0"/>
+      <xs:element name="ServiceCode" type="PmtType_Type" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Currently called PmtType</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ChkDigit" type="com:ChkDigit_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MOIPaymentRef_Type">
+    <xs:sequence>
+      <xs:element name="ServiceCode" type="PmtType_Type"/>
+      <xs:element name="BeneficiaryId" type="com:CustId_Type"/>
+      <xs:element name="BeneficiaryName" type="com:C128_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="PmtType_Enum">
+    <xs:annotation>
+      <xs:documentation>Defines the known values for the Open Enum PmtType</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="com:NC4_Type">
+      <xs:enumeration value="POST"/>
+      <xs:enumeration value="RCHG"/>
+      <xs:enumeration value="RNEW"/>
+      <xs:enumeration value="RDEP"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PmtType_Type">
+    <xs:annotation>
+      <xs:documentation>Open Enum: A Payment Type distinguishes the payments intent as it is possible for a Biller to accept multiple types of pre-payment for the same account.</xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="com:NC10_Type PmtType_Enum"/>
+    <!--[28-Jun-2005][PD]:Modified PmtType_Type simpleType as per Ext.Msg.Spec r1.7.1c.-->
+  </xs:simpleType>
+  <xs:simpleType name="RefundType_Enum">
+    <xs:annotation>
+      <xs:documentation>Defines the known values for the Open Enum AccessChannel</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="com:NC32_Type">
+      <xs:enumeration value="ACCT"/>
+      <xs:enumeration value="CASH"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PmtRefInfo_Type">
+    <xs:restriction base="com:C4096_Type"/>
+    <!--Changed from NC80 to C4096-->
+  </xs:simpleType>
+  <xs:complexType name="BillNumberWithAccount_Type">
+    <xs:annotation>
+      <xs:documentation>Represents a Aggregate for both BIll Number and Account.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="BillingAcct" type="com:BillingAcct_Type"/>
+      <xs:element name="BillNumber" type="com:BillNumber_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PmtInfo_Type">
+    <xs:annotation>
+      <xs:documentation>-represents a payment which has either taken place, or may someday take place.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="CurAmt" type="com:Currency_Type"/>
+      <xs:element name="PrcDt" type="com:Date_Type"/>
+      <xs:element name="DueDt" type="com:Date_Type" minOccurs="0"/>
+      <xs:element name="BillCycle" type="com:BillCycle_Type" minOccurs="0"/>
+      <xs:element name="BillNumber" type="com:BillNumber_Type" minOccurs="0"/>
+      <!--<xs:element name="AccountId" type="com:AccountId_Type"  minOccurs="0"/>-->
+      <xs:element name="BillingAccount" type="com:BillingAccount_Type" minOccurs="0"/>
+      <xs:element name="BillerId" type="com:BillerId_Type"/>
+      <xs:element name="BankId" type="com:BankId_Type" minOccurs="0"/>
+      <xs:element name="DistrictCode" type="com:DistrictCode_Type" minOccurs="0"/>
+      <xs:element name="BranchCode" type="com:BranchCode_Type" minOccurs="0"/>
+      <xs:element name="AccessChannel" type="com:AccessChannel_Type" minOccurs="0"/>
+      <xs:element name="PmtMethod" type="com:PmtMethod_Type" minOccurs="0"/>
+      <xs:element name="PmtType" type="PmtType_Type" minOccurs="0"/>
+      <xs:element name="ChkDigit" type="com:ChkDigit_Type" minOccurs="0"/>
+      <xs:element name="ServiceType" type="com:ServiceType_Type" minOccurs="0"/>
+      <xs:element name="PmtRefInfo" type="PmtRefInfo_Type" minOccurs="0"/>
+      <!--[07-March-2007][PD] Added IncludeInfoPlus as per Ext.Msg.Spec r3.0-->
+      <xs:element name="IncludeInfoPlus" type="IncludeInfoPlus_Type" minOccurs="0"/>
+      <!--[07-Jan-2013] [BW] Added beneficiary information for pre-paid account to validate-->
+      <xs:element name="BeneficiaryId" type="com:CustId_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PmtInfoValidation_Type">
+    <xs:annotation>
+      <xs:documentation>-wrapper for the PmtInfo, with the added Boolean flag indicating if the associated PmtInfo record has been validated</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="IsInProfile" type="com:IsInProfile_Type" minOccurs="0"/>
+      <xs:element name="Status" type="com:Status_Type" minOccurs="0"/>
+      <xs:element name="PmtTransId" type="PmtTransId_Type" minOccurs="0"/>
+      <xs:element name="PmtInfo" type="PmtInfo_Type"/>
+      <xs:element name="InfoPlus" type="com:InfoPlus_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PmtRec_Type">
+    <xs:annotation>
+      <xs:documentation>-represents an actual payment</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="PmtTransId" type="PmtTransId_Type" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="CustId" type="com:CustId_Type" minOccurs="0"/>
+      <xs:element name="PmtStatus" type="PmtStatus_Type"/>
+      <xs:element name="PmtInfo" type="PmtInfo_Type"/>
+      <xs:element name="PartnerService" type="moi:ServiceInfo_Type" minOccurs="0"/>
+      <xs:element name="SentenceDetails" type="moi:SentenceDetails_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PmtRecAdviceStatus_Type">
+    <xs:annotation>
+      <xs:documentation>-provide status for individual payment payments during the payment advice process.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="PmtTransId" type="PmtTransId_Type" maxOccurs="2"/>
+      <xs:element name="Status" type="com:Status_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--[17-April-2006][PD] Added PmtTransId and status aggregate in PmtNotifyRs Message Defination as per Ext.Msg.Spec r2.0-->
+  <xs:complexType name="PmtStatus_Type">
+    <xs:annotation>
+      <xs:documentation>-returned in responses to Add or Modify Payment and Add or Modify Recurring Payment Model</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="PmtStatusCode" type="PmtStatusCode_Type"/>
+      <xs:element name="EffDt" type="com:Date_Type" minOccurs="0"/>
+      <!--[07-March-2007][PD] Addes Status aggregate under PmtRec/PmtStatus as per Ext Msg Spec 3.0-->
+      <xs:element name="Status" type="com:Status_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PmtTransId_Type">
+    <xs:annotation>
+      <xs:documentation>-unique payment transaction number</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="PmtId" type="com:PmtId_Type"/>
+      <xs:element name="PmtIdType" type="com:PmtIdType_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RefundStatus_Type">
+    <xs:annotation>
+      <xs:documentation>-returned in responses to Add or Modify Payment and Add or Modify Recurring Payment Model</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="EffDt" type="com:Date_Type"/>
+      <!--[07-March-2007][PD] Addes Status aggregate under PmtRec/PmtStatus as per Ext Msg Spec 3.0-->
+      <xs:element name="RefundStatusCode" type="RefundStatusCodeType_Enums"/>
+      <xs:element name="Status" type="com:Status_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RefundRec_Type">
+    <xs:annotation>
+      <xs:documentation>Refund Record type</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Payee" type="com:CustId_Type" minOccurs="0"/>
+      <xs:element name="RefundId" type="com:RefundId_Type"/>
+      <xs:element name="BillerId" type="com:BillerId_Type"/>
+      <xs:element name="BankId" type="com:BankId_Type" minOccurs="0"/>
+      <xs:element name="RefundType" type="RefundType_Enum"/>
+      <xs:element name="PIN" type="com:PIN_Type" minOccurs="0"/>
+      <xs:element name="CurAmt" type="Currency_Type"/>
+      <xs:element name="ExpDt" type="com:Date_Type"/>
+      <xs:element name="MobileNumber" type="com:MobileNumber_Type" minOccurs="0"/>
+      <xs:element name="SadadPmtId" type="com:PmtId_Type" minOccurs="0"/>
+      <xs:element name="BankAcct" type="com:BankAcct_Type" minOccurs="0"/>
+      <xs:element name="ExtPmtRefund" type="xs:boolean" default="false"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RefundInfo_Type">
+    <xs:annotation>
+      <xs:documentation>contains refund information populated by bank application for Refund validation and Advice messages.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="RefundId" type="com:RefundId_Type"/>
+      <xs:element name="PIN" type="com:PIN_Type" minOccurs="0"/>
+      <xs:element name="BankId" type="com:BankId_Type"/>
+      <xs:element name="BillerId" type="com:BillerId_Type"/>
+      <xs:element name="PrcDt" type="com:Date_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RefundRecNotifyStatus_Type">
+    <xs:annotation>
+      <xs:documentation>-provide status for individual refund notification during the refund notification process.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Status" type="com:Status_Type"/>
+      <xs:element name="RefundId" type="com:RefundId_Type"/>
+      <xs:element name="RefundStatusCode" type="RefundStatusCodeType_Enums" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="IncludeInfoPlus_Type">
+    <xs:annotation>
+      <xs:documentation>-Additional information requested by partner based e.g payment ranges</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="IncPaymentRanges" type="xs:boolean" default="false" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="PmtStatusCode_Type">
+    <xs:annotation>
+      <xs:documentation>Closed Enum:  identifies the payment processing status</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="com:NC32_Type">
+      <xs:enumeration value="PmtNew"/>
+      <xs:enumeration value="PmtUpdated"/>
+      <xs:enumeration value="PmtAny"/>
+      <xs:enumeration value="PmtDuplicate"/>
+      <xs:enumeration value="PmtReversal"/>
+      <xs:enumeration value="PmtTransf"/>
+      <xs:enumeration value="PmtNotTransf"/>
+      <xs:enumeration value="PmtNotAdviced"/>
+      <xs:enumeration value="PmtRecon"/>
+      <xs:enumeration value="PmtAlreadyRecon"/>
+      <xs:enumeration value="PmtNotRecon"/>
+      <xs:enumeration value="PmtNotInBank"/>
+      <xs:enumeration value="PmtNotInSadad"/>
+      <xs:enumeration value="PmtMisMatch"/>
+      <xs:enumeration value="PmtCompleted"/>
+      <xs:enumeration value="PmtNotCompleted"/>
+      <xs:enumeration value="PmtBillerMistmatch"/>
+      <!--[10-July-2005][PD]:Modified PmtStatusCode simpleType as per Ext.Msg.Spec r1.7.1g-->
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RefundStatusCodeType_Enums">
+    <xs:annotation>
+      <xs:documentation>Defines the known values for the closed enum RefundType</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="com:NC32_Type">
+      <xs:enumeration value="Accepted"/>
+      <xs:enumeration value="Already_Reconciled"/>
+      <xs:enumeration value="Duplicate"/>
+      <xs:enumeration value="Mismatch"/>
+      <xs:enumeration value="Not_In_Bank"/>
+      <xs:enumeration value="Not_In_Sadad"/>
+      <xs:enumeration value="Pending"/>
+      <xs:enumeration value="Processed"/>
+      <xs:enumeration value="Processing_Failed"/>
+      <xs:enumeration value="Reconciled"/>
+      <xs:enumeration value="Rejected"/>
+      <xs:enumeration value="UnReconciled"/>
+      <xs:enumeration value="Timeout"/>
+      <xs:enumeration value="Expired"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="BankDetails_Type">
+    <xs:sequence>
+      <xs:element name="BankId" type="com:BankId_Type"/>
+      <xs:element name="BranchCode" type="com:BranchCode_Type"/>
+      <xs:element name="DistrictCode" type="com:DistrictCode_Type"/>
+      <xs:element name="AccessChannel" type="com:AccessChannel_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RefundInqInfo_Type">
+    <xs:annotation>
+      <xs:documentation>carries refund information data populated by bank application</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="RefundId" type="com:RefundId_Type"/>
+      <xs:element name="BankId" type="com:BankId_Type"/>
+      <xs:element name="BillerId" type="com:BillerId_Type"/>
+      <xs:element name="Beneficiary" type="com:CustId_Type"/>
+      <xs:element name="BankAcct" type="com:BankAcct_Type" minOccurs="0"/>
+      <xs:element name="Payee" type="com:CustId_Type"/>
+      <xs:element name="ServiceCode" type="moi:ServiceCode_Enum"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RefundInqInfoRs_Type">
+    <xs:annotation>
+      <xs:documentation>carries refund information data populated by biller application</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="RefundId" type="com:RefundId_Type"/>
+      <xs:element name="BankId" type="com:BankId_Type"/>
+      <xs:element name="BillerId" type="com:BillerId_Type"/>
+      <xs:element name="BankAcct" type="com:BankAcct_Type" minOccurs="0"/>
+      <xs:element name="Beneficiary" type="com:CustId_Type"/>
+      <xs:element name="Payee" type="com:CustId_Type"/>
+      <xs:element name="ExpDt" type="com:Date_Type" minOccurs="0"/>
+      <xs:element name="RefundStatusCode" type="RefundStatusCodeType_Enums" minOccurs="0"/>
+      <xs:element name="ServiceCode" type="moi:ServiceCode_Enum"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="Currency_Type">
+    <xs:annotation>
+      <xs:documentation>currency amount</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

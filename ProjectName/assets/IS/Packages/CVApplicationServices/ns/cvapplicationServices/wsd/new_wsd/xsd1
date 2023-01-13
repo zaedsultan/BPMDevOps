@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--edited with XMLSpy v2008 sp1 (http://www.altova.com) by SADAD Payment System (SADAD Payment System)--><!--Copyright SADAD Paymet System, 2007-2013.
+
+Whilst every effort has been made to ensure that the SADAD message standards contained in this document are correct,
+SADAD,SAMA and any other party involved in the creation of the document
+hereby state that the document is provided without warranty, either expressed or implied, of accuracy or fitness for purpose,
+and hereby disclaim any liability, direct or indirect, for damages or loss relating to the use of this document.
+The document may be modified from time to time, subject to developments in technology, changes to the standards,
+or new legal requirements.
+
+
+Your statutory rights are not affected.
+
+SADAD Payment System
+A Saudi Arabian Monetary Agency Company
+email: info@sadad.com
+
+Version Information:
+Version Number     : 1.0
+Date of creation   : July, 2014
+Revision History:--><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://sadad.com/schema/Common/1.0" targetNamespace="http://sadad.com/schema/Common/1.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:include schemaLocation="cvapplicationServices.wsd.new_wsd?xsd=xsd2"/>
+  <xs:complexType name="MessageHeader_Type">
+    <xs:annotation>
+      <xs:documentation>MessageHeader to be included in all Service request and response</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ServiceInitiatorKey" type="Identifier_Type"/>
+      <xs:element name="ServiceProviderKey" type="Identifier_Type"/>
+      <xs:element name="ServiceConsumerId" type="C255_Type"/>
+      <xs:element name="ServiceCode" type="Identifier_Type"/>
+      <xs:element name="MsgCode" type="Identifier_Type"/>
+      <xs:element name="RqUID" type="UUID_Type"/>
+      <xs:element name="Date" type="Date_Type"/>
+      <xs:element name="Lang" type="LanguagePref_Type"/>
+      <xs:element name="ForwardAction" type="C255_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FileHeader_Type">
+    <xs:annotation>
+      <xs:documentation>File Header to be included in Bulk Upload file</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Sender" type="Identifier_Type"/>
+      <xs:element name="Receiver" type="Identifier_Type"/>
+      <xs:element name="RqUID" type="UUID_Type"/>
+      <xs:element name="Timestamp" type="Date_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="TwoDigitCount_Type">
+    <xs:restriction base="xs:long">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="99"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="UploadMsg_Type">
+    <xs:annotation>
+      <xs:documentation>MessageHeader to be included in all Service request and response</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="FileType" type="FileType_Type"/>
+      <xs:element name="Encoding" minOccurs="0"/>
+      <xs:element name="AsyncRqUID" type="UUID_Type"/>
+      <xs:element name="Attachment" type="xs:base64Binary"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="FileType_Enum">
+    <xs:annotation>
+      <xs:documentation>Defines the known values for the Open Enum AccessChannel</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="NC32_Type">
+      <xs:enumeration value="XML"/>
+      <xs:enumeration value="TEXT"/>
+      <xs:enumeration value="BINARY"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="FileType_Type">
+    <xs:annotation>
+      <xs:documentation>File Type enum</xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="FileType_Enum NC32_Type"/>
+  </xs:simpleType>
+  <!--SADAD System attributes-->
+  <xs:simpleType name="AccessChannel_Enum">
+    <xs:annotation>
+      <xs:documentation>Defines the known values for the Open Enum AccessChannel</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="NC32_Type">
+      <xs:enumeration value="ATM"/>
+      <xs:enumeration value="IVR"/>
+      <xs:enumeration value="KIOSK"/>
+      <xs:enumeration value="INTERNET"/>
+      <xs:enumeration value="PORTAL"/>
+      <xs:enumeration value="BTELLER"/>
+      <xs:enumeration value="POS"/>
+      <xs:enumeration value="CAM"/>
+      <xs:enumeration value="CORP"/>
+      <xs:enumeration value="CCC"/>
+      <xs:enumeration value="MOBILE"/>
+      <xs:enumeration value="USSD"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AccessChannel_Type">
+    <xs:annotation>
+      <xs:documentation>AccessChannel enum represents the tool in which humans interact with SADAD</xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="AccessChannel_Enum NC32_Type"/>
+  </xs:simpleType>
+  <xs:simpleType name="PmtMethod_Enum">
+    <xs:annotation>
+      <xs:documentation>Defines the known values for the Open Enum PmtMethod</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="NC32_Type">
+      <xs:enumeration value="CASH"/>
+      <xs:enumeration value="CCARD"/>
+      <xs:enumeration value="EFT"/>
+      <xs:enumeration value="ACTDEB"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PmtMethod_Type">
+    <xs:annotation>
+      <xs:documentation>Open Enum: the method used to pay the bill.</xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="NC32_Type PmtMethod_Enum"/>
+  </xs:simpleType>
+  <xs:complexType name="CustId_Type">
+    <xs:annotation>
+      <xs:documentation>-aggregate identifies a specific bill paying Customer or institution</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="OfficialId" type="OfficialId_Type"/>
+      <!--The element has been made madatory. 
+                 Customer id is entering into SADAD system from different source - Account Upload, Customer Profile etc. 
+                 It has been mandatory to avoid situation where from one source it has been provide but not from other, 
+                 which may result a new Customer being registered with 'NAT' as id type.-->
+      <xs:element name="OfficialIdType" type="OfficialIdType_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--Removed as it is duplicate to CustId_Type-->
+  <!--<xs:complexType name="ProxyCustId_Type">
+		<xs:annotation>
+			<xs:documentation>-identifies a specific bill paying Customer or institution</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="OfficialId" type="OfficialId_Type"/>
+			<xs:element name="OfficialIdType" type="OfficialIdType_Type" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>-->
+  <xs:simpleType name="OfficialIdType_Type">
+    <xs:annotation>
+      <xs:documentation>Closed Enum: An OfficialId is a unique identifier for a bill-paying entity, including people and companies.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="NC32_Type">
+      <xs:enumeration value="NAT"/>
+      <xs:enumeration value="IQA"/>
+      <xs:enumeration value="BIS"/>
+      <xs:enumeration value="ACT"/>
+      <xs:enumeration value="SID"/>
+      <xs:enumeration value="BTL"/>
+      <xs:enumeration value="BED"/>
+      <xs:enumeration value="BIE"/>
+      <xs:enumeration value="SED"/>
+      <xs:enumeration value="PAS"/>
+      <!--[03-Oct-2005][PD]:Added “PAS” to the OfficialIDType closed enum (EMS 1.7.2).-->
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PhoneNumber_Type">
+    <xs:annotation>
+      <xs:documentation>International phone number</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\+\d{1,3}-\d+-\d+(\+\d+)?"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PmtIdType_Type">
+    <xs:annotation>
+      <xs:documentation>Closed Enum: defines how the PmtId element is to be interpreted.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="NC32_Type">
+      <xs:enumeration value="SPTN"/>
+      <xs:enumeration value="BLRPTN"/>
+      <xs:enumeration value="BNKPTN"/>
+      <xs:enumeration value="BNKRVL"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Status_Type">
+    <xs:annotation>
+      <xs:documentation>-used in each response to indicate the status of the message</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="StatusCode" type="xs:long"/>
+      <xs:element name="ShortDesc" type="C255_Type" minOccurs="0"/>
+      <xs:element name="Severity" type="Severity_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="Severity_Type">
+    <xs:annotation>
+      <xs:documentation>Closed Enum: The Severity enum classifies XML documents transferred between Banks/Billers and SADAD into distinct groups</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="NC32_Type">
+      <xs:enumeration value="Error"/>
+      <xs:enumeration value="Warning"/>
+      <xs:enumeration value="Info"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="CustProfileExists_Type">
+    <xs:annotation>
+      <xs:documentation>-indicates whether SADAD has an established profile association between the specified Customer and Account.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="IsInProfile" type="IsInProfile_Type"/>
+      <xs:element name="AccountId" type="AccountId_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CustProfileUpdated_Type">
+    <xs:annotation>
+      <xs:documentation>-typically used within another aggregate identifying a specific Customer of interest and conveys the result of either adding or deleting accounts from an associated Customer?s profile</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Status" type="Status_Type" minOccurs="0"/>
+      <xs:element name="IsInProfile" type="IsInProfile_Type"/>
+      <xs:element name="AccountId" type="AccountId_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DateRange_Type">
+    <xs:annotation>
+      <xs:documentation>-defines a contiguous range of days</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice>
+        <xs:sequence>
+          <xs:element name="StartDt" type="Date_Type"/>
+          <xs:element name="EndDt" type="Date_Type" minOccurs="0"/>
+        </xs:sequence>
+        <xs:element name="EndDt" type="Date_Type"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Error_Type">
+    <xs:annotation>
+      <xs:documentation>Wraps the error code and error message that is associated with the processesing of the message.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ErrorCode" type="xs:long"/>
+      <xs:element name="ErrorMsg" type="C255_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--<xs:complexType name="Signature_Type">    ############# for SOAP, we will use XML digital signature #################
+		<xs:annotation>
+			<xs:documentation>-carries a digital signature for integrity, authenticity and non-repudiation </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="XPath" type="C256_Type"/>
+			<xs:element name="SignatureValue" type="C2147483647_Type"/>
+		</xs:sequence>
+	</xs:complexType>-->
+  <xs:simpleType name="OfficialId_Type">
+    <xs:restriction base="C32_Type"/>
+  </xs:simpleType>
+  <xs:simpleType name="BankId_Type">
+    <xs:restriction base="NC11_Type"/>
+  </xs:simpleType>
+  <xs:simpleType name="BankName_Type">
+    <xs:restriction base="C128_Type"/>
+  </xs:simpleType>
+  <xs:simpleType name="BillerId_Type">
+    <xs:restriction base="NC11_Type"/>
+  </xs:simpleType>
+  <xs:simpleType name="PartnerId_Type">
+    <xs:restriction base="NC11_Type"/>
+  </xs:simpleType>
+  <xs:simpleType name="BillerName_Type">
+    <xs:restriction base="C128_Type"/>
+  </xs:simpleType>
+  <xs:simpleType name="BillingAcct_Type">
+    <xs:restriction base="C32_Type"/>
+  </xs:simpleType>
+  <xs:simpleType name="BillNumber_Type">
+    <xs:restriction base="C32_Type"/>
+  </xs:simpleType>
+  <xs:simpleType name="BranchCode_Type">
+    <xs:restriction base="NC10_Type"/>
+  </xs:simpleType>
+  <xs:simpleType name="ChkDigit_Type">
+    <xs:restriction base="NC2_Type"/>
+  </xs:simpleType>
+  <xs:simpleType name="IsInProfile_Type">
+    <xs:restriction base="xs:boolean"/>
+  </xs:simpleType>
+  <xs:simpleType name="BillingAccount_Type">
+    <xs:restriction base="Identifier_Type"/>
+  </xs:simpleType>
+  <xs:simpleType name="DistrictCode_Type">
+    <xs:restriction base="NC10_Type"/>
+  </xs:simpleType>
+  <xs:simpleType name="PmtId_Type">
+    <xs:restriction base="NC32_Type"/>
+  </xs:simpleType>
+  <xs:simpleType name="RefundId_Type">
+    <xs:restriction base="NC32_Type"/>
+  </xs:simpleType>
+  <xs:simpleType name="PIN_Type">
+    <xs:restriction base="NC6_Type"/>
+  </xs:simpleType>
+  <xs:simpleType name="MobileNumber_Type">
+    <xs:restriction base="NC16_Type"/>
+  </xs:simpleType>
+  <xs:simpleType name="ReferenceNum_Type">
+    <xs:restriction base="C32_Type"/>
+  </xs:simpleType>
+  <xs:simpleType name="Name_Type">
+    <xs:restriction base="C255_Type"/>
+  </xs:simpleType>
+  <xs:simpleType name="ShortName_Type">
+    <xs:restriction base="C32_Type"/>
+  </xs:simpleType>
+  <xs:simpleType name="BillCycle_Type">
+    <xs:restriction base="NC16_Type"/>
+  </xs:simpleType>
+  <xs:simpleType name="BeneficiaryName_Type">
+    <xs:restriction base="C128_Type"/>
+  </xs:simpleType>
+  <xs:simpleType name="BeneficiaryPhoneNum_Type">
+    <xs:restriction base="Phone_Type"/>
+  </xs:simpleType>
+  <xs:simpleType name="PayorId_Type">
+    <xs:restriction base="C32_Type"/>
+  </xs:simpleType>
+  <xs:simpleType name="InvoiceCode_Type">
+    <xs:restriction base="C32_Type"/>
+  </xs:simpleType>
+  <xs:simpleType name="SupplierName_Type">
+    <xs:restriction base="C128_Type"/>
+  </xs:simpleType>
+  <xs:simpleType name="InvoiceNumber_Type">
+    <xs:restriction base="C32_Type"/>
+  </xs:simpleType>
+  <xs:complexType name="KeyValuePair_Type">
+    <xs:sequence>
+      <xs:element name="Key" type="xs:string"/>
+      <xs:element name="Value" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Paging_Type">
+    <xs:sequence>
+      <xs:element name="Page" type="xs:nonNegativeInteger"/>
+      <xs:element name="PageSize" type="xs:nonNegativeInteger"/>
+      <xs:element name="TotalNumRecords" type="xs:nonNegativeInteger" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AccountId_Type">
+    <xs:annotation>
+      <xs:documentation>-Represents an Account in SADAD systems</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="BillingAccount" type="BillingAccount_Type"/>
+      <xs:element name="BillerId" type="BillerId_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="BankAcct_Type">
+    <xs:restriction base="NC32_Type"/>
+  </xs:simpleType>
+  <xs:simpleType name="ServiceType_Enum">
+    <xs:annotation>
+      <xs:documentation>Defines the known values for the Open Enum ServiceType</xs:documentation>
+      <!--[10-Aug-2005][PD]:Modified ServiceType Enum simpleType from as per Ext.Msg.Spec r1.7.1?-->
+    </xs:annotation>
+    <xs:restriction base="NC4_Type">
+      <xs:enumeration value="CIP"/>
+      <xs:enumeration value="ELCT"/>
+      <xs:enumeration value="PHON"/>
+      <xs:enumeration value="GSM"/>
+      <xs:enumeration value="LLIN"/>
+      <xs:enumeration value="INSR"/>
+      <xs:enumeration value="BKSV"/>
+      <xs:enumeration value="GOVT"/>
+      <xs:enumeration value="MED"/>
+      <xs:enumeration value="CCRD"/>
+      <xs:enumeration value="UTIL"/>
+      <xs:enumeration value="PCIN"/>
+      <xs:enumeration value="EXAM"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ServiceType_Type">
+    <xs:annotation>
+      <xs:documentation>Open Enum: A Service Type represents the solitary service category associated with a bill</xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="NC4_Type ServiceType_Enum"/>
+  </xs:simpleType>
+  <xs:simpleType name="BillType_Type">
+    <xs:annotation>
+      <xs:documentation>Closed enum represents the type of bill received or sent from SADAD</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="NC32_Type">
+      <xs:enumeration value="Recurring"/>
+      <xs:enumeration value="Hightoll"/>
+      <xs:enumeration value="Oneoff"/>
+      <xs:enumeration value="Prepaid"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="PaymentRange_Type">
+    <xs:annotation>
+      <xs:documentation>Populated if asked by the Partner via IncPaymentRanges flag</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <!--changed the name to Type (from BillType)-->
+      <xs:element name="Type" type="BillType_Type"/>
+      <xs:element name="Range" type="Range_Type" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InfoPlus_Type">
+    <xs:annotation>
+      <xs:documentation>-Additional information sent to partner based on boolean values received in IncInfoPlus element e.g payment ranges=true</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="PaymentRange" type="PaymentRange_Type" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--<xs:complexType name="PaymentRanges_Type">
+		<xs:annotation>
+			<xs:documentation>-Additional information sent to partner based on verbosity of IncInfoPlus attribute e.g payment ranges</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="BillType" type="BillType_Type"/>
+			<xs:element name="Range" type="Range_Type" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>-->
+  <xs:complexType name="Range_Type">
+    <xs:annotation>
+      <xs:documentation>-Additional information sent to partner based on verbosity of IncInfoPlus attribute e.g payment ranges</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="LowerBoundUpperBound" type="BoundRange1_Type"/>
+        <xs:element name="LowerUnboundUpperBound" type="BoundRange2_Type"/>
+        <xs:element name="LowerBoundUpperUnbound" type="BoundRange3_Type"/>
+        <xs:element name="LowerUnBoundUpperUnbound" type="BoundRange4_Type"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BoundRange1_Type">
+    <xs:choice>
+      <xs:sequence>
+        <xs:element name="Lower" type="Currency_Type"/>
+        <xs:element name="Upper" type="Currency_Type"/>
+      </xs:sequence>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="BoundRange2_Type">
+    <xs:sequence>
+      <xs:element name="Lower" type="Range_Enums"/>
+      <xs:element name="Upper" type="Currency_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BoundRange3_Type">
+    <xs:sequence>
+      <xs:element name="Lower" type="Currency_Type"/>
+      <xs:element name="Upper" type="Range_Enums"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BoundRange4_Type">
+    <xs:sequence>
+      <xs:element name="Lower" type="Range_Enums"/>
+      <xs:element name="Upper" type="Range_Enums"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="Range_Enums">
+    <xs:restriction base="NC8_Type">
+      <xs:enumeration value="UNBOUND"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AcctType_Enums">
+    <xs:annotation>
+      <xs:documentation>Defines the known values for the open enum AcctType</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="NC32_Type">
+      <xs:enumeration value="CUA"/>
+      <xs:enumeration value="CMA"/>
+      <xs:enumeration value="DDA"/>
+      <xs:enumeration value="LOC"/>
+      <xs:enumeration value="MMA"/>
+      <xs:enumeration value="SDA"/>
+      <xs:enumeration value="SSA"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AcctType_Type">
+    <xs:annotation>
+      <xs:documentation>Open Enum for bank account types.</xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="AcctType_Enums NC32_Type"/>
+  </xs:simpleType>
+  <xs:simpleType name="AcctId_Type">
+    <xs:restriction base="C32_Type"/>
+  </xs:simpleType>
+  <xs:complexType name="Msg_Type">
+    <xs:annotation>
+      <xs:documentation>-communicates a localized text string the message recipient</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="LanguagePref" type="LanguagePref_Type"/>
+      <xs:element name="Text" type="C4096_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="FileName_Type">
+    <xs:restriction base="C128_Type"/>
+  </xs:simpleType>
+  <xs:complexType name="Facets_Type">
+    <xs:sequence>
+      <xs:element name="Facet" type="Facet_Type" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Facet_Type">
+    <xs:sequence>
+      <xs:element name="FacetKey" type="xs:string"/>
+      <xs:element name="LocalizedFacets" type="LocalizedFacets_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LocalizedFacets_Type">
+    <xs:sequence>
+      <xs:element name="FacetValues" type="LocalizedFacet_Type" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LocalizedFacet_Type">
+    <xs:sequence>
+      <xs:element name="FacetValue" type="FacetValue_Type" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="locale" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="FacetValue_Type">
+    <xs:sequence>
+      <xs:element name="Display" type="xs:string"/>
+      <xs:element name="FilterKey" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--<xs:complexType name="SignonProfile_Type">    #################### these all will go away and will be replaced with SOAP header ##############
+		<xs:annotation>
+			<xs:documentation>-used in both the SignonRq and SignonRs aggregates to identify the message sender and the intended recipient</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Sender" type="Identifier_Type"/>
+			<xs:element name="Receiver" type="Identifier_Type" minOccurs="0"/>
+			<xs:element name="MsgCode" type="Identifier_Type"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SignonRq_Type">
+		<xs:annotation>
+			<xs:documentation>-used to authenticate a SADADD client</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ClientDt" type="Date_Type"/>
+			<xs:element name="LanguagePref" type="LanguagePref_Type" minOccurs="0"/>
+			<xs:element name="SignonProfile" type="SignonProfile_Type"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SignonRs_Type">
+		<xs:annotation>
+			<xs:documentation>-serves a dual role of both authentication and status report of the associated request</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ClientDt" type="Date_Type" minOccurs="0"/>
+			<xs:element name="ServerDt" type="Date_Type"/>
+			<xs:element name="LanguagePref" type="LanguagePref_Type" minOccurs="0"/>
+			<xs:element name="SignonProfile" type="SignonProfile_Type"/>
+		</xs:sequence>
+	</xs:complexType>-->
+  <xs:complexType name="CustomerId_Type">
+    <xs:annotation>
+      <xs:documentation>-aggregate identifies a specific Customer (Payor/beneficiary) or institution</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="OfficialId" type="OfficialId_Type"/>
+      <!--The element is optional if its not commming in the request it will be defaulted to NAT.-->
+      <xs:element name="OfficialIdType" type="OfficialIdType_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

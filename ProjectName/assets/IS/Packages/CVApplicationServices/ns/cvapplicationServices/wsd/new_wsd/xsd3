@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Copyright SADAD Paymet System, 2007-2013.
+
+Whilst every effort has been made to ensure that the SADAD message standards contained in this document are correct,
+SADAD,SAMA and any other party involved in the creation of the document
+hereby state that the document is provided without warranty, either expressed or implied, of accuracy or fitness for purpose,
+and hereby disclaim any liability, direct or indirect, for damages or loss relating to the use of this document.
+The document may be modified from time to time, subject to developments in technology, changes to the standards,
+or new legal requirements.
+
+
+Your statutory rights are not affected.
+
+SADAD Payment System
+A Saudi Arabian Monetary Agency Company
+email: info@sadad.com
+
+Version Information:
+Version Number     : 1.0
+Date of creation   : June, 2014
+Revision History:
+05-Dec-2018		FA		Added BillCreate value to LoadBillStatusCode_Type to support New Customer Bill in BillLoad--><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://sadad.com/schema/domain/Biller/1.0" xmlns:com="http://sadad.com/schema/Common/1.0" xmlns:pmt="http://sadad.com/schema/domain/Payment/1.0" targetNamespace="http://sadad.com/schema/domain/Biller/1.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:import namespace="http://sadad.com/schema/Common/1.0" schemaLocation="cvapplicationServices.wsd.new_wsd?xsd=xsd1"/>
+  <xs:import namespace="http://sadad.com/schema/domain/Payment/1.0" schemaLocation="cvapplicationServices.wsd.new_wsd?xsd=xsd4"/>
+  <xs:complexType name="AccountId_Type">
+    <xs:annotation>
+      <xs:documentation>-Represents an Account in SADAD systems</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="BillingAccount" type="com:BillingAccount_Type"/>
+      <xs:element name="BillerId" type="com:BillerId_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="BillCategory_Enum">
+    <xs:annotation>
+      <xs:documentation>Defines the known values for the Open Enum BillCategory</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="com:NC12_Type">
+      <xs:enumeration value="Recurring"/>
+      <xs:enumeration value="CIP"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BillCategory_Type">
+    <xs:annotation>
+      <xs:documentation>A bill category assigns behaviour to a bill, thus permitting SADAD to apply rules to bills in varying manner.</xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="BillCategory_Enum com:NC12_Type"/>
+  </xs:simpleType>
+  <xs:simpleType name="BillPmtStatusCode_Type">
+    <xs:annotation>
+      <xs:documentation>todo comment</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="com:NC32_Type"/>
+  </xs:simpleType>
+  <xs:simpleType name="LoadBillStatusCode_Type">
+    <xs:annotation>
+      <xs:documentation>Closed Enum that identifies bill action via real-time load</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="com:NC32_Type">
+      <xs:enumeration value="BillNew"/>
+      <xs:enumeration value="BillUpdated"/>
+      <xs:enumeration value="BillExpired"/>
+      <xs:enumeration value="BillCreate"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BillStatusCode_Type">
+    <xs:annotation>
+      <xs:documentation>Closed Enum that identifies a bill?s payment status within SADAD</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="com:NC32_Type">
+      <xs:enumeration value="BillPaid"/>
+      <xs:enumeration value="BillPartialPd"/>
+      <xs:enumeration value="BillOverPd"/>
+      <xs:enumeration value="BillUnpaid"/>
+      <xs:enumeration value="BillDeactive"/>
+      <xs:enumeration value="BillNew"/>
+      <xs:enumeration value="BillUpdated"/>
+      <xs:enumeration value="BillAny"/>
+      <xs:enumeration value="BillExpired"/>
+      <xs:enumeration value="BillCreate"/>
+      <xs:enumeration value="AcctAct"/>
+      <xs:enumeration value="AcctDeact"/>
+      <!--[28-Sep-2005][PD]:Added BillDeactive from BillStatusCode  enum simpleType as per Ext.Msg.Spec r1.7.2-->
+      <!--[28-Jun-2005][PD]:Modified BillStatusCode enumeration as per Ext.Msg.Spec r1.7.1c.-->
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BillSummAmtCode_Enum">
+    <xs:annotation>
+      <xs:documentation>Defines the known values for the Open Enum BillSummAmtCode</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="com:NC32_Type">
+      <xs:enumeration value="Incentive"/>
+      <xs:enumeration value="Penalty"/>
+      <xs:enumeration value="MinPartialPmt"/>
+      <xs:enumeration value="MinAdvancePmt"/>
+      <xs:enumeration value="MaxAdvancePmt"/>
+      <!--[26-Jun-2005][PD]:Modified BillSummAmtCode enumeration as per Ext.Msg.Spec r1.7.1c.-->
+      <!--Deleted <xs:enumeration value="CreditLimit"/>-->
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BillSummAmtCode_Type">
+    <xs:annotation>
+      <xs:documentation>Open Enum: Indicates the type of amount being specified in CurAmt</xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="com:NC32_Type BillSummAmtCode_Enum"/>
+  </xs:simpleType>
+  <xs:simpleType name="BillSummAmtType_Enum">
+    <xs:annotation>
+      <xs:documentation>Indicates the type of amount specified in an associated currency value</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="com:NC32_Type">
+      <xs:enumeration value="Payable"/>
+      <xs:enumeration value="Supplemental"/>
+      <xs:enumeration value="InfoOnly"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BillSummAmtType_Type">
+    <xs:annotation>
+      <xs:documentation>Open Enum: Indicates the type of amount specified in an associated currency value</xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="com:NC32_Type BillSummAmtType_Enum"/>
+  </xs:simpleType>
+  <xs:complexType name="BillerInfo_Type">
+    <xs:annotation>
+      <xs:documentation>-identifies a specific biller</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Identifier" type="com:BillerId_Type"/>
+      <xs:element name="Name" type="com:Name_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BillInfo_Type">
+    <xs:annotation>
+      <xs:documentation>-Define a Biller?s collection of values assigned to a specific bill.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="BillCategory" type="BillCategory_Type"/>
+      <xs:element name="ServiceType" type="com:ServiceType_Type"/>
+      <xs:element name="BillCycle" type="com:BillCycle_Type" minOccurs="0"/>
+      <xs:element name="BillNumber" type="com:BillNumber_Type" minOccurs="0"/>
+      <xs:element name="BillingAcct" type="com:BillingAcct_Type" minOccurs="0"/>
+      <!--As per review comment from Mehdi, made the element mandatory-->
+      <xs:element name="BillerId" type="com:BillerId_Type"/>
+      <xs:element name="AmountDue" type="com:Currency_Type"/>
+      <xs:element name="DueDt" type="com:Date_Type"/>
+      <xs:element name="OpenDt" type="com:Date_Type" minOccurs="0"/>
+      <xs:element name="CloseDt" type="com:Date_Type" minOccurs="0"/>
+      <xs:element name="ExpDt" type="com:Date_Type" minOccurs="0"/>
+      <xs:element name="ChkDigit" type="com:ChkDigit_Type" minOccurs="0"/>
+      <!--removed as per comment from Mehdi-->
+      <!--<xs:element name="CustType" type="CustType_Type" minOccurs="0"/>-->
+      <xs:element name="BillRefInfo" type="BillRefInfo_Type" minOccurs="0"/>
+      <xs:element name="BillSummAmt" type="BillSummAmt_Type" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="InfoPlus" type="com:InfoPlus_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LoadBillInfo_Type">
+    <xs:annotation>
+      <xs:documentation>-Define a Biller?s collection of values assigned to a specific bill.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="BillCategory" type="BillCategory_Type"/>
+      <xs:element name="ServiceType" type="com:ServiceType_Type"/>
+      <xs:element name="BillCycle" type="com:BillCycle_Type" minOccurs="0"/>
+      <xs:element name="BillNumber" type="com:BillNumber_Type" minOccurs="0"/>
+      <xs:element name="BillingAcct" type="com:BillingAcct_Type" minOccurs="0"/>
+      <!--As per review comment from Mehdi, made the element mandatory-->
+      <xs:element name="BillerId" type="com:BillerId_Type"/>
+      <xs:element name="AmountDue" type="com:Currency_Type"/>
+      <xs:element name="DueDt" type="com:Date_Type"/>
+      <xs:element name="OpenDt" type="com:Date_Type" minOccurs="0"/>
+      <xs:element name="CloseDt" type="com:Date_Type" minOccurs="0"/>
+      <xs:element name="ExpDt" type="com:Date_Type" minOccurs="0"/>
+      <xs:element name="ChkDigit" type="com:ChkDigit_Type" minOccurs="0"/>
+      <!--removed as per comment from Mehdi-->
+      <!--<xs:element name="CustType" type="CustType_Type" minOccurs="0"/>-->
+      <xs:element name="BillRefInfo" type="BillRefInfo_Type" minOccurs="0"/>
+      <xs:element name="BillSummAmt" type="BillSummAmt_Type" minOccurs="0" maxOccurs="unbounded"/>
+      <!--As per Mustaq this can be removed-->
+      <!--<xs:element name="InfoPlus" type="com:InfoPlus_Type" minOccurs="0"/>-->
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BillInfoError_Type">
+    <xs:annotation>
+      <xs:documentation>-wrapper around a BillInfo aggregate and is used to communicate errors associated with BillInfo data.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Error" type="com:Error_Type"/>
+      <xs:element name="BillingAcct" type="com:BillingAcct_Type" minOccurs="0"/>
+      <xs:element name="BillerId" type="com:BillerId_Type"/>
+      <xs:element name="BillCategory" type="BillCategory_Type" minOccurs="0"/>
+      <xs:element name="ServiceType" type="com:ServiceType_Type" minOccurs="0"/>
+      <xs:element name="BillCycle" type="com:BillCycle_Type" minOccurs="0"/>
+      <xs:element name="BillNumber" type="com:BillNumber_Type" minOccurs="0"/>
+      <xs:element name="BillPmtStatusError" type="BillPmtStatusError_Type" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BillPmtStatus_Type">
+    <xs:annotation>
+      <xs:documentation>-used during the Bill Upload process to associate a payment record to a given bill.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="SadadPmtId" type="com:PmtId_Type"/>
+      <xs:element name="BillerPmtId" type="com:PmtId_Type" minOccurs="0"/>
+      <xs:element name="BankPmtId" type="com:PmtId_Type" minOccurs="0"/>
+      <xs:element name="PmtStatusCode" type="pmt:PmtStatusCode_Type"/>
+      <xs:element name="CurAmt" type="com:Currency_Type"/>
+      <xs:element name="EffDt" type="com:Date_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BillPmtStatusError_Type">
+    <xs:annotation>
+      <xs:documentation>-Payment upload errors in the BillUploadRq message.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Error" type="com:Error_Type"/>
+      <xs:element name="BillPmtStatus" type="BillPmtStatus_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Bill_Type">
+    <xs:annotation>
+      <xs:documentation>-adds data which Billers or SADAD may associate with a given bill.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="SupercedeBillNumber" type="com:BillNumber_Type" minOccurs="0"/>
+      <xs:element name="BillStatusCode" type="BillStatusCode_Type" minOccurs="0"/>
+      <xs:element name="BillPmtStatus" type="BillPmtStatus_Type" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="ExactPmtRq" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="CustId" type="com:CustId_Type" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="DisplayLabel" type="VeryShortMsg_Type" minOccurs="0" maxOccurs="unbounded"/>
+      <!--Not required in Bill Load/Upload-->
+      <!--<xs:element name="Msg" type="ShortMsg_Type" minOccurs="0"/>-->
+      <xs:element name="BillInfo" type="BillInfo_Type"/>
+      <xs:element name="Timestamp" type="com:Date_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LoadBill_Type">
+    <xs:annotation>
+      <xs:documentation>-adds data which Billers or SADAD may associate with a given bill.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="SupercedeBillNumber" type="com:BillNumber_Type" minOccurs="0"/>
+      <xs:element name="BillStatusCode" type="LoadBillStatusCode_Type"/>
+      <!--As per Mustaq this has been removed in 4.5-->
+      <!--<xs:element name="BillPmtStatus" type="BillPmtStatus_Type" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="ExactPmtRq" type="xs:boolean" minOccurs="0"/>-->
+      <!--As commented by Mustaq, this can be removed-->
+      <xs:element name="CustId" type="com:CustId_Type" minOccurs="0"/>
+      <xs:element name="DisplayLabel" type="VeryShortMsg_Type" minOccurs="0" maxOccurs="unbounded"/>
+      <!--Not required in Bill Load/Upload-->
+      <!--<xs:element name="Msg" type="ShortMsg_Type" minOccurs="0"/>-->
+      <xs:element name="BillInfo" type="LoadBillInfo_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BillSummAmt_Type">
+    <xs:annotation>
+      <xs:documentation>-any currency amounts that are distinctly represented in the bill?s due amount</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="CurAmt" type="com:Currency_Type"/>
+      <xs:element name="BillSummAmtCode" type="BillSummAmtCode_Type" minOccurs="0"/>
+      <xs:element name="BillSummAmtType" type="BillSummAmtType_Type"/>
+      <xs:element name="ShortDesc" type="ShortMsg_Type" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VeryShortMsg_Type">
+    <xs:annotation>
+      <xs:documentation>-communicates a localized text string the message recipient</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="LanguagePref" type="com:LanguagePref_Type" minOccurs="0"/>
+      <xs:element name="Text" type="com:C32_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Msg_Type">
+    <xs:annotation>
+      <xs:documentation>-communicates a localized text string the message recipient</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="LanguagePref" type="com:LanguagePref_Type"/>
+      <xs:element name="Text" type="com:C4096_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ShortMsg_Type">
+    <xs:annotation>
+      <xs:documentation>-generic mechanism for various messages and aggregates to contain localized text strings</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="LanguagePref" type="com:LanguagePref_Type"/>
+      <xs:element name="Text" type="com:C255_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="BillRefInfo_Type">
+    <xs:restriction base="com:NC80_Type"/>
+  </xs:simpleType>
+  <xs:simpleType name="CustType_Type">
+    <xs:restriction base="com:NC2_Type"/>
+  </xs:simpleType>
+  <xs:simpleType name="AccountStatus_Type">
+    <xs:annotation>
+      <xs:documentation>Defines the known values for Account Status</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="com:NC12_Type">
+      <xs:enumeration value="ACTIVE"/>
+      <xs:enumeration value="INACTIVE"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Customer_Type">
+    <xs:annotation>
+      <xs:documentation>-Represents a Customer in SADAD systems</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="CustId" type="com:CustId_Type"/>
+      <xs:element name="CustStatus" type="CustomerStatus_Type"/>
+      <xs:element name="CustomerAssnType" type="CustomerAssnType_Type"/>
+      <xs:element name="AssociateEntityId" type="com:PartnerId_Type" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>If the association type is Biller assigned or Both this field with have the Biller ID.
+										If the association type is Bank assigned this field with have the Bank ID.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="CustomerStatus_Type">
+    <xs:annotation>
+      <xs:documentation>Defines the known values for Customer Status</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="com:NC12_Type">
+      <xs:enumeration value="ACTIVE"/>
+      <xs:enumeration value="INACTIVE"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CustomerAssnType_Type">
+    <xs:annotation>
+      <xs:documentation>Defines the known values for Customer Association Type</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="com:NC18_Type">
+      <xs:enumeration value="BANK_ASSIGNED"/>
+      <xs:enumeration value="BILLER_ASSIGNED"/>
+      <xs:enumeration value="BOTH"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Account_Type">
+    <xs:annotation>
+      <xs:documentation>-Represents an Account in SADAD systems</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="AcctNumber" type="com:BillingAcct_Type"/>
+      <xs:element name="AcctCreateDt" type="com:Date_Type"/>
+      <xs:element name="ServiceType" type="com:ServiceType_Type"/>
+      <xs:element name="AcctStatus" type="AccountStatus_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

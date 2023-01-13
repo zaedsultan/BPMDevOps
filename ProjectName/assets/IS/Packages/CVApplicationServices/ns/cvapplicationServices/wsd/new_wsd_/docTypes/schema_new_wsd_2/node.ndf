@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <record name="schema" javaclass="com.wm.util.Values">
+    <value name="node_type">schema</value>
+    <value name="node_subtype">unknown</value>
+    <value name="node_nsName">cvapplicationServices.wsd.new_wsd_.docTypes:schema_new_wsd_2</value>
+    <value name="node_pkg">CVApplicationServices</value>
+    <value name="is_public">false</value>
+    <value name="contentType">3</value>
+    <value name="targetNamespace">http://sadad.com/schema/service/Bill/1.0</value>
+    <value name="schemaDomain">384e81b833ce4cc19b66393d67d82d35</value>
+    <record name="attributes" javaclass="com.wm.util.Values">
+      <list name="table">
+      </list>
+    </record>
+    <record name="elements" javaclass="com.wm.util.Values">
+      <list name="table">
+        <record javaclass="com.wm.util.Values">
+          <value name="tagType">element</value>
+          <value name="name">LoadRs</value>
+          <record name="type" javaclass="com.wm.util.Values">
+            <value name="contentType">2</value>
+            <value name="internalType">reference</value>
+            <record name="targetName" javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/service/Bill/1.0</value>
+              <value name="ncName">LoadRs_Type</value>
+            </record>
+          </record>
+          <value name="internalType">instance</value>
+          <value name="classname">com.wm.lang.schema.WmElement</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <value name="tagType">element</value>
+          <value name="name">LoadRq</value>
+          <record name="type" javaclass="com.wm.util.Values">
+            <value name="contentType">2</value>
+            <value name="internalType">reference</value>
+            <record name="targetName" javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/service/Bill/1.0</value>
+              <value name="ncName">LoadRq_Type</value>
+            </record>
+          </record>
+          <value name="internalType">instance</value>
+          <value name="classname">com.wm.lang.schema.WmElement</value>
+        </record>
+      </list>
+    </record>
+    <record name="types" javaclass="com.wm.util.Values">
+      <list name="table">
+        <record javaclass="com.wm.util.Values">
+          <value name="contentType">2</value>
+          <value name="internalType">instance</value>
+          <value name="name">LoadRs_Type</value>
+          <list name="elements">
+            <record javaclass="com.wm.util.Values">
+              <value name="tagType">element</value>
+              <value name="xmlns">http://sadad.com/schema/service/Bill/1.0</value>
+              <value name="name">BillerId</value>
+              <record name="type" javaclass="com.wm.util.Values">
+                <value name="contentType">1</value>
+                <value name="internalType">reference</value>
+                <value name="dataTypeVersion">dtVersion2</value>
+                <array name="targetNames" type="record" depth="1">
+                  <record javaclass="com.wm.util.Values">
+                    <value name="xmlns">http://sadad.com/schema/Common/1.0</value>
+                    <value name="ncName">BillerId_Type</value>
+                  </record>
+                </array>
+              </record>
+              <value name="form">true</value>
+              <value name="internalType">instance</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="tagType">element</value>
+              <value name="xmlns">http://sadad.com/schema/service/Bill/1.0</value>
+              <value name="name">BillingAcct</value>
+              <record name="type" javaclass="com.wm.util.Values">
+                <value name="contentType">1</value>
+                <value name="internalType">reference</value>
+                <value name="dataTypeVersion">dtVersion2</value>
+                <array name="targetNames" type="record" depth="1">
+                  <record javaclass="com.wm.util.Values">
+                    <value name="xmlns">http://sadad.com/schema/Common/1.0</value>
+                    <value name="ncName">BillingAcct_Type</value>
+                  </record>
+                </array>
+              </record>
+              <value name="form">true</value>
+              <value name="internalType">instance</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="tagType">element</value>
+              <value name="xmlns">http://sadad.com/schema/service/Bill/1.0</value>
+              <value name="name">BillCategory</value>
+              <record name="type" javaclass="com.wm.util.Values">
+                <value name="contentType">1</value>
+                <value name="internalType">reference</value>
+                <value name="dataTypeVersion">dtVersion2</value>
+                <array name="targetNames" type="record" depth="1">
+                  <record javaclass="com.wm.util.Values">
+                    <value name="xmlns">http://sadad.com/schema/domain/Biller/1.0</value>
+                    <value name="ncName">BillCategory_Type</value>
+                  </record>
+                </array>
+              </record>
+              <value name="form">true</value>
+              <value name="internalType">instance</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="tagType">element</value>
+              <value name="xmlns">http://sadad.com/schema/service/Bill/1.0</value>
+              <value name="name">ServiceType</value>
+              <record name="type" javaclass="com.wm.util.Values">
+                <value name="contentType">1</value>
+                <value name="internalType">reference</value>
+                <value name="dataTypeVersion">dtVersion2</value>
+                <array name="targetNames" type="record" depth="1">
+                  <record javaclass="com.wm.util.Values">
+                    <value name="xmlns">http://sadad.com/schema/Common/1.0</value>
+                    <value name="ncName">ServiceType_Type</value>
+                  </record>
+                </array>
+              </record>
+              <value name="form">true</value>
+              <value name="internalType">instance</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="tagType">element</value>
+              <value name="xmlns">http://sadad.com/schema/service/Bill/1.0</value>
+              <value name="name">BillNumber</value>
+              <record name="type" javaclass="com.wm.util.Values">
+                <value name="contentType">1</value>
+                <value name="internalType">reference</value>
+                <value name="dataTypeVersion">dtVersion2</value>
+                <array name="targetNames" type="record" depth="1">
+                  <record javaclass="com.wm.util.Values">
+                    <value name="xmlns">http://sadad.com/schema/Common/1.0</value>
+                    <value name="ncName">BillNumber_Type</value>
+                  </record>
+                </array>
+              </record>
+              <value name="form">true</value>
+              <value name="internalType">instance</value>
+            </record>
+          </list>
+          <list name="attributes">
+          </list>
+          <record name="contentModel" javaclass="com.wm.util.Values">
+            <record name="symbol" javaclass="com.wm.util.Values">
+              <value name="ncName">$$SEQUENCE</value>
+            </record>
+            <value name="minOccurs">1</value>
+            <value name="maxOccurs">1</value>
+            <value name="modelType">sequence</value>
+            <list name="children">
+              <record javaclass="com.wm.util.Values">
+                <record name="symbol" javaclass="com.wm.util.Values">
+                  <value name="xmlns">http://sadad.com/schema/service/Bill/1.0</value>
+                  <value name="ncName">BillerId</value>
+                </record>
+                <value name="minOccurs">1</value>
+                <value name="maxOccurs">1</value>
+                <value name="modelType">simple</value>
+              </record>
+              <record javaclass="com.wm.util.Values">
+                <record name="symbol" javaclass="com.wm.util.Values">
+                  <value name="xmlns">http://sadad.com/schema/service/Bill/1.0</value>
+                  <value name="ncName">BillingAcct</value>
+                </record>
+                <value name="minOccurs">0</value>
+                <value name="maxOccurs">1</value>
+                <value name="modelType">simple</value>
+              </record>
+              <record javaclass="com.wm.util.Values">
+                <record name="symbol" javaclass="com.wm.util.Values">
+                  <value name="xmlns">http://sadad.com/schema/service/Bill/1.0</value>
+                  <value name="ncName">BillCategory</value>
+                </record>
+                <value name="minOccurs">0</value>
+                <value name="maxOccurs">1</value>
+                <value name="modelType">simple</value>
+              </record>
+              <record javaclass="com.wm.util.Values">
+                <record name="symbol" javaclass="com.wm.util.Values">
+                  <value name="xmlns">http://sadad.com/schema/service/Bill/1.0</value>
+                  <value name="ncName">ServiceType</value>
+                </record>
+                <value name="minOccurs">0</value>
+                <value name="maxOccurs">1</value>
+                <value name="modelType">simple</value>
+              </record>
+              <record javaclass="com.wm.util.Values">
+                <record name="symbol" javaclass="com.wm.util.Values">
+                  <value name="xmlns">http://sadad.com/schema/service/Bill/1.0</value>
+                  <value name="ncName">BillNumber</value>
+                </record>
+                <value name="minOccurs">0</value>
+                <value name="maxOccurs">1</value>
+                <value name="modelType">simple</value>
+              </record>
+            </list>
+          </record>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/service/Bill/1.0</value>
+              <value name="ncName">LoadRs_Type</value>
+            </record>
+          </array>
+          <value name="classname">com.wm.lang.schema.WmComplexType</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <value name="contentType">2</value>
+          <value name="internalType">instance</value>
+          <value name="name">LoadRq_Type</value>
+          <list name="elements">
+            <record javaclass="com.wm.util.Values">
+              <value name="tagType">element</value>
+              <value name="xmlns">http://sadad.com/schema/service/Bill/1.0</value>
+              <value name="name">GenerationDate</value>
+              <record name="type" javaclass="com.wm.util.Values">
+                <value name="contentType">1</value>
+                <value name="internalType">reference</value>
+                <value name="dataTypeVersion">dtVersion2</value>
+                <array name="targetNames" type="record" depth="1">
+                  <record javaclass="com.wm.util.Values">
+                    <value name="xmlns">http://sadad.com/schema/Common/1.0</value>
+                    <value name="ncName">Date_Type</value>
+                  </record>
+                </array>
+              </record>
+              <value name="form">true</value>
+              <value name="internalType">instance</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="tagType">element</value>
+              <value name="xmlns">http://sadad.com/schema/service/Bill/1.0</value>
+              <value name="name">Bill</value>
+              <record name="type" javaclass="com.wm.util.Values">
+                <value name="contentType">2</value>
+                <value name="internalType">reference</value>
+                <record name="targetName" javaclass="com.wm.util.Values">
+                  <value name="xmlns">http://sadad.com/schema/domain/Biller/1.0</value>
+                  <value name="ncName">LoadBill_Type</value>
+                </record>
+              </record>
+              <value name="form">true</value>
+              <value name="internalType">instance</value>
+            </record>
+          </list>
+          <list name="attributes">
+          </list>
+          <record name="contentModel" javaclass="com.wm.util.Values">
+            <record name="symbol" javaclass="com.wm.util.Values">
+              <value name="ncName">$$SEQUENCE</value>
+            </record>
+            <value name="minOccurs">1</value>
+            <value name="maxOccurs">1</value>
+            <value name="modelType">sequence</value>
+            <list name="children">
+              <record javaclass="com.wm.util.Values">
+                <record name="symbol" javaclass="com.wm.util.Values">
+                  <value name="xmlns">http://sadad.com/schema/service/Bill/1.0</value>
+                  <value name="ncName">GenerationDate</value>
+                </record>
+                <value name="minOccurs">1</value>
+                <value name="maxOccurs">1</value>
+                <value name="modelType">simple</value>
+              </record>
+              <record javaclass="com.wm.util.Values">
+                <record name="symbol" javaclass="com.wm.util.Values">
+                  <value name="xmlns">http://sadad.com/schema/service/Bill/1.0</value>
+                  <value name="ncName">Bill</value>
+                </record>
+                <value name="minOccurs">1</value>
+                <value name="maxOccurs">1</value>
+                <value name="modelType">simple</value>
+              </record>
+            </list>
+          </record>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/service/Bill/1.0</value>
+              <value name="ncName">LoadRq_Type</value>
+            </record>
+          </array>
+          <value name="classname">com.wm.lang.schema.WmComplexType</value>
+        </record>
+      </list>
+    </record>
+    <record name="uriReferencePrefixPairs" javaclass="com.wm.util.Values">
+      <value name="http://www.w3.org/1999/XMLSchema">ns</value>
+      <value name="http://sadad.com/schema/domain/Payment/1.0">pmt</value>
+      <value name="http://schemas.xmlsoap.org/soap/encoding/">wmns1</value>
+      <value name="http://sadad.com/schema/Common/1.0">com</value>
+      <value name="http://sadad.com/schema/definition/Header/1.0">ns4</value>
+      <value name="http://sadad.com/schema/definition/MOI/1.0">moi</value>
+      <value name="http://sadad.com/wsdl/Bill/1.0">ns1</value>
+      <value name="http://sadad.com/schema/domain/Biller/1.0">bill</value>
+      <value name="http://sadad.com/schema/service/Bill/1.0">ns2</value>
+      <value name="http://www.w3.org/2001/XMLSchema">xs</value>
+      <value name="http://sadad.com/schema/error/Bill/1.0">ns3</value>
+    </record>
+    <value name="originURI">file://C:\Users\y509163\OneDrive - Software AG\Documents\Sadad_API\Sadad_API\Bill_1.wsdl</value>
+    <value name="modifiable">false</value>
+  </record>
+</Values>

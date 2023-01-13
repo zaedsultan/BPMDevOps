@@ -1,0 +1,765 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Copyright SADAD Paymet System, 2007-2013.
+
+Whilst every effort has been made to ensure that the SADAD message standards contained in this document are correct,
+SADAD,SAMA and any other party involved in the creation of the document
+hereby state that the document is provided without warranty, either expressed or implied, of accuracy or fitness for purpose,
+and hereby disclaim any liability, direct or indirect, for damages or loss relating to the use of this document.
+The document may be modified from time to time, subject to developments in technology, changes to the standards,
+or new legal requirements.
+
+
+Your statutory rights are not affected.
+
+SADAD Payment System
+A Saudi Arabian Monetary Agency Company
+email: info@sadad.com
+
+Version Information:
+Version Number     : 1.0
+Date of creation   : June, 2014
+Revision History:--><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://sadad.com/schema/definition/MOI/1.0" xmlns:com="http://sadad.com/schema/Common/1.0" targetNamespace="http://sadad.com/schema/definition/MOI/1.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:import namespace="http://sadad.com/schema/Common/1.0" schemaLocation="cvapplicationServices.wsd.new_wsd?xsd=xsd1"/>
+  <xs:complexType name="SentenceDetails_Type">
+    <xs:sequence>
+      <xs:element name="Sentence" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="InstallmentNumber" type="com:NC3_Type" minOccurs="0"/>
+            <xs:element name="SentenceNumber" type="com:NC10_Type" minOccurs="0"/>
+            <xs:element name="Case" type="com:NC10_Type" minOccurs="0"/>
+            <xs:element name="Decision" type="com:NC10_Type" minOccurs="0"/>
+            <xs:element name="Amount" type="com:Currency_Type" minOccurs="0"/>
+            <xs:element name="RegistrationDate" type="com:Date_Type" minOccurs="0"/>
+            <xs:element name="DueDate" type="com:Date_Type" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ServiceInfo_Type">
+    <xs:annotation>
+      <xs:documentation>This aggregate carries MOI sepcific service information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ServiceCode" type="ServiceCode_Enum"/>
+      <xs:element name="BeneficiaryId" type="com:CustId_Type"/>
+      <xs:element name="BeneficiaryName" type="com:BeneficiaryName_Type" minOccurs="0"/>
+      <xs:choice minOccurs="0">
+        <xs:element name="NewIqama" type="NewIqama_Type"/>
+        <xs:element name="RenewIqama" type="RenewIqama_Type"/>
+        <xs:element name="DependentEntryVisaFee" type="DependentEntryVisaFee_Type"/>
+        <xs:element name="FamilyVisa" type="FamilyVisa_Type"/>
+        <xs:element name="LabourVisa" type="LabourVisa_Type"/>
+        <xs:element name="VisaCancellation" type="VisaCancellation_Type"/>
+        <xs:element name="TransferToHead" type="TransferToHead_Type"/>
+        <xs:element name="AddDependent" type="AddDependent_Type"/>
+        <xs:element name="CitizenDependentIqama" type="CitizenDependentIqama_Type"/>
+        <xs:element name="BirthRegistration" type="BirthRegistration_Type"/>
+        <xs:element name="DeathRegistration" type="DeathRegistration_Type"/>
+        <xs:element name="MarriageRegistration" type="MarriageRegistration_Type"/>
+        <xs:element name="DivorceRegistration" type="DivorceRegistration_Type"/>
+        <xs:element name="LostIDRegistration" type="LostIDRegistration_Type"/>
+        <xs:element name="IssueLicense" type="IssueLicense_Type"/>
+        <xs:element name="RenewLicense" type="RenewLicense_Type"/>
+        <xs:element name="RenewVehicleRegistration" type="RenewVehicleRegistration_Type"/>
+        <xs:element name="TransferOwner" type="TransferOwner_Type"/>
+        <xs:element name="TransformVehicleIntoJunk" type="TransformVehicleIntoJunk_Type"/>
+        <!--[02-May-2012][BW] EMS 4.6-->
+        <xs:element name="ReIssueRegistrationCard" type="ReIssueRegistrationCard_Type"/>
+        <xs:element name="ReIssueLicensePlate" type="ReIssueLicensePlate_Type"/>
+        <xs:element name="ExportVehicle" type="ExportVehicle_Type"/>
+        <xs:element name="ExchangePlatesByOwner" type="ExchangePlatesByOwner_Type"/>
+        <xs:element name="ExchangePlatesByNewOwner" type="ExchangePlatesByNewOwner_Type"/>
+        <xs:element name="TransferPlatesForRegisteredVehicle" type="TransferPlatesForRegisteredVehicle_Type"/>
+        <xs:element name="TransferPlatesForCurrentVehicle" type="TransferPlatesForCurrentVehicle_Type"/>
+        <xs:element name="RegisterVehicle" type="RegisterVehicle_Type"/>
+        <xs:element name="ReImportVehicle" type="ReImportVehicle_Type"/>
+        <xs:element name="TrafficViolationsByViolationID" type="TrafficViolationsByViolationID_Type"/>
+        <xs:element name="NewPassport" type="NewPassport_Type"/>
+        <xs:element name="RenewPassport" type="RenewPassport_Type"/>
+        <xs:element name="Reissuepassport" type="Reissuepassport_Type"/>
+        <xs:element name="IssuleLicenseFromOld" type="IssuleLicenseFromOld_Type"/>
+        <xs:element name="ReplaceLicense" type="ReplaceLicense_Type"/>
+        <xs:element name="CivilDefenceViolationByVerdictID" type="CivilDefenceViolationByVerdictID_Type"/>
+        <xs:element name="IssueFamilyCard" type="IssueFamilyCard_Type"/>
+        <xs:element name="IssueSingleExitReEntryVisa" type="IssueSingleExitReEntryVisa_Type"/>
+        <xs:element name="IssueMultipleExitReEntryVisa" type="IssueMultipleExitReEntryVisa_Type"/>
+        <xs:element name="ExtendExitReEntryVisaDuration" type="ExtendExitReEntryVisaDuration_Type"/>
+        <xs:element name="PayAssociateFeeByID" type="PayAssociateFeeByID_Type"/>
+        <xs:element name="PayAllAssociateFees" type="PayAllAssociateFees_Type"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ServiceCode_Enum">
+    <xs:annotation>
+      <xs:documentation>Defines the known values for the Closed Enum ServiceCode</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="com:NC3_Type">
+      <xs:enumeration value="001"/>
+      <xs:enumeration value="002"/>
+      <xs:enumeration value="003"/>
+      <xs:enumeration value="004"/>
+      <xs:enumeration value="005"/>
+      <xs:enumeration value="006"/>
+      <xs:enumeration value="007"/>
+      <xs:enumeration value="008"/>
+      <xs:enumeration value="009"/>
+      <xs:enumeration value="010"/>
+      <xs:enumeration value="011"/>
+      <xs:enumeration value="012"/>
+      <xs:enumeration value="013"/>
+      <xs:enumeration value="014"/>
+      <xs:enumeration value="015"/>
+      <xs:enumeration value="016"/>
+      <xs:enumeration value="017"/>
+      <xs:enumeration value="018"/>
+      <xs:enumeration value="019"/>
+      <xs:enumeration value="020"/>
+      <xs:enumeration value="021"/>
+      <xs:enumeration value="022"/>
+      <xs:enumeration value="023"/>
+      <xs:enumeration value="024"/>
+      <xs:enumeration value="025"/>
+      <xs:enumeration value="026"/>
+      <xs:enumeration value="027"/>
+      <xs:enumeration value="028"/>
+      <xs:enumeration value="029"/>
+      <xs:enumeration value="030"/>
+      <xs:enumeration value="031"/>
+      <xs:enumeration value="032"/>
+      <xs:enumeration value="035"/>
+      <xs:enumeration value="036"/>
+      <xs:enumeration value="037"/>
+      <xs:enumeration value="038"/>
+      <xs:enumeration value="039"/>
+      <xs:enumeration value="040"/>
+      <xs:enumeration value="041"/>
+      <xs:enumeration value="042"/>
+      <xs:enumeration value="043"/>
+      <xs:enumeration value="044"/>
+      <xs:enumeration value="045"/>
+      <xs:enumeration value="046"/>
+      <xs:enumeration value="047"/>
+      <xs:enumeration value="048"/>
+      <xs:enumeration value="049"/>
+      <xs:enumeration value="050"/>
+      <xs:enumeration value="052"/>
+      <xs:enumeration value="053"/>
+      <xs:enumeration value="054"/>
+      <xs:enumeration value="055"/>
+      <xs:enumeration value="056"/>
+      <xs:enumeration value="057"/>
+      <xs:enumeration value="058"/>
+      <xs:enumeration value="059"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="LicenseType_Enum">
+    <xs:annotation>
+      <xs:documentation>Defines the known values for the Closed Enum LicenseType</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="com:NC3_Type">
+      <xs:enumeration value="01"/>
+      <xs:enumeration value="02"/>
+      <xs:enumeration value="03"/>
+      <xs:enumeration value="04"/>
+      <xs:enumeration value="05"/>
+      <xs:enumeration value="06"/>
+      <xs:enumeration value="07"/>
+      <xs:enumeration value="08"/>
+      <xs:enumeration value="09"/>
+      <xs:enumeration value="10"/>
+      <xs:enumeration value="11"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="LicenseDuration_Enum">
+    <xs:annotation>
+      <xs:documentation>Defines the known values for the Closed Enum LicenseDuration</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="com:NC3_Type">
+      <xs:enumeration value="01"/>
+      <xs:enumeration value="02"/>
+      <xs:enumeration value="05"/>
+      <xs:enumeration value="10"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--<xs:simpleType name="RegistrationType_Enum">
+		<xs:annotation>
+			<xs:documentation>Defines the known values for the Closed Enum RegistrationType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="com:NC3_Type">
+			<xs:enumeration value="01"/>
+			<xs:enumeration value="02"/>
+			<xs:enumeration value="03"/>
+			<xs:enumeration value="07"/>
+			<xs:enumeration value="08"/>
+			<xs:enumeration value="09"/>
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="11"/>-->
+  <!--Removed in 4.8.8-->
+  <!---->
+  <!--<xs:enumeration value="04"/>
+			<xs:enumeration value="05"/>
+			<xs:enumeration value="06"/>-->
+  <!--</xs:restriction>
+	</xs:simpleType>-->
+  <xs:simpleType name="NewRegistrationType_Enum">
+    <xs:annotation>
+      <xs:documentation>Defines new values for the Closed Enum RegistrationType</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="com:NC3_Type">
+      <xs:enumeration value="01"/>
+      <xs:enumeration value="02"/>
+      <xs:enumeration value="03"/>
+      <xs:enumeration value="07"/>
+      <xs:enumeration value="08"/>
+      <xs:enumeration value="09"/>
+      <xs:enumeration value="10"/>
+      <xs:enumeration value="11"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BodyType_Enum">
+    <xs:annotation>
+      <xs:documentation>Defines the known values for the Closed Enum BodyType</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="com:NC3_Type">
+      <xs:enumeration value="1"/>
+      <xs:enumeration value="2"/>
+      <xs:enumeration value="3"/>
+      <xs:enumeration value="5"/>
+      <xs:enumeration value="6"/>
+      <xs:enumeration value="9"/>
+      <xs:enumeration value="10"/>
+      <xs:enumeration value="11"/>
+      <xs:enumeration value="12"/>
+      <xs:enumeration value="13"/>
+      <xs:enumeration value="16"/>
+      <xs:enumeration value="17"/>
+      <xs:enumeration value="18"/>
+      <xs:enumeration value="22"/>
+      <xs:enumeration value="23"/>
+      <xs:enumeration value="24"/>
+      <xs:enumeration value="25"/>
+      <xs:enumeration value="26"/>
+      <xs:enumeration value="27"/>
+      <xs:enumeration value="28"/>
+      <xs:enumeration value="29"/>
+      <xs:enumeration value="30"/>
+      <xs:enumeration value="31"/>
+      <xs:enumeration value="32"/>
+      <xs:enumeration value="33"/>
+      <xs:enumeration value="34"/>
+      <xs:enumeration value="35"/>
+      <xs:enumeration value="36"/>
+      <xs:enumeration value="37"/>
+      <xs:enumeration value="38"/>
+      <xs:enumeration value="39"/>
+      <xs:enumeration value="40"/>
+      <xs:enumeration value="41"/>
+      <!--<xs:enumeration value="4"/> Updates in 4.8.8.-->
+      <!--<xs:enumeration value="7"/> Updates in 4.8.8.-->
+      <!--<xs:enumeration value="8"/> Updates in 4.8.8.-->
+      <!--<xs:enumeration value="14"/>
+			<xs:enumeration value="15"/>     Updates in 4.8.8.-->
+      <!--<xs:enumeration value="19"/>
+			<xs:enumeration value="20"/>  Updates in 4.8.8.-->
+      <!--Added in 4.8.8-->
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PassportType_Enum">
+    <xs:annotation>
+      <xs:documentation>Defines the known values for the Closed Enum PassportType</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="com:NC3_Type">
+      <xs:enumeration value="01"/>
+      <xs:enumeration value="02"/>
+      <xs:enumeration value="03"/>
+      <!--<xs:enumeration value="04"/>-->
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="JobCategory_Enum">
+    <xs:annotation>
+      <xs:documentation>Defines the known values for the Closed Enum JobCategoryType</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="com:NC3_Type">
+      <xs:enumeration value="06"/>
+      <xs:enumeration value="20"/>
+      <xs:enumeration value="21"/>
+      <xs:enumeration value="22"/>
+      <xs:enumeration value="23"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="VisaType_Enum">
+    <xs:annotation>
+      <xs:documentation>Defines the known values for the Closed Enum VisaType</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="com:NC3_Type">
+      <xs:enumeration value="01"/>
+      <xs:enumeration value="02"/>
+      <xs:enumeration value="03"/>
+      <xs:enumeration value="04"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="NewIqama_Type">
+    <xs:sequence>
+      <xs:element name="SponsorId" type="SponsorId_Type"/>
+      <xs:element name="IqamaDuration" type="IqamaDuration_Type"/>
+      <xs:element name="JobCategory" type="JobCategory_Enum"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RenewIqama_Type">
+    <xs:sequence>
+      <xs:element name="IqamaDuration" type="IqamaDuration_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DependentEntryVisaFee_Type">
+    <xs:sequence>
+      <xs:element name="DependentCount" type="DependentCount_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FamilyVisa_Type">
+    <xs:sequence>
+      <xs:element name="VisaCount" type="VisaCount_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LabourVisa_Type">
+    <xs:sequence>
+      <xs:element name="VisaCount" type="VisaCount_Type"/>
+      <xs:element name="VisaType" type="VisaType_Enum"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VisaCancellation_Type">
+    <xs:sequence>
+      <xs:element name="VisaNumber" type="VisaNumber_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TransferToHead_Type">
+    <xs:sequence>
+      <xs:element name="SponsorId" type="SponsorId_Type"/>
+      <xs:element name="IqamaDuration" type="IqamaDuration_Type"/>
+      <xs:element name="JobCategory" type="JobCategory_Enum"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AddDependent_Type">
+    <xs:sequence>
+      <xs:element name="DependentBirthDate" type="com:Date_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CitizenDependentIqama_Type">
+    <xs:sequence>
+      <xs:element name="CitizenId" type="CitizenId_Type"/>
+      <xs:element name="IqamaDuration" type="IqamaDuration_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BirthRegistration_Type">
+    <xs:sequence>
+      <xs:element name="EventDate" type="com:Date_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DeathRegistration_Type">
+    <xs:sequence>
+      <xs:element name="EventDate" type="com:Date_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MarriageRegistration_Type">
+    <xs:sequence>
+      <xs:element name="EventDate" type="com:Date_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DivorceRegistration_Type">
+    <xs:sequence>
+      <xs:element name="EventDate" type="com:Date_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LostIDRegistration_Type">
+    <xs:sequence>
+      <xs:element name="IssuanceReason" type="IssuanceReason_Enum"/>
+      <xs:element name="CardVersionNumber" type="SC2_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--[05-Sep-2016][MOI CHANGE] EMS 4.8.5 - Added new Service - IssueFamilyCard_Type-->
+  <xs:complexType name="IssueFamilyCard_Type">
+    <xs:sequence>
+      <xs:element name="IssuanceReason" type="IssuanceReason_Enum"/>
+      <xs:element name="CardVersionNumber" type="SC2_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="IssueLicense_Type">
+    <xs:sequence>
+      <xs:element name="LicenseType" type="LicenseType_Enum"/>
+      <xs:element name="LicenseDuration" type="LicenseDuration_Enum" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RenewLicense_Type">
+    <xs:sequence>
+      <xs:element name="LicenseType" type="LicenseType_Enum"/>
+      <xs:element name="LicenseDuration" type="LicenseDuration_Enum" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RenewVehicleRegistration_Type">
+    <xs:sequence>
+      <xs:element name="VehicleSequenceNumber" type="VehicleSequenceNumber_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TransferOwner_Type">
+    <xs:sequence>
+      <xs:element name="VehicleSequenceNumber" type="VehicleSequenceNumber_Type"/>
+      <xs:element name="NewOwnerId" type="NewOwnerId_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--[02-May-2012][BW] EMS 4.6-->
+  <xs:complexType name="TransformVehicleIntoJunk_Type">
+    <xs:sequence>
+      <xs:element name="VehicleSequenceNumber" type="VehicleSequenceNumber_Type"/>
+      <xs:element name="NewOwnerId" type="NewOwnerId_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--End EMS 4.6-->
+  <xs:complexType name="ReIssueRegistrationCard_Type">
+    <xs:sequence>
+      <xs:element name="VehicleSequenceNumber" type="VehicleSequenceNumber_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ReIssueLicensePlate_Type">
+    <xs:sequence>
+      <xs:element name="VehicleSequenceNumber" type="VehicleSequenceNumber_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ExportVehicle_Type">
+    <xs:sequence>
+      <xs:element name="VehicleSequenceNumber" type="VehicleSequenceNumber_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ExchangePlatesByOwner_Type">
+    <xs:sequence>
+      <xs:element name="VehicleSequenceNumber" type="VehicleSequenceNumber_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ExchangePlatesByNewOwner_Type">
+    <xs:sequence>
+      <xs:element name="VehicleSequenceNumber" type="VehicleSequenceNumber_Type"/>
+      <xs:element name="NewOwnerId" type="NewOwnerId_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TransferPlatesForRegisteredVehicle_Type">
+    <xs:sequence>
+      <xs:element name="VehicleSequenceNumber" type="VehicleSequenceNumber_Type"/>
+      <xs:element name="NewRegistrationType" type="NewRegistrationType_Enum"/>
+      <xs:element name="BodyType" type="BodyType_Enum"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TransferPlatesForCurrentVehicle_Type">
+    <xs:sequence>
+      <xs:element name="VehicleSequenceNumber" type="VehicleSequenceNumber_Type"/>
+      <xs:element name="NewRegistrationType" type="NewRegistrationType_Enum"/>
+      <xs:element name="BodyType" type="BodyType_Enum"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterVehicle_Type">
+    <xs:sequence>
+      <xs:element name="VehicleCustomCardNumber" type="VehicleCustomCardNumber_Type"/>
+      <xs:element name="NewRegistrationType" type="NewRegistrationType_Enum"/>
+      <xs:element name="BodyType" type="BodyType_Enum"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ReImportVehicle_Type">
+    <xs:sequence>
+      <xs:element name="VehicleCustomCardNumber" type="VehicleCustomCardNumber_Type"/>
+      <xs:element name="NewRegistrationType" type="NewRegistrationType_Enum"/>
+      <xs:element name="BodyType" type="BodyType_Enum"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TrafficViolationsByViolationID_Type">
+    <xs:sequence>
+      <xs:element name="ViolationID" type="com:C10_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NewPassport_Type">
+    <xs:sequence>
+      <xs:element name="PassportType" type="PassportType_Enum"/>
+      <xs:element name="ValidityDuration" type="ValidityDuration_Enum"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RenewPassport_Type">
+    <xs:sequence>
+      <xs:element name="PassportType" type="PassportType_Enum"/>
+      <xs:element name="ValidityDuration" type="ValidityDuration_Enum"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Reissuepassport_Type">
+    <xs:sequence>
+      <xs:element name="PassportType" type="PassportType_Enum"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PreviousFee_Type">
+    <xs:annotation>
+      <xs:documentation>the amount of fees paid for the service which beneficiary had subscribed</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="CurAmt" type="com:Currency_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="IssuleLicenseFromOld_Type">
+    <xs:sequence>
+      <xs:element name="LicenseType" type="LicenseType_Enum"/>
+      <xs:element name="LicenseDuration" type="LicenseDuration_Enum" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ReplaceLicense_Type">
+    <xs:sequence>
+      <xs:element name="LicenseType" type="LicenseType_Enum"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FeeDetails_Type">
+    <xs:sequence>
+      <xs:element name="Fee" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Type" type="com:C256_Type"/>
+            <xs:element name="CurAmt" type="com:Currency_Type"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CivilDefenceViolationByVerdictID_Type">
+    <xs:sequence>
+      <xs:element name="VerdictNumber" type="VerdictNumber_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="IssueSingleExitReEntryVisa_Type">
+    <xs:sequence>
+      <xs:element name="VisaDuration" type="VisaDuration_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="IssueMultipleExitReEntryVisa_Type">
+    <xs:sequence>
+      <xs:element name="VisaDuration" type="VisaDuration_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ExtendExitReEntryVisaDuration_Type">
+    <xs:sequence>
+      <xs:element name="VisaNumber" type="VisaNumber_Type"/>
+      <xs:element name="VisaDuration" type="VisaDuration_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PayAssociateFeeByID_Type">
+    <xs:sequence>
+      <xs:element name="AssociateID" type="AssociateID_Type"/>
+      <xs:element name="FeeDurationEndDate" type="com:Date_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PayAllAssociateFees_Type">
+    <xs:sequence>
+      <xs:element name="FeeDurationEndDate" type="com:Date_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="SearchStatus_Type">
+    <xs:annotation>
+      <xs:documentation>Defines the known values for the Open Enum SearchStatus</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="com:NC32_Type">
+      <xs:enumeration value="Rejected"/>
+      <xs:enumeration value="InProcessing"/>
+      <xs:enumeration value="ReadyForCollection"/>
+      <xs:enumeration value="Processed"/>
+      <xs:enumeration value="Failed_Cancelled_Expired"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="DisplayStatus_Type">
+    <xs:sequence>
+      <xs:element name="StatusCode" type="xs:long"/>
+      <xs:element name="ShortDesc" type="com:C255_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FinesDetails_Type">
+    <xs:sequence>
+      <xs:element name="Fine" type="Fine_Type" maxOccurs="50"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Fine_Type">
+    <xs:sequence>
+      <xs:element name="VerdictNumber" type="VerdictNumber_Type"/>
+      <xs:element name="VerdictDate" type="com:Date_Type"/>
+      <xs:element name="ViolationsCount" type="com:TwoDigitCount_Type"/>
+      <xs:element name="Amount" type="com:Currency_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FinesDetails" type="FinesDetails_Type">
+    <xs:annotation>
+      <xs:documentation>Comment describing your root element</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <!--<xs:simpleType name="ValidityDuration_Enum">
+		<xs:annotation>
+			<xs:documentation>Defines the known values for the Closed Enum PassportType</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="com:NC3_Type">
+			<xs:enumeration value="01"/>
+			<xs:enumeration value="02"/>
+			<xs:enumeration value="03"/>
+			<xs:enumeration value="04"/>
+			<xs:enumeration value="05"/>
+			<xs:enumeration value="10"/>
+		</xs:restriction>
+	</xs:simpleType>-->
+  <xs:simpleType name="SponsorId_Type">
+    <xs:restriction base="xs:long">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="9999999999"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="IqamaDuration_Type">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="999"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="VisaNumber_Type">
+    <xs:restriction base="xs:long">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="9999999999"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DependentCount_Type">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="99"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CitizenId_Type">
+    <xs:restriction base="xs:long">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="9999999999"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="VisaCount_Type">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="9999"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="VehicleSequenceNumber_Type">
+    <xs:restriction base="xs:long">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="999999999"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="VehicleCustomCardNumber_Type">
+    <xs:restriction base="xs:long">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="9999999999"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NewOwnerId_Type">
+    <xs:restriction base="xs:long">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="9999999999"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ViolatorId_Type">
+    <xs:restriction base="xs:long">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="9999999999"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="FourDigitCount_Type">
+    <xs:restriction base="xs:long">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="9999"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TwoDigitCount_Type">
+    <xs:restriction base="xs:long">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="99"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="VerdictNumber_Type">
+    <xs:restriction base="xs:long">
+      <xs:minInclusive value="1000000000"/>
+      <xs:maxInclusive value="9999999999"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AssociateID_Type">
+    <xs:restriction base="xs:long">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="9999999999"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="VisaDuration_Type">
+    <xs:restriction base="xs:long">
+      <xs:enumeration value="30"/>
+      <xs:enumeration value="60"/>
+      <xs:enumeration value="90"/>
+      <xs:enumeration value="120"/>
+      <xs:enumeration value="150"/>
+      <xs:enumeration value="180"/>
+      <xs:enumeration value="210"/>
+      <xs:enumeration value="240"/>
+      <xs:enumeration value="270"/>
+      <xs:enumeration value="300"/>
+      <xs:enumeration value="330"/>
+      <xs:enumeration value="360"/>
+      <xs:enumeration value="390"/>
+      <xs:enumeration value="420"/>
+      <xs:enumeration value="450"/>
+      <xs:enumeration value="480"/>
+      <xs:enumeration value="510"/>
+      <xs:enumeration value="540"/>
+      <xs:enumeration value="570"/>
+      <xs:enumeration value="600"/>
+      <xs:enumeration value="630"/>
+      <xs:enumeration value="660"/>
+      <xs:enumeration value="690"/>
+      <xs:enumeration value="720"/>
+      <xs:enumeration value="750"/>
+      <xs:enumeration value="780"/>
+      <xs:enumeration value="810"/>
+      <xs:enumeration value="840"/>
+      <xs:enumeration value="870"/>
+      <xs:enumeration value="900"/>
+      <xs:enumeration value="930"/>
+      <xs:enumeration value="960"/>
+      <xs:enumeration value="990"/>
+      <xs:enumeration value="1020"/>
+      <xs:enumeration value="1050"/>
+      <xs:enumeration value="1080"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="IssuanceReason_Enum">
+    <xs:annotation>
+      <xs:documentation>Defines the known values for the Closed Enum IssuanceReason</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="com:NC2_Type">
+      <xs:enumeration value="01"/>
+      <xs:enumeration value="02"/>
+      <xs:enumeration value="03"/>
+      <xs:enumeration value="04"/>
+      <xs:enumeration value="05"/>
+      <xs:enumeration value="06"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ValidityDuration_Enum">
+    <xs:annotation>
+      <xs:documentation>Defines the known values for the Closed Enum PassportType</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="com:NC3_Type">
+      <xs:enumeration value="01"/>
+      <xs:enumeration value="02"/>
+      <xs:enumeration value="03"/>
+      <xs:enumeration value="04"/>
+      <xs:enumeration value="05"/>
+      <xs:enumeration value="10"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SC2_Type">
+    <xs:annotation>
+      <xs:documentation>2 character (stricly) ISO Latin-1 string</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="2"/>
+      <xs:maxLength value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

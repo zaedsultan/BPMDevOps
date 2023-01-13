@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--edited with XMLSpy v2014 sp1 (http://www.altova.com) by Wafa Khorsheed (Hp)--><!--Copyright SADAD Paymet System, 2007-2013.
+
+Whilst every effort has been made to ensure that the SADAD message standards contained in this document are correct,
+SADAD,SAMA and any other party involved in the creation of the document
+hereby state that the document is provided without warranty, either expressed or implied, of accuracy or fitness for purpose,
+and hereby disclaim any liability, direct or indirect, for damages or loss relating to the use of this document.
+The document may be modified from time to time, subject to developments in technology, changes to the standards,
+or new legal requirements.
+
+
+Your statutory rights are not affected.
+
+SADAD Payment System
+A Saudi Arabian Monetary Agency Company
+email: info@sadad.com
+
+Version Information:
+Version Number     : 1.0
+Date of creation   : May, 2013
+Revision History:--><xs:schema elementFormDefault="unqualified" attributeFormDefault="unqualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="Severity_Type">
+    <xs:annotation>
+      <xs:documentation>Closed Enum: The Severity enum classifies XML documents transferred between Banks/Billers and SADAD into distinct groups</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FATAL"/>
+      <xs:enumeration value="ERROR"/>
+      <xs:enumeration value="WARNING"/>
+      <xs:enumeration value="SUCCESS"/>
+      <xs:enumeration value="INFO"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Error_Type">
+    <xs:annotation>
+      <xs:documentation>Closed Enum: The Error Type enum classifies XML documents transferred between Banks/Billers and SADAD into distinct groups</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SYSTEM"/>
+      <xs:enumeration value="BUSINESS"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Fault_Type">
+    <xs:sequence>
+      <xs:element name="Code" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Common Error codes (see service specific Fault for more error codes)
+						0 - Partner is not subscribed to use the requested service.	
+						80 - Biller does not exists in the system.	
+						81 - Biller is not active in the system.	
+						309 - Bank does not exists in the system.	
+						310 - Bank is not active in the system.	
+						999 - 	Internal System Error 	
+						3006 - Failed to get Signature value.
+						3007 - Failed to get Certificate details from partner profile.
+						3016 - Signature verification failed.
+						4051 - Failed to write the request message to Staging File System.
+						4081 - Failed to uncompress input data.
+						4082 - Invalid value for HTTP Header Content-Encoding.Expected 'gzip'.
+						4054 - Failed to generate SFS file name.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Type" type="Error_Type" minOccurs="0"/>
+      <xs:element name="Description" type="xs:string"/>
+      <xs:element name="Reason" type="xs:string" minOccurs="0"/>
+      <xs:element name="Severity" type="Severity_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--SystemBusiness Codes-->
+</xs:schema>

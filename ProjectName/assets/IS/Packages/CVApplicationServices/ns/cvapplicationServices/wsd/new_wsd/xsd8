@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--edited with XMLSpy v2008 sp1 (http://www.altova.com) by SADAD (SADAD Payment System)--><!--Copyright SADAD Paymet System, 2007-2013.
+
+Whilst every effort has been made to ensure that the SADAD message standards contained in this document are correct,
+SADAD,SAMA and any other party involved in the creation of the document
+hereby state that the document is provided without warranty, either expressed or implied, of accuracy or fitness for purpose,
+and hereby disclaim any liability, direct or indirect, for damages or loss relating to the use of this document.
+The document may be modified from time to time, subject to developments in technology, changes to the standards,
+or new legal requirements.
+
+
+Your statutory rights are not affected.
+
+SADAD Payment System
+A Saudi Arabian Monetary Agency Company
+email: info@sadad.com
+
+Version Information:
+Version Number     : 1.0
+Date of creation   : July, 2014
+Revision History:--><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://sadad.com/schema/definition/Header/1.0" targetNamespace="http://sadad.com/schema/definition/Header/1.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:include schemaLocation="cvapplicationServices.wsd.new_wsd?xsd=xsd2"/>
+  <xs:element name="MessageHeader" type="MessageHeader_Type"/>
+  <xs:complexType name="MessageHeader_Type">
+    <xs:annotation>
+      <xs:documentation>MessageHeader to be included in all Service request and response</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ServiceInitiatorKey" type="Identifier_Type"/>
+      <xs:element name="ServiceProviderKey" type="Identifier_Type"/>
+      <xs:element name="ServiceConsumerId" type="C255_Type"/>
+      <xs:element name="RqUID" type="UUID_Type"/>
+      <xs:element name="Date" type="Date_Type"/>
+      <xs:element name="Lang" type="LanguagePref_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--edited with XMLSpy v2014 sp1 (http://www.altova.com) by Wafa Khorsheed (Hewlett-Packard Co)--><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://sadad.com/schema/error/Bill/1.0" targetNamespace="http://sadad.com/schema/error/Bill/1.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:include schemaLocation="cvapplicationServices.wsd.new_wsd?xsd=xsd7"/>
+  <xs:element name="BillFault" type="Fault_Type">
+    <xs:annotation>
+      <xs:documentation>12345 - Invalid XML. Schema validation failed
+				90 - Cannot process the bill upload file , since category code is invalid.
+				91 - Cannot process the bill upload file, since bill category is inactive.
+				92 - Cannot process the bill upload file, since the bill identification rule does not exist for the bill category provided.
+				93 - Cannot process the bill upload file, since the service type is invalid.
+				94 - Cannot process the bill upload file, since the service type is inactive.
+				95 - Cannot process the bill , since the billing account is inactive.
+				96 - Cannot process the bill, since the bill service type does not match with the account’s associated service type.
+				97 - Cannot process the bill record, since the bill due amount is less than zero.
+				98 - Cannot process the bill, since the bill expiry date is not a future date.
+				99 - Cannot process the bill, since the Minimum Partial Payment is less than zero.
+				100 - Cannot process the bill, since the Minimum Advance Payment is less than or equal to zero.
+				101 - Cannot process the bill, since the Maximum Advance Payment is less than or equal to zero.
+				102 - Cannot process the bill, since the Maximum Advance Payment value is less than the Minimum Advance Payment value.
+				103 - Cannot process the bill, since the bill cycle does not exist.
+				104 - Cannot process the bill, since a newer version of the corresponding bill already exists in the syst.
+				105 - Cannot process the bill, since an active bill already exists for the same Biller, billing account, bill cycle and bill category.
+				106 - Cannot process the bill, since a recurring category already exists for the billing account.
+				107 - Cannot process the bill, since the bill number is not provided.
+				108 - Cannot process the bill, since a bill with same number already exists for the biller.
+				109 - Cannot process the bill, since an active High-toll bill exist under the same account.
+				110 - Cannot process the bill, since no active normal bill exists for this high toll bill.
+				111 - Cannot process the bill, since a new customer bill exist in SADAD for the same account and category
+				112 - Cannot process the bill, since a bill already exist in SADAD for the same account and category.
+				113 - Cannot update the bill, since a non-active bill already exist in SADAD syst.
+				114 - Cannot process the bill, since a bill with same number already exists for the biller.
+				115 - Cannot expire the bill since it is not present in the syst
+				118 - Cannot process the bill, since one or more payments associated with the previous statent couldn’t be completed due to invalid state.
+				6287 - Cannot process the bill, since the one-off bill category provided is Invalid 
+				812 - Process failed, since the Merchant if not registered within SADAD.
+				813 - Process failed, since the Merchant is deactivated within SADAD</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+</xs:schema>

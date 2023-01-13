@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--edited with XMLSpy v2014 sp1 (http://www.altova.com) by Wafa Khorsheed (Hewlett-Packard Co)--><wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:bill="http://sadad.com/schema/service/Bill/1.0" xmlns="http://sadad.com/wsdl/Bill/1.0" xmlns:err="http://sadad.com/schema/error/Bill/1.0" xmlns:hdr="http://sadad.com/schema/definition/Header/1.0" targetNamespace="http://sadad.com/wsdl/Bill/1.0">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://sadad.com/wsdl/Bill/1.0">
+      <xsd:import namespace="http://sadad.com/schema/service/Bill/1.0" schemaLocation="cvapplicationServices.wsd.new_wsd?xsd=xsd0"/>
+      <xsd:import namespace="http://sadad.com/schema/error/Bill/1.0" schemaLocation="cvapplicationServices.wsd.new_wsd?xsd=xsd6"/>
+      <xsd:import namespace="http://sadad.com/schema/definition/Header/1.0" schemaLocation="cvapplicationServices.wsd.new_wsd?xsd=xsd8"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="Header">
+    <wsdl:part name="Header" element="hdr:MessageHeader"/>
+  </wsdl:message>
+  <wsdl:message name="LoadRq">
+    <wsdl:part name="LoadRq" element="bill:LoadRq"/>
+  </wsdl:message>
+  <wsdl:message name="LoadRs">
+    <wsdl:part name="LoadRs" element="bill:LoadRs"/>
+  </wsdl:message>
+  <!--<wsdl:message name="BulkLoadRq">
+		<wsdl:part name="BulkLoadRq" element="billPmt:BulkLoadRq"/>
+	</wsdl:message>
+	<wsdl:message name="BulkLoadRs">
+		<wsdl:part name="BulkLoadRs" element="billPmt:BulkLoadRs"/>
+	</wsdl:message>-->
+  <wsdl:message name="BillFault">
+    <wsdl:part name="SOAPFault" element="err:BillFault"/>
+  </wsdl:message>
+  <wsdl:portType name="Bill">
+    <wsdl:operation name="Load">
+      <wsdl:input name="LoadRq_Input" message="LoadRq"/>
+      <wsdl:output name="LoadRs_Output" message="LoadRs"/>
+      <wsdl:fault name="Bill_Fault" message="BillFault"/>
+    </wsdl:operation>
+    <!--<wsdl:operation name="BulkLoad">
+			<wsdl:input name="BulkLoadRq_Input" message="BulkLoadRq"/>
+			<wsdl:output name="BulkLoadRs_Output" message="BulkLoadRs"/>
+			<wsdl:fault name="Bill_Fault" message="BillFault"/>
+		</wsdl:operation>-->
+  </wsdl:portType>
+  <wsdl:binding name="Bill" type="Bill">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="Load">
+      <wsdl:input name="LoadRq_Input">
+        <soap:header message="Header" part="Header" use="literal"/>
+        <soap:body parts="LoadRq" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="LoadRs_Output">
+        <soap:header message="Header" part="Header" use="literal"/>
+        <soap:body parts="LoadRs" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Bill_Fault">
+        <soap:fault name="Bill_Fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <!--<wsdl:operation name="BulkLoad">
+			<wsdl:input name="BulkLoadRq_Input">
+				<soap:header message="Header" part="Header" use="literal"/>
+				<soap:body parts="BulkLoadRq" use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="BulkLoadRs_Output">
+				<soap:header message="Header" part="Header" use="literal"/>
+				<soap:body parts="BulkLoadRs" use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Bill_Fault">
+				<soap:fault name="Bill_Fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>-->
+  </wsdl:binding>
+  <wsdl:service name="Bill">
+    <wsdl:port name="BillPort" binding="Bill">
+      <soap:address location="http://sadad.com/EBPP/service/Payment/1.0"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<businessProcessDiagram xmlns="http://www.webmethods.com/bpm/2006/"
+  Id="94c26c69-4de3-454f-b574-22682522cea7" bpmnStyle="false" build="1"
+  canvasPool="1" creator="y509163" description=""
+  failProcessOnStepFailure="false" focalRole="Focal role"
+  generateEDAEvents="true" name="CVVerfication" processCategory=""
+  rnSync="false" runtimeVersion="1" transitionLabelPref="expression"
+  unSynchJoinDeadPath="true" version="10.2.0">
+  <kpiDimensions/>
+  <systemKPIs>
+    <systemKPI Id="" description="" name="Volume" unitOfMeasure=""/>
+    <systemKPI Id="" description="" name="Cycle Time" unitOfMeasure=""/>
+    <systemKPI Id="" description="" name="Error Count" unitOfMeasure=""/>
+  </systemKPIs>
+  <logicalDataItem Id="" description="" dimension="0"
+    label="ProcessData" name="{ProcessNamespace}ProcessData" type="{pub.prt}ProcessData"/>
+  <logicalDataItem Id="34fa33f7-aa2a-45b0-b6c3-22d27606c780"
+    description="" dimension="0" label="cvapplicationDocumnts"
+    name="{ProcessNamespace}cvapplicationDocumnts" type="{cvapplicationServices.docs}cvapplicationDocumnts"/>
+  <logicalDataItem Id="" description="" dimension="0"
+    label="cvapplicationServices.docs:cvapplicationDocumnts"
+    name="{ProcessNamespace}cvapplicationServices.docs:cvapplicationDocumnts" type="{cvapplicationServices.docs}cvapplicationDocumnts"/>
+  <logicalDataItem Id="" description="" dimension="0"
+    label="ValidationOutput" name="{ProcessNamespace}ValidationOutput" type="{http://webmethods.com/bpm/ISType/2006}anyType"/>
+  <logicalDataItem Id="" description="" dimension="0"
+    label="Task1InputEnv" name="{ProcessNamespace}Task1InputEnv" type="{pub.task}TaskQueueInfo"/>
+  <logicalDataItem Id="" description="" dimension="0"
+    label="Task1OutputEnv" name="{ProcessNamespace}Task1OutputEnv" type="{pub.task}TaskCompletionInfo"/>
+  <logicalDataItem Id="1061cce6-14b2-4b89-b3df-affc3beb854f"
+    description="" dimension="0" label="ValidaiteandApproveInputEnv"
+    name="{ProcessNamespace}ValidaiteandApproveInputEnv" type="{pub.task}TaskQueueInfo"/>
+  <logicalDataItem Id="c1da8b05-d2d4-4e14-8992-0cf79e9ec70e"
+    description="" dimension="0" label="ValidaiteandApproveOutputEnv"
+    name="{ProcessNamespace}ValidaiteandApproveOutputEnv" type="{pub.task}TaskCompletionInfo"/>
+  <timeout calendarAlias="" calendarTime="0:0:0"
+    dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+    dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+    dynamicFieldName="" isCalendarTimeout="false" isStaticTimeout="true"
+    isXPathTimeout="false" pipelineCalendarAlias=""
+    pipelineCalendarDays="" pipelineCalendarHours=""
+    pipelineCalendarMinutes="" timeoutStyle="RELATIVE"
+    timeoutType="processTimeout" timeoutValue="0" xpathTimeoutValue=""/>
+  <pool Id="d737e12a-21a9-4a7e-af2e-19bc4c0e1f00" blue="128"
+    containerType="BPMN_SUBPROCESS" external="false"
+    externalizeConditions="false" green="128" isCollapsed="false"
+    isCompensating="false" isTestAfter="false" label="Pool"
+    labelBlue="255" labelGreen="204" labelRed="153" logicalServer=""
+    loopMaximum="0" loopMaximumField="" name="1"
+    orientation="horizontal" red="128" retryCount="0" stepLock="false"
+    uid="P2" useCorrelation="false">
+    <documentation/>
+    <businessKPIs/>
+    <fontData boldFont="false" fontFamily="" italicFont="false"/>
+    <terminateStep Id="646f9dac-b11a-4fce-80b6-025150def5e4"
+      escalateFailure="true" height="28" label="Finsh" labelHeight="-1"
+      labelWidth="-1" logicalServer="Default" stepLock="false"
+      terminateStatus="DONE" uid="S9" useCorrelation="false" width="28"
+      x="782" y="287">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <extendedProperty name="retries" value="0"/>
+      <extendedProperty name="retryInterval" value="60000"/>
+    </terminateStep>
+    <receiveStep Id="09172342-6ca2-4430-b708-f6a4974492b5"
+      allowsSynchronousReply="false" edaEventQName="" edaSubFilter=""
+      edaSubFilterLang="" eventType="START"
+      externalizeConditions="false" height="28"
+      isStartStepServiceRequired="true"
+      label="Start cvapplicationDocumnts" labelHeight="-1"
+      labelWidth="-1" logicalServer="Default"
+      outputMessageType="{cvapplicationServices.docs}cvapplicationDocumnts"
+      receiveProtocol="SUBSCRIPTION" receiveType="EMPTY"
+      stepLock="false" uid="S11" useCorrelation="false" width="28"
+      x="114" y="271">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <output name="{ProcessNamespace}cvapplicationDocumnts"/>
+      <extendedProperty name="retries" value="0"/>
+      <extendedProperty name="retryInterval" value="60000"/>
+      <wmExpressionFilter/>
+    </receiveStep>
+    <invokeStep Id="b1b80b90-14d0-4ae4-85ec-4d26fce3dcec"
+      dynamicReferenceProcess="false" externalizeConditions="false"
+      height="60" invokeContainer="cvapplicationServices.services"
+      invokeId="cvapplicationServices.services:validateCV"
+      invokeLocation="" invokeName="validateCV" invokeType="ISSERVICE"
+      isCompensating="false" isTestAfter="false" label="validateCV"
+      labelHeight="-1" labelWidth="-1" logicalServer="Default"
+      loopMaximum="0" loopMaximumField="" retryCount="0"
+      routingRuleSet="" ruleType="WMRULE" stepLock="false" uid="S13"
+      useCorrelation="false" width="93" x="318" y="271">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <input name="{ProcessNamespace}cvapplicationServices.docs:cvapplicationDocumnts"/>
+      <wmExpression/>
+      <output name="{ProcessNamespace}ValidationOutput"/>
+      <output name="{ProcessNamespace}cvapplicationDocumnts"/>
+      <output name="{ProcessNamespace}ProcessData"/>
+      <extendedProperty name="retries" value="0"/>
+      <extendedProperty name="retryInterval" value="60000"/>
+      <timeout calendarAlias="" calendarTime="0:0:0"
+        dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+        dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+        dynamicFieldName="" isCalendarTimeout="false"
+        isStaticTimeout="true" isXPathTimeout="false"
+        pipelineCalendarAlias="" pipelineCalendarDays=""
+        pipelineCalendarHours="" pipelineCalendarMinutes=""
+        timeoutStyle="RELATIVE" timeoutType="stepTimeout"
+        timeoutValue="0" xpathTimeoutValue=""/>
+    </invokeStep>
+    <invokeStep Id="0c915749-6520-40ba-b996-e3f6fbaf222a"
+      dynamicReferenceProcess="false" externalizeConditions="false"
+      height="60" invokeContainer="P/CVVerficationTasks"
+      invokeId="2D20E830-50AB-6E4C-2670-0B3D2342F6D8" invokeLocation=""
+      invokeName="Validaiteand Approve" invokeType="TASK"
+      isCompensating="false" isTestAfter="false"
+      label="ValidaiteandApprove" labelHeight="-1" labelWidth="-1"
+      logicalServer="Default" loopMaximum="0" loopMaximumField=""
+      retryCount="0" routingRuleSet="" ruleType="TASK" stepLock="false"
+      uid="S16" useCorrelation="false" width="93" x="598" y="277">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <input name="{ProcessNamespace}Task1InputEnv"/>
+      <input name="{ProcessNamespace}cvapplicationDocumnts"/>
+      <input name="{ProcessNamespace}ValidaiteandApproveInputEnv"/>
+      <input name="{ProcessNamespace}ProcessData"/>
+      <loggedField fieldAlias="Task1InputEnv" fieldPath=""
+        logicalDataItem="{ProcessNamespace}Task1InputEnv" mode="INPUT"/>
+      <loggedField fieldAlias="name" fieldPath="name"
+        logicalDataItem="{ProcessNamespace}Task1InputEnv" mode="INPUT"/>
+      <loggedField fieldAlias="customTaskID" fieldPath="customTaskID"
+        logicalDataItem="{ProcessNamespace}Task1InputEnv" mode="INPUT"/>
+      <loggedField fieldAlias="assignedToList"
+        fieldPath="assignedToList"
+        logicalDataItem="{ProcessNamespace}Task1InputEnv" mode="INPUT"/>
+      <loggedField fieldAlias="priority" fieldPath="priority"
+        logicalDataItem="{ProcessNamespace}Task1InputEnv" mode="INPUT"/>
+      <loggedField fieldAlias="expireDate" fieldPath="expireDate"
+        logicalDataItem="{ProcessNamespace}Task1InputEnv" mode="INPUT"/>
+      <loggedField fieldAlias="acceptedByList"
+        fieldPath="acceptedByList"
+        logicalDataItem="{ProcessNamespace}Task1InputEnv" mode="INPUT"/>
+      <loggedField fieldAlias="parentTaskID" fieldPath="parentTaskID"
+        logicalDataItem="{ProcessNamespace}Task1InputEnv" mode="INPUT"/>
+      <loggedField fieldAlias="isMandatory" fieldPath="isMandatory"
+        logicalDataItem="{ProcessNamespace}Task1InputEnv" mode="INPUT"/>
+      <loggedField fieldAlias="taskScheduleDate"
+        fieldPath="taskScheduleDate"
+        logicalDataItem="{ProcessNamespace}Task1InputEnv" mode="INPUT"/>
+      <loggedField fieldAlias="cvapplicationDocumnts" fieldPath=""
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="CVData" fieldPath="CVData"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="CVData/name" fieldPath="CVData/name"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="CVData/age" fieldPath="CVData/age"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="CVData/edcation"
+        fieldPath="CVData/edcation"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="CVData/aboutyou"
+        fieldPath="CVData/aboutyou"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="Approvers" fieldPath="Approvers"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="Approvers/ID" fieldPath="Approvers/ID"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="Actions" fieldPath="Actions"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="Actions/Actions"
+        fieldPath="Actions/Actions"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="Actions/actionLists"
+        fieldPath="Actions/actionLists"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env" fieldPath="_env"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/activation"
+        fieldPath="_env/activation"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/appLastSeqn"
+        fieldPath="_env/appLastSeqn"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/appPassword"
+        fieldPath="_env/appPassword"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/appSeqn" fieldPath="_env/appSeqn"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/appUserName"
+        fieldPath="_env/appUserName"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/priority" fieldPath="_env/priority"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/businessContext"
+        fieldPath="_env/businessContext"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/controlLabel"
+        fieldPath="_env/controlLabel"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/errorsTo" fieldPath="_env/errorsTo"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/errorRequestsTo"
+        fieldPath="_env/errorRequestsTo"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/locale" fieldPath="_env/locale"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/maxResults"
+        fieldPath="_env/maxResults"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/replyTo" fieldPath="_env/replyTo"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/runLevel" fieldPath="_env/runLevel"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/signature"
+        fieldPath="_env/signature"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/signatureType"
+        fieldPath="_env/signatureType"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/startResult"
+        fieldPath="_env/startResult"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/tag" fieldPath="_env/tag"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/trackId" fieldPath="_env/trackId"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/transactionId"
+        fieldPath="_env/transactionId"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/transformState"
+        fieldPath="_env/transformState"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/age" fieldPath="_env/age"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/connectionIntegrity"
+        fieldPath="_env/connectionIntegrity"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/destId" fieldPath="_env/destId"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/enqueueTime"
+        fieldPath="_env/enqueueTime"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/logBroker"
+        fieldPath="_env/logBroker"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/logHost" fieldPath="_env/logHost"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/pubDistinguishedName"
+        fieldPath="_env/pubDistinguishedName"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/pubId" fieldPath="_env/pubId"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/pubNetAddr"
+        fieldPath="_env/pubNetAddr"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/pubSeqn" fieldPath="_env/pubSeqn"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/pubLabel" fieldPath="_env/pubLabel"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/recvTime" fieldPath="_env/recvTime"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/route" fieldPath="_env/route"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/route/broker"
+        fieldPath="_env/route/broker"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/route/recvTime"
+        fieldPath="_env/route/recvTime"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/route/enqueueTime"
+        fieldPath="_env/route/enqueueTime"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/uuid" fieldPath="_env/uuid"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="_env/status" fieldPath="_env/status"
+        logicalDataItem="{ProcessNamespace}cvapplicationDocumnts" mode="INPUT"/>
+      <loggedField fieldAlias="ValidaiteandApproveInputEnv" fieldPath=""
+        logicalDataItem="{ProcessNamespace}ValidaiteandApproveInputEnv" mode="INPUT"/>
+      <loggedField fieldAlias="name" fieldPath="name"
+        logicalDataItem="{ProcessNamespace}ValidaiteandApproveInputEnv" mode="INPUT"/>
+      <loggedField fieldAlias="customTaskID" fieldPath="customTaskID"
+        logicalDataItem="{ProcessNamespace}ValidaiteandApproveInputEnv" mode="INPUT"/>
+      <loggedField fieldAlias="assignedToList"
+        fieldPath="assignedToList"
+        logicalDataItem="{ProcessNamespace}ValidaiteandApproveInputEnv" mode="INPUT"/>
+      <loggedField fieldAlias="priority" fieldPath="priority"
+        logicalDataItem="{ProcessNamespace}ValidaiteandApproveInputEnv" mode="INPUT"/>
+      <loggedField fieldAlias="expireDate" fieldPath="expireDate"
+        logicalDataItem="{ProcessNamespace}ValidaiteandApproveInputEnv" mode="INPUT"/>
+      <loggedField fieldAlias="acceptedByList"
+        fieldPath="acceptedByList"
+        logicalDataItem="{ProcessNamespace}ValidaiteandApproveInputEnv" mode="INPUT"/>
+      <loggedField fieldAlias="parentTaskID" fieldPath="parentTaskID"
+        logicalDataItem="{ProcessNamespace}ValidaiteandApproveInputEnv" mode="INPUT"/>
+      <loggedField fieldAlias="isMandatory" fieldPath="isMandatory"
+        logicalDataItem="{ProcessNamespace}ValidaiteandApproveInputEnv" mode="INPUT"/>
+      <loggedField fieldAlias="taskScheduleDate"
+        fieldPath="taskScheduleDate"
+        logicalDataItem="{ProcessNamespace}ValidaiteandApproveInputEnv" mode="INPUT"/>
+      <wmExpression/>
+      <output name="{ProcessNamespace}Task1OutputEnv"/>
+      <output name="{ProcessNamespace}ValidaiteandApproveOutputEnv"/>
+      <extendedProperty name="retries" value="0"/>
+      <extendedProperty name="retryInterval" value="60000"/>
+      <timeout calendarAlias="" calendarTime="0:0:0"
+        dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+        dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+        dynamicFieldName="" isCalendarTimeout="false"
+        isStaticTimeout="true" isXPathTimeout="false"
+        pipelineCalendarAlias="" pipelineCalendarDays=""
+        pipelineCalendarHours="" pipelineCalendarMinutes=""
+        timeoutStyle="RELATIVE" timeoutType="stepTimeout"
+        timeoutValue="0" xpathTimeoutValue=""/>
+      <loggedField fieldAlias="Task1OutputEnv" fieldPath=""
+        logicalDataItem="{ProcessNamespace}Task1OutputEnv" mode="OUTPUT"/>
+      <loggedField fieldAlias="taskID" fieldPath="taskID"
+        logicalDataItem="{ProcessNamespace}Task1OutputEnv" mode="OUTPUT"/>
+      <loggedField fieldAlias="status" fieldPath="status"
+        logicalDataItem="{ProcessNamespace}Task1OutputEnv" mode="OUTPUT"/>
+      <loggedField fieldAlias="lastAcceptedBy"
+        fieldPath="lastAcceptedBy"
+        logicalDataItem="{ProcessNamespace}Task1OutputEnv" mode="OUTPUT"/>
+      <loggedField fieldAlias="assignedToList"
+        fieldPath="assignedToList"
+        logicalDataItem="{ProcessNamespace}Task1OutputEnv" mode="OUTPUT"/>
+      <loggedField fieldAlias="errorCode" fieldPath="errorCode"
+        logicalDataItem="{ProcessNamespace}Task1OutputEnv" mode="OUTPUT"/>
+      <loggedField fieldAlias="errorMessage" fieldPath="errorMessage"
+        logicalDataItem="{ProcessNamespace}Task1OutputEnv" mode="OUTPUT"/>
+      <loggedField fieldAlias="ValidaiteandApproveOutputEnv"
+        fieldPath=""
+        logicalDataItem="{ProcessNamespace}ValidaiteandApproveOutputEnv" mode="OUTPUT"/>
+      <loggedField fieldAlias="taskID" fieldPath="taskID"
+        logicalDataItem="{ProcessNamespace}ValidaiteandApproveOutputEnv" mode="OUTPUT"/>
+      <loggedField fieldAlias="status" fieldPath="status"
+        logicalDataItem="{ProcessNamespace}ValidaiteandApproveOutputEnv" mode="OUTPUT"/>
+      <loggedField fieldAlias="lastAcceptedBy"
+        fieldPath="lastAcceptedBy"
+        logicalDataItem="{ProcessNamespace}ValidaiteandApproveOutputEnv" mode="OUTPUT"/>
+      <loggedField fieldAlias="assignedToList"
+        fieldPath="assignedToList"
+        logicalDataItem="{ProcessNamespace}ValidaiteandApproveOutputEnv" mode="OUTPUT"/>
+      <loggedField fieldAlias="errorCode" fieldPath="errorCode"
+        logicalDataItem="{ProcessNamespace}ValidaiteandApproveOutputEnv" mode="OUTPUT"/>
+      <loggedField fieldAlias="errorMessage" fieldPath="errorMessage"
+        logicalDataItem="{ProcessNamespace}ValidaiteandApproveOutputEnv" mode="OUTPUT"/>
+    </invokeStep>
+    <transition Id="d1557cba-491c-4b9b-bcb6-99563464d2f2" blue="255"
+      conditionDescription="" conditionText="" conditionType="IF"
+      green="0" lineShape="STRAIGHT" red="0" source="S11"
+      sourceLocation="142,285" sourceTerminal="RIGHT" target="S13"
+      targetLocation="318,301" targetTerminal="LEFT" uid="T14">
+      <bendpoint index="0" location="230,285" weight="0.5"/>
+      <bendpoint index="1" location="230,301" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="true" green="196"
+        height="-1" red="255" width="-1" x="-1" y="-1">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression/>
+    </transition>
+    <transition Id="12e03346-1c40-4b17-975c-3e6a906b5e4a" blue="255"
+      conditionDescription="" conditionText="" conditionType="IF"
+      green="0" lineShape="STRAIGHT" red="0" source="S13"
+      sourceLocation="411,301" sourceTerminal="RIGHT" target="S16"
+      targetLocation="598,307" targetTerminal="LEFT" uid="T17">
+      <bendpoint index="0" location="504,301" weight="0.5"/>
+      <bendpoint index="1" location="504,307" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="true" green="196"
+        height="-1" red="255" width="-1" x="-1" y="-1">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression/>
+    </transition>
+    <transition Id="95c902f4-3c0e-4f2b-8ffd-84d637568425" blue="255"
+      conditionDescription="" conditionText="" conditionType="IF"
+      green="0" lineShape="STRAIGHT" red="0" source="S16"
+      sourceLocation="691,307" sourceTerminal="RIGHT" target="S9"
+      targetLocation="782,301" targetTerminal="LEFT" uid="T18">
+      <bendpoint index="0" location="736,307" weight="0.5"/>
+      <bendpoint index="1" location="736,301" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="true" green="196"
+        height="-1" red="255" width="-1" x="-1" y="-1">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression/>
+    </transition>
+    <timeout calendarAlias="" calendarTime="0:0:0"
+      dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+      dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+      dynamicFieldName="" isCalendarTimeout="false"
+      isStaticTimeout="true" isXPathTimeout="false"
+      pipelineCalendarAlias="" pipelineCalendarDays=""
+      pipelineCalendarHours="" pipelineCalendarMinutes=""
+      timeoutStyle="RELATIVE" timeoutType="stepTimeout" timeoutValue="0" xpathTimeoutValue=""/>
+    <wmExpression/>
+  </pool>
+  <documentation/>
+</businessProcessDiagram>

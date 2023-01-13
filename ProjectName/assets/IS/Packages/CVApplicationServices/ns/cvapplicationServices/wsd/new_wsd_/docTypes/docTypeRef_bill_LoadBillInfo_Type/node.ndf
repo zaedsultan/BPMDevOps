@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <record name="record" javaclass="com.wm.util.Values">
+    <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
+    <value name="node_nsName">cvapplicationServices.wsd.new_wsd_.docTypes:docTypeRef_bill_LoadBillInfo_Type</value>
+    <value name="node_pkg">CVApplicationServices</value>
+    <value name="is_public">false</value>
+    <value name="field_type">record</value>
+    <value name="field_dim">0</value>
+    <value name="nillable">true</value>
+    <value name="form_qualified">false</value>
+    <value name="is_global">false</value>
+    <value name="schemaDomain">384e81b833ce4cc19b66393d67d82d35</value>
+    <value name="docTypeDomain">aba3f14668914669860bcc8884d22330</value>
+    <value name="originURI">file://C:\Users\y509163\OneDrive - Software AG\Documents\Sadad_API\Sadad_API\Bill_1.wsdl</value>
+    <array name="rec_fields" type="record" depth="1">
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">bill:BillCategory</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <record name="field_content_type" javaclass="com.wm.util.Values">
+          <value name="contentType">1</value>
+          <value name="internalType">reference</value>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <array name="targetNames" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/domain/Biller/1.0</value>
+              <value name="ncName">BillCategory_Type</value>
+            </record>
+          </array>
+          <value name="schemaDomain">384e81b833ce4cc19b66393d67d82d35</value>
+        </record>
+        <value name="nillable">false</value>
+        <value name="field_xmlns">http://sadad.com/schema/domain/Biller/1.0</value>
+        <value name="form_qualified">true</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">bill:ServiceType</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <record name="field_content_type" javaclass="com.wm.util.Values">
+          <value name="contentType">1</value>
+          <value name="internalType">reference</value>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <array name="targetNames" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/Common/1.0</value>
+              <value name="ncName">ServiceType_Type</value>
+            </record>
+          </array>
+          <value name="schemaDomain">384e81b833ce4cc19b66393d67d82d35</value>
+        </record>
+        <value name="nillable">false</value>
+        <value name="field_xmlns">http://sadad.com/schema/domain/Biller/1.0</value>
+        <value name="form_qualified">true</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">bill:BillCycle</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="field_opt">true</value>
+        <record name="field_content_type" javaclass="com.wm.util.Values">
+          <value name="contentType">1</value>
+          <value name="internalType">reference</value>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <array name="targetNames" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/Common/1.0</value>
+              <value name="ncName">BillCycle_Type</value>
+            </record>
+          </array>
+          <value name="schemaDomain">384e81b833ce4cc19b66393d67d82d35</value>
+        </record>
+        <value name="nillable">false</value>
+        <value name="field_xmlns">http://sadad.com/schema/domain/Biller/1.0</value>
+        <value name="form_qualified">true</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">bill:BillNumber</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="field_opt">true</value>
+        <record name="field_content_type" javaclass="com.wm.util.Values">
+          <value name="contentType">1</value>
+          <value name="internalType">reference</value>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <array name="targetNames" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/Common/1.0</value>
+              <value name="ncName">BillNumber_Type</value>
+            </record>
+          </array>
+          <value name="schemaDomain">384e81b833ce4cc19b66393d67d82d35</value>
+        </record>
+        <value name="nillable">false</value>
+        <value name="field_xmlns">http://sadad.com/schema/domain/Biller/1.0</value>
+        <value name="form_qualified">true</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">bill:BillingAcct</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="field_opt">true</value>
+        <record name="field_content_type" javaclass="com.wm.util.Values">
+          <value name="contentType">1</value>
+          <value name="internalType">reference</value>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <array name="targetNames" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/Common/1.0</value>
+              <value name="ncName">BillingAcct_Type</value>
+            </record>
+          </array>
+          <value name="schemaDomain">384e81b833ce4cc19b66393d67d82d35</value>
+        </record>
+        <value name="nillable">false</value>
+        <value name="field_xmlns">http://sadad.com/schema/domain/Biller/1.0</value>
+        <value name="form_qualified">true</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">bill:BillerId</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <record name="field_content_type" javaclass="com.wm.util.Values">
+          <value name="contentType">1</value>
+          <value name="internalType">reference</value>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <array name="targetNames" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/Common/1.0</value>
+              <value name="ncName">BillerId_Type</value>
+            </record>
+          </array>
+          <value name="schemaDomain">384e81b833ce4cc19b66393d67d82d35</value>
+        </record>
+        <value name="nillable">false</value>
+        <value name="field_xmlns">http://sadad.com/schema/domain/Biller/1.0</value>
+        <value name="form_qualified">true</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">bill:AmountDue</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <record name="field_content_type" javaclass="com.wm.util.Values">
+          <value name="contentType">1</value>
+          <value name="internalType">reference</value>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <array name="targetNames" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/Common/1.0</value>
+              <value name="ncName">Currency_Type</value>
+            </record>
+          </array>
+          <value name="schemaDomain">384e81b833ce4cc19b66393d67d82d35</value>
+        </record>
+        <value name="nillable">false</value>
+        <value name="field_xmlns">http://sadad.com/schema/domain/Biller/1.0</value>
+        <value name="form_qualified">true</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">bill:DueDt</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <record name="field_content_type" javaclass="com.wm.util.Values">
+          <value name="contentType">1</value>
+          <value name="internalType">reference</value>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <array name="targetNames" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/Common/1.0</value>
+              <value name="ncName">Date_Type</value>
+            </record>
+          </array>
+          <value name="schemaDomain">384e81b833ce4cc19b66393d67d82d35</value>
+        </record>
+        <value name="nillable">false</value>
+        <value name="field_xmlns">http://sadad.com/schema/domain/Biller/1.0</value>
+        <value name="form_qualified">true</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">bill:OpenDt</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="field_opt">true</value>
+        <record name="field_content_type" javaclass="com.wm.util.Values">
+          <value name="contentType">1</value>
+          <value name="internalType">reference</value>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <array name="targetNames" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/Common/1.0</value>
+              <value name="ncName">Date_Type</value>
+            </record>
+          </array>
+          <value name="schemaDomain">384e81b833ce4cc19b66393d67d82d35</value>
+        </record>
+        <value name="nillable">false</value>
+        <value name="field_xmlns">http://sadad.com/schema/domain/Biller/1.0</value>
+        <value name="form_qualified">true</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">bill:CloseDt</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="field_opt">true</value>
+        <record name="field_content_type" javaclass="com.wm.util.Values">
+          <value name="contentType">1</value>
+          <value name="internalType">reference</value>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <array name="targetNames" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/Common/1.0</value>
+              <value name="ncName">Date_Type</value>
+            </record>
+          </array>
+          <value name="schemaDomain">384e81b833ce4cc19b66393d67d82d35</value>
+        </record>
+        <value name="nillable">false</value>
+        <value name="field_xmlns">http://sadad.com/schema/domain/Biller/1.0</value>
+        <value name="form_qualified">true</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">bill:ExpDt</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="field_opt">true</value>
+        <record name="field_content_type" javaclass="com.wm.util.Values">
+          <value name="contentType">1</value>
+          <value name="internalType">reference</value>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <array name="targetNames" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/Common/1.0</value>
+              <value name="ncName">Date_Type</value>
+            </record>
+          </array>
+          <value name="schemaDomain">384e81b833ce4cc19b66393d67d82d35</value>
+        </record>
+        <value name="nillable">false</value>
+        <value name="field_xmlns">http://sadad.com/schema/domain/Biller/1.0</value>
+        <value name="form_qualified">true</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">bill:ChkDigit</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="field_opt">true</value>
+        <record name="field_content_type" javaclass="com.wm.util.Values">
+          <value name="contentType">1</value>
+          <value name="internalType">reference</value>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <array name="targetNames" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/Common/1.0</value>
+              <value name="ncName">ChkDigit_Type</value>
+            </record>
+          </array>
+          <value name="schemaDomain">384e81b833ce4cc19b66393d67d82d35</value>
+        </record>
+        <value name="nillable">false</value>
+        <value name="field_xmlns">http://sadad.com/schema/domain/Biller/1.0</value>
+        <value name="form_qualified">true</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">bill:BillRefInfo</value>
+        <value name="field_type">string</value>
+        <value name="field_dim">0</value>
+        <value name="field_opt">true</value>
+        <record name="field_content_type" javaclass="com.wm.util.Values">
+          <value name="contentType">1</value>
+          <value name="internalType">reference</value>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <array name="targetNames" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/domain/Biller/1.0</value>
+              <value name="ncName">BillRefInfo_Type</value>
+            </record>
+          </array>
+          <value name="schemaDomain">384e81b833ce4cc19b66393d67d82d35</value>
+        </record>
+        <value name="nillable">false</value>
+        <value name="field_xmlns">http://sadad.com/schema/domain/Biller/1.0</value>
+        <value name="form_qualified">true</value>
+        <value name="is_global">false</value>
+      </record>
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">bill:BillSummAmt</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">1</value>
+        <value name="field_opt">true</value>
+        <value name="nillable">false</value>
+        <value name="field_xmlns">http://sadad.com/schema/domain/Biller/1.0</value>
+        <value name="form_qualified">true</value>
+        <value name="is_global">false</value>
+        <value name="is_soap_array_encoding_used">false</value>
+        <value name="rec_closed">true</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">cvapplicationServices.wsd.new_wsd_.docTypes:docTypeRef_bill_BillSummAmt_Type</value>
+      </record>
+    </array>
+    <record name="schemaType" javaclass="com.wm.util.Values">
+      <value name="xmlns">http://sadad.com/schema/domain/Biller/1.0</value>
+      <value name="ncName">LoadBillInfo_Type</value>
+    </record>
+    <value name="schemaRegistered">true</value>
+    <value name="modifiable">false</value>
+    <value name="parentWsd">cvapplicationServices.wsd:new_wsd</value>
+  </record>
+</Values>

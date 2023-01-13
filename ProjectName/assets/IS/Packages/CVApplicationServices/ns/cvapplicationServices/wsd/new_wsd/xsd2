@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Copyright SADAD Paymet System, 2007-2013.
+
+Whilst every effort has been made to ensure that the SADAD message standards contained in this document are correct,
+SADAD,SAMA and any other party involved in the creation of the document
+hereby state that the document is provided without warranty, either expressed or implied, of accuracy or fitness for purpose,
+and hereby disclaim any liability, direct or indirect, for damages or loss relating to the use of this document.
+The document may be modified from time to time, subject to developments in technology, changes to the standards,
+or new legal requirements.
+
+
+Your statutory rights are not affected.
+
+SADAD Payment System
+A Saudi Arabian Monetary Agency Company
+email: info@sadad.com
+
+Version Information:
+Version Number     : 1.0
+Date of creation   : July, 2014
+Revision History:--><xs:schema elementFormDefault="unqualified" attributeFormDefault="unqualified" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="C1_Type">
+    <xs:annotation>
+      <xs:documentation>1 character Unicode string</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="C10_Type">
+    <xs:annotation>
+      <xs:documentation>10 character Unicode string</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="10"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="C32_Type">
+    <xs:annotation>
+      <xs:documentation>32 character Unicode string</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="32"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="C40_Type">
+    <xs:annotation>
+      <xs:documentation>40 character Unicode string</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="40"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="C64_Type">
+    <xs:annotation>
+      <xs:documentation>64 character Unicode string</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="64"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="C128_Type">
+    <xs:annotation>
+      <xs:documentation>128 character Unicode string</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="128"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="C255_Type">
+    <xs:annotation>
+      <xs:documentation>255 character Unicode string</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="255"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="C256_Type">
+    <xs:annotation>
+      <xs:documentation>255 character Unicode string</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="256"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="C2048_Type">
+    <xs:annotation>
+      <xs:documentation>255 character Unicode string</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="2048"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="C4096_Type">
+    <xs:annotation>
+      <xs:documentation>4096 character Unicode string</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="4096"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="C2147483647_Type">
+    <xs:annotation>
+      <xs:documentation>2147483647 character Unicode string</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="2147483647"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NC2_Type">
+    <xs:annotation>
+      <xs:documentation>2 character ISO Latin-1 string</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NC3_Type">
+    <xs:annotation>
+      <xs:documentation>3 character ISO Latin-1 string</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="3"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NC4_Type">
+    <xs:annotation>
+      <xs:documentation>4 character ISO Latin-1 string</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NC6_Type">
+    <xs:annotation>
+      <xs:documentation>6 character ISO Latin-1 string</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="6"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NC8_Type">
+    <xs:annotation>
+      <xs:documentation>8 character ISO Latin-1 string</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="8"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NC10_Type">
+    <xs:annotation>
+      <xs:documentation>10 character ISO Latin-1 string</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="10"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NC11_Type">
+    <xs:annotation>
+      <xs:documentation>11 character ISO Latin-1 string</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="11"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NC12_Type">
+    <xs:annotation>
+      <xs:documentation>12 character ISO Latin-1 string</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="12"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NC16_Type">
+    <xs:annotation>
+      <xs:documentation>16 character ISO Latin-1 string</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="16"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NC18_Type">
+    <xs:annotation>
+      <xs:documentation>18 character ISO Latin-1 string</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="18"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NC32_Type">
+    <xs:annotation>
+      <xs:documentation>32 character ISO Latin-1 string</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="32"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NC34_Type">
+    <xs:annotation>
+      <xs:documentation>34 character ISO Latin-1 string</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="34"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NC36_Type">
+    <xs:annotation>
+      <xs:documentation>36 character ISO Latin-1 string</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="36"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NC80_Type">
+    <xs:annotation>
+      <xs:documentation>80 character ISO Latin-1 string</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="80"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Amount_Type">
+    <xs:annotation>
+      <xs:documentation>currency amount</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="LanguagePref_Type">
+    <xs:annotation>
+      <xs:documentation>Two letter country code as defined in RFC-1766</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ar-sa"/>
+      <xs:enumeration value="en-gb"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Date_Type">
+    <xs:annotation>
+      <xs:documentation>Date or DateTime type</xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="xs:dateTime"/>
+  </xs:simpleType>
+  <xs:simpleType name="Identifier_Type">
+    <xs:annotation>
+      <xs:documentation>Object identifier</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="NC36_Type"/>
+  </xs:simpleType>
+  <xs:simpleType name="URL_Type">
+    <xs:annotation>
+      <xs:documentation>Uniform Resource Locator</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:anyURI"/>
+  </xs:simpleType>
+  <xs:simpleType name="UUID_Type">
+    <xs:annotation>
+      <xs:documentation>A UUID is an identifier that is unique across both space and time, with respect to the space of all UUIDs.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value=".{8}-.{4}-.{4}-.{4}-.{12}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CurrencyType_Enums">
+    <xs:annotation>
+      <xs:documentation>currency</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SAR"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Currency_Type">
+    <xs:annotation>
+      <xs:documentation>currency amount</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="Phone_Type">
+    <xs:annotation>
+      <xs:documentation>Saudi mobile phone type</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(00){0,1}(966)(05|5|08|8)[0-9]{8,14}"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

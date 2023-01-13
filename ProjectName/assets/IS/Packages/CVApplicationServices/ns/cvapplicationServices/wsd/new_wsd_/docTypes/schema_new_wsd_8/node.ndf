@@ -1,0 +1,1890 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <record name="schema" javaclass="com.wm.util.Values">
+    <value name="node_type">schema</value>
+    <value name="node_subtype">unknown</value>
+    <value name="node_nsName">cvapplicationServices.wsd.new_wsd_.docTypes:schema_new_wsd_8</value>
+    <value name="node_pkg">CVApplicationServices</value>
+    <value name="is_public">false</value>
+    <value name="contentType">3</value>
+    <value name="targetNamespace">http://sadad.com/schema/definition/Header/1.0</value>
+    <value name="schemaDomain">384e81b833ce4cc19b66393d67d82d35</value>
+    <record name="attributes" javaclass="com.wm.util.Values">
+      <list name="table">
+      </list>
+    </record>
+    <record name="elements" javaclass="com.wm.util.Values">
+      <list name="table">
+        <record javaclass="com.wm.util.Values">
+          <value name="tagType">element</value>
+          <value name="name">MessageHeader</value>
+          <record name="type" javaclass="com.wm.util.Values">
+            <value name="contentType">2</value>
+            <value name="internalType">reference</value>
+            <record name="targetName" javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">MessageHeader_Type</value>
+            </record>
+          </record>
+          <value name="internalType">instance</value>
+          <value name="classname">com.wm.lang.schema.WmElement</value>
+        </record>
+      </list>
+    </record>
+    <record name="types" javaclass="com.wm.util.Values">
+      <list name="table">
+        <record javaclass="com.wm.util.Values">
+          <record name="minLength" javaclass="com.wm.util.Values">
+            <record name="FMinLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">1</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <record name="maxLength" javaclass="com.wm.util.Values">
+            <record name="FMaxLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">80</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <value name="contentType">1</value>
+          <value name="internalType">instance</value>
+          <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+          <value name="name">NC80_Type</value>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anySimpleType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">string</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">NC80_Type</value>
+            </record>
+          </array>
+          <record name="baseType" javaclass="com.wm.util.Values">
+            <record name="whiteSpace" javaclass="com.wm.util.Values">
+              <record name="FacetWSCValue" javaclass="com.wm.util.Values">
+                <value name="cDecimalValue">3</value>
+              </record>
+              <value name="facetFixed">false</value>
+            </record>
+            <value name="contentType">1</value>
+            <value name="internalType">instance</value>
+            <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+            <value name="dataTypeVersion">dtVersion2</value>
+          </record>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <value name="classname">com.wm.lang.schema.datatypev2.WmString</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <value name="contentType">1</value>
+          <value name="internalType">union</value>
+          <value name="name">Date_Type</value>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anySimpleType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyUnion</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">Date_Type</value>
+            </record>
+          </array>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <array name="targetTypes" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="contentType">1</value>
+              <value name="internalType">reference</value>
+              <value name="dataTypeVersion">dtVersion2</value>
+              <array name="targetNames" type="record" depth="1">
+                <record javaclass="com.wm.util.Values">
+                  <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+                  <value name="ncName">dateTime</value>
+                </record>
+              </array>
+            </record>
+          </array>
+          <value name="classname">com.wm.lang.schema.datatypev2.WmUnion</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <record name="minLength" javaclass="com.wm.util.Values">
+            <record name="FMinLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">1</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <record name="maxLength" javaclass="com.wm.util.Values">
+            <record name="FMaxLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">32</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <value name="contentType">1</value>
+          <value name="internalType">instance</value>
+          <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+          <value name="name">C32_Type</value>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anySimpleType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">string</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">C32_Type</value>
+            </record>
+          </array>
+          <record name="baseType" javaclass="com.wm.util.Values">
+            <record name="whiteSpace" javaclass="com.wm.util.Values">
+              <record name="FacetWSCValue" javaclass="com.wm.util.Values">
+                <value name="cDecimalValue">3</value>
+              </record>
+              <value name="facetFixed">false</value>
+            </record>
+            <value name="contentType">1</value>
+            <value name="internalType">instance</value>
+            <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+            <value name="dataTypeVersion">dtVersion2</value>
+          </record>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <value name="classname">com.wm.lang.schema.datatypev2.WmString</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <record name="minLength" javaclass="com.wm.util.Values">
+            <record name="FMinLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">1</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <record name="maxLength" javaclass="com.wm.util.Values">
+            <record name="FMaxLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">6</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <value name="contentType">1</value>
+          <value name="internalType">instance</value>
+          <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+          <value name="name">NC6_Type</value>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anySimpleType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">string</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">NC6_Type</value>
+            </record>
+          </array>
+          <record name="baseType" javaclass="com.wm.util.Values">
+            <record name="whiteSpace" javaclass="com.wm.util.Values">
+              <record name="FacetWSCValue" javaclass="com.wm.util.Values">
+                <value name="cDecimalValue">3</value>
+              </record>
+              <value name="facetFixed">false</value>
+            </record>
+            <value name="contentType">1</value>
+            <value name="internalType">instance</value>
+            <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+            <value name="dataTypeVersion">dtVersion2</value>
+          </record>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <value name="classname">com.wm.lang.schema.datatypev2.WmString</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <record name="minLength" javaclass="com.wm.util.Values">
+            <record name="FMinLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">1</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <record name="maxLength" javaclass="com.wm.util.Values">
+            <record name="FMaxLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">255</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <value name="contentType">1</value>
+          <value name="internalType">instance</value>
+          <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+          <value name="name">C255_Type</value>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anySimpleType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">string</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">C255_Type</value>
+            </record>
+          </array>
+          <record name="baseType" javaclass="com.wm.util.Values">
+            <record name="whiteSpace" javaclass="com.wm.util.Values">
+              <record name="FacetWSCValue" javaclass="com.wm.util.Values">
+                <value name="cDecimalValue">3</value>
+              </record>
+              <value name="facetFixed">false</value>
+            </record>
+            <value name="contentType">1</value>
+            <value name="internalType">instance</value>
+            <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+            <value name="dataTypeVersion">dtVersion2</value>
+          </record>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <value name="classname">com.wm.lang.schema.datatypev2.WmString</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <record name="minLength" javaclass="com.wm.util.Values">
+            <record name="FMinLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">1</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <record name="maxLength" javaclass="com.wm.util.Values">
+            <record name="FMaxLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">36</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <value name="contentType">1</value>
+          <value name="internalType">instance</value>
+          <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+          <value name="name">NC36_Type</value>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anySimpleType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">string</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">NC36_Type</value>
+            </record>
+          </array>
+          <record name="baseType" javaclass="com.wm.util.Values">
+            <record name="whiteSpace" javaclass="com.wm.util.Values">
+              <record name="FacetWSCValue" javaclass="com.wm.util.Values">
+                <value name="cDecimalValue">3</value>
+              </record>
+              <value name="facetFixed">false</value>
+            </record>
+            <value name="contentType">1</value>
+            <value name="internalType">instance</value>
+            <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+            <value name="dataTypeVersion">dtVersion2</value>
+          </record>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <value name="classname">com.wm.lang.schema.datatypev2.WmString</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <record name="minLength" javaclass="com.wm.util.Values">
+            <record name="FMinLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">1</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <record name="maxLength" javaclass="com.wm.util.Values">
+            <record name="FMaxLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">11</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <value name="contentType">1</value>
+          <value name="internalType">instance</value>
+          <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+          <value name="name">NC11_Type</value>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anySimpleType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">string</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">NC11_Type</value>
+            </record>
+          </array>
+          <record name="baseType" javaclass="com.wm.util.Values">
+            <record name="whiteSpace" javaclass="com.wm.util.Values">
+              <record name="FacetWSCValue" javaclass="com.wm.util.Values">
+                <value name="cDecimalValue">3</value>
+              </record>
+              <value name="facetFixed">false</value>
+            </record>
+            <value name="contentType">1</value>
+            <value name="internalType">instance</value>
+            <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+            <value name="dataTypeVersion">dtVersion2</value>
+          </record>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <value name="classname">com.wm.lang.schema.datatypev2.WmString</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <record name="minLength" javaclass="com.wm.util.Values">
+            <record name="FMinLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">1</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <record name="maxLength" javaclass="com.wm.util.Values">
+            <record name="FMaxLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">4096</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <value name="contentType">1</value>
+          <value name="internalType">instance</value>
+          <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+          <value name="name">C4096_Type</value>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anySimpleType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">string</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">C4096_Type</value>
+            </record>
+          </array>
+          <record name="baseType" javaclass="com.wm.util.Values">
+            <record name="whiteSpace" javaclass="com.wm.util.Values">
+              <record name="FacetWSCValue" javaclass="com.wm.util.Values">
+                <value name="cDecimalValue">3</value>
+              </record>
+              <value name="facetFixed">false</value>
+            </record>
+            <value name="contentType">1</value>
+            <value name="internalType">instance</value>
+            <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+            <value name="dataTypeVersion">dtVersion2</value>
+          </record>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <value name="classname">com.wm.lang.schema.datatypev2.WmString</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <record name="minLength" javaclass="com.wm.util.Values">
+            <record name="FMinLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">1</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <record name="maxLength" javaclass="com.wm.util.Values">
+            <record name="FMaxLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">256</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <value name="contentType">1</value>
+          <value name="internalType">instance</value>
+          <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+          <value name="name">C256_Type</value>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anySimpleType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">string</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">C256_Type</value>
+            </record>
+          </array>
+          <record name="baseType" javaclass="com.wm.util.Values">
+            <record name="whiteSpace" javaclass="com.wm.util.Values">
+              <record name="FacetWSCValue" javaclass="com.wm.util.Values">
+                <value name="cDecimalValue">3</value>
+              </record>
+              <value name="facetFixed">false</value>
+            </record>
+            <value name="contentType">1</value>
+            <value name="internalType">instance</value>
+            <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+            <value name="dataTypeVersion">dtVersion2</value>
+          </record>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <value name="classname">com.wm.lang.schema.datatypev2.WmString</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <record name="minLength" javaclass="com.wm.util.Values">
+            <record name="FMinLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">1</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <record name="maxLength" javaclass="com.wm.util.Values">
+            <record name="FMaxLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">12</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <value name="contentType">1</value>
+          <value name="internalType">instance</value>
+          <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+          <value name="name">NC12_Type</value>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anySimpleType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">string</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">NC12_Type</value>
+            </record>
+          </array>
+          <record name="baseType" javaclass="com.wm.util.Values">
+            <record name="whiteSpace" javaclass="com.wm.util.Values">
+              <record name="FacetWSCValue" javaclass="com.wm.util.Values">
+                <value name="cDecimalValue">3</value>
+              </record>
+              <value name="facetFixed">false</value>
+            </record>
+            <value name="contentType">1</value>
+            <value name="internalType">instance</value>
+            <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+            <value name="dataTypeVersion">dtVersion2</value>
+          </record>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <value name="classname">com.wm.lang.schema.datatypev2.WmString</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <record name="pattern" javaclass="com.wm.util.Values">
+            <array name="pattern" type="value" depth="1">
+              <value>.{8}-.{4}-.{4}-.{4}-.{12}</value>
+            </array>
+          </record>
+          <value name="contentType">1</value>
+          <value name="internalType">instance</value>
+          <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+          <value name="name">UUID_Type</value>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anySimpleType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">string</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">UUID_Type</value>
+            </record>
+          </array>
+          <record name="baseType" javaclass="com.wm.util.Values">
+            <record name="whiteSpace" javaclass="com.wm.util.Values">
+              <record name="FacetWSCValue" javaclass="com.wm.util.Values">
+                <value name="cDecimalValue">3</value>
+              </record>
+              <value name="facetFixed">false</value>
+            </record>
+            <value name="contentType">1</value>
+            <value name="internalType">instance</value>
+            <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+            <value name="dataTypeVersion">dtVersion2</value>
+          </record>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <value name="classname">com.wm.lang.schema.datatypev2.WmString</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <record name="minLength" javaclass="com.wm.util.Values">
+            <record name="FMinLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">1</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <record name="maxLength" javaclass="com.wm.util.Values">
+            <record name="FMaxLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">8</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <value name="contentType">1</value>
+          <value name="internalType">instance</value>
+          <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+          <value name="name">NC8_Type</value>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anySimpleType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">string</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">NC8_Type</value>
+            </record>
+          </array>
+          <record name="baseType" javaclass="com.wm.util.Values">
+            <record name="whiteSpace" javaclass="com.wm.util.Values">
+              <record name="FacetWSCValue" javaclass="com.wm.util.Values">
+                <value name="cDecimalValue">3</value>
+              </record>
+              <value name="facetFixed">false</value>
+            </record>
+            <value name="contentType">1</value>
+            <value name="internalType">instance</value>
+            <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+            <value name="dataTypeVersion">dtVersion2</value>
+          </record>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <value name="classname">com.wm.lang.schema.datatypev2.WmString</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <array name="enumeration" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="primitiveType">0</value>
+              <value name="lexRep">ar-sa</value>
+              <value name="isList">false</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="primitiveType">0</value>
+              <value name="lexRep">en-gb</value>
+              <value name="isList">false</value>
+            </record>
+          </array>
+          <value name="contentType">1</value>
+          <value name="internalType">instance</value>
+          <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+          <value name="name">LanguagePref_Type</value>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anySimpleType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">string</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">LanguagePref_Type</value>
+            </record>
+          </array>
+          <record name="baseType" javaclass="com.wm.util.Values">
+            <record name="whiteSpace" javaclass="com.wm.util.Values">
+              <record name="FacetWSCValue" javaclass="com.wm.util.Values">
+                <value name="cDecimalValue">3</value>
+              </record>
+              <value name="facetFixed">false</value>
+            </record>
+            <value name="contentType">1</value>
+            <value name="internalType">instance</value>
+            <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+            <value name="dataTypeVersion">dtVersion2</value>
+          </record>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <value name="classname">com.wm.lang.schema.datatypev2.WmString</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <array name="enumeration" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="primitiveType">0</value>
+              <value name="lexRep">SAR</value>
+              <value name="isList">false</value>
+            </record>
+          </array>
+          <value name="contentType">1</value>
+          <value name="internalType">instance</value>
+          <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+          <value name="name">CurrencyType_Enums</value>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anySimpleType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">string</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">CurrencyType_Enums</value>
+            </record>
+          </array>
+          <record name="baseType" javaclass="com.wm.util.Values">
+            <record name="whiteSpace" javaclass="com.wm.util.Values">
+              <record name="FacetWSCValue" javaclass="com.wm.util.Values">
+                <value name="cDecimalValue">3</value>
+              </record>
+              <value name="facetFixed">false</value>
+            </record>
+            <value name="contentType">1</value>
+            <value name="internalType">instance</value>
+            <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+            <value name="dataTypeVersion">dtVersion2</value>
+          </record>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <value name="classname">com.wm.lang.schema.datatypev2.WmString</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <value name="contentType">1</value>
+          <value name="internalType">instance</value>
+          <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+          <value name="name">Identifier_Type</value>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anySimpleType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">string</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">NC36_Type</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">Identifier_Type</value>
+            </record>
+          </array>
+          <record name="baseType" javaclass="com.wm.util.Values">
+            <record name="minLength" javaclass="com.wm.util.Values">
+              <record name="FMinLenCValue" javaclass="com.wm.util.Values">
+                <value name="cDecimalValue">1</value>
+              </record>
+              <value name="facetFixed">false</value>
+            </record>
+            <record name="maxLength" javaclass="com.wm.util.Values">
+              <record name="FMaxLenCValue" javaclass="com.wm.util.Values">
+                <value name="cDecimalValue">36</value>
+              </record>
+              <value name="facetFixed">false</value>
+            </record>
+            <record name="whiteSpace" javaclass="com.wm.util.Values">
+              <record name="FacetWSCValue" javaclass="com.wm.util.Values">
+                <value name="cDecimalValue">3</value>
+              </record>
+              <value name="facetFixed">false</value>
+            </record>
+            <value name="contentType">1</value>
+            <value name="internalType">instance</value>
+            <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+            <value name="dataTypeVersion">dtVersion2</value>
+          </record>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <value name="classname">com.wm.lang.schema.datatypev2.WmString</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <record name="pattern" javaclass="com.wm.util.Values">
+            <array name="pattern" type="value" depth="1">
+              <value>(00){0,1}(966)(05|5|08|8)[0-9]{8,14}</value>
+            </array>
+          </record>
+          <value name="contentType">1</value>
+          <value name="internalType">instance</value>
+          <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+          <value name="name">Phone_Type</value>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anySimpleType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">string</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">Phone_Type</value>
+            </record>
+          </array>
+          <record name="baseType" javaclass="com.wm.util.Values">
+            <record name="whiteSpace" javaclass="com.wm.util.Values">
+              <record name="FacetWSCValue" javaclass="com.wm.util.Values">
+                <value name="cDecimalValue">3</value>
+              </record>
+              <value name="facetFixed">false</value>
+            </record>
+            <value name="contentType">1</value>
+            <value name="internalType">instance</value>
+            <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+            <value name="dataTypeVersion">dtVersion2</value>
+          </record>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <value name="classname">com.wm.lang.schema.datatypev2.WmString</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <record name="minLength" javaclass="com.wm.util.Values">
+            <record name="FMinLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">1</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <record name="maxLength" javaclass="com.wm.util.Values">
+            <record name="FMaxLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">10</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <value name="contentType">1</value>
+          <value name="internalType">instance</value>
+          <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+          <value name="name">C10_Type</value>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anySimpleType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">string</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">C10_Type</value>
+            </record>
+          </array>
+          <record name="baseType" javaclass="com.wm.util.Values">
+            <record name="whiteSpace" javaclass="com.wm.util.Values">
+              <record name="FacetWSCValue" javaclass="com.wm.util.Values">
+                <value name="cDecimalValue">3</value>
+              </record>
+              <value name="facetFixed">false</value>
+            </record>
+            <value name="contentType">1</value>
+            <value name="internalType">instance</value>
+            <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+            <value name="dataTypeVersion">dtVersion2</value>
+          </record>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <value name="classname">com.wm.lang.schema.datatypev2.WmString</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <record name="fractionDigits" javaclass="com.wm.util.Values">
+            <record name="FacetFDCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">2</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <value name="contentType">1</value>
+          <value name="internalType">instance</value>
+          <value name="ct_class">com.wm.lang.schema.datatypev2.WmDecimal</value>
+          <value name="name">Amount_Type</value>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anySimpleType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">decimal</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">Amount_Type</value>
+            </record>
+          </array>
+          <record name="baseType" javaclass="com.wm.util.Values">
+            <record name="whiteSpace" javaclass="com.wm.util.Values">
+              <record name="FacetWSCValue" javaclass="com.wm.util.Values">
+                <value name="cDecimalValue">1</value>
+              </record>
+              <value name="facetFixed">true</value>
+            </record>
+            <value name="contentType">1</value>
+            <value name="internalType">instance</value>
+            <value name="ct_class">com.wm.lang.schema.datatypev2.WmDecimal</value>
+            <value name="dataTypeVersion">dtVersion2</value>
+          </record>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <value name="classname">com.wm.lang.schema.datatypev2.WmDecimal</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <value name="contentType">2</value>
+          <value name="internalType">instance</value>
+          <value name="name">MessageHeader_Type</value>
+          <list name="elements">
+            <record javaclass="com.wm.util.Values">
+              <value name="tagType">element</value>
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="name">ServiceInitiatorKey</value>
+              <record name="type" javaclass="com.wm.util.Values">
+                <value name="contentType">1</value>
+                <value name="internalType">reference</value>
+                <value name="dataTypeVersion">dtVersion2</value>
+                <array name="targetNames" type="record" depth="1">
+                  <record javaclass="com.wm.util.Values">
+                    <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+                    <value name="ncName">Identifier_Type</value>
+                  </record>
+                </array>
+              </record>
+              <value name="form">true</value>
+              <value name="internalType">instance</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="tagType">element</value>
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="name">ServiceProviderKey</value>
+              <record name="type" javaclass="com.wm.util.Values">
+                <value name="contentType">1</value>
+                <value name="internalType">reference</value>
+                <value name="dataTypeVersion">dtVersion2</value>
+                <array name="targetNames" type="record" depth="1">
+                  <record javaclass="com.wm.util.Values">
+                    <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+                    <value name="ncName">Identifier_Type</value>
+                  </record>
+                </array>
+              </record>
+              <value name="form">true</value>
+              <value name="internalType">instance</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="tagType">element</value>
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="name">ServiceConsumerId</value>
+              <record name="type" javaclass="com.wm.util.Values">
+                <value name="contentType">1</value>
+                <value name="internalType">reference</value>
+                <value name="dataTypeVersion">dtVersion2</value>
+                <array name="targetNames" type="record" depth="1">
+                  <record javaclass="com.wm.util.Values">
+                    <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+                    <value name="ncName">C255_Type</value>
+                  </record>
+                </array>
+              </record>
+              <value name="form">true</value>
+              <value name="internalType">instance</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="tagType">element</value>
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="name">RqUID</value>
+              <record name="type" javaclass="com.wm.util.Values">
+                <value name="contentType">1</value>
+                <value name="internalType">reference</value>
+                <value name="dataTypeVersion">dtVersion2</value>
+                <array name="targetNames" type="record" depth="1">
+                  <record javaclass="com.wm.util.Values">
+                    <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+                    <value name="ncName">UUID_Type</value>
+                  </record>
+                </array>
+              </record>
+              <value name="form">true</value>
+              <value name="internalType">instance</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="tagType">element</value>
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="name">Date</value>
+              <record name="type" javaclass="com.wm.util.Values">
+                <value name="contentType">1</value>
+                <value name="internalType">reference</value>
+                <value name="dataTypeVersion">dtVersion2</value>
+                <array name="targetNames" type="record" depth="1">
+                  <record javaclass="com.wm.util.Values">
+                    <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+                    <value name="ncName">Date_Type</value>
+                  </record>
+                </array>
+              </record>
+              <value name="form">true</value>
+              <value name="internalType">instance</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="tagType">element</value>
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="name">Lang</value>
+              <record name="type" javaclass="com.wm.util.Values">
+                <value name="contentType">1</value>
+                <value name="internalType">reference</value>
+                <value name="dataTypeVersion">dtVersion2</value>
+                <array name="targetNames" type="record" depth="1">
+                  <record javaclass="com.wm.util.Values">
+                    <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+                    <value name="ncName">LanguagePref_Type</value>
+                  </record>
+                </array>
+              </record>
+              <value name="form">true</value>
+              <value name="internalType">instance</value>
+            </record>
+          </list>
+          <list name="attributes">
+          </list>
+          <record name="contentModel" javaclass="com.wm.util.Values">
+            <record name="symbol" javaclass="com.wm.util.Values">
+              <value name="ncName">$$SEQUENCE</value>
+            </record>
+            <value name="minOccurs">1</value>
+            <value name="maxOccurs">1</value>
+            <value name="modelType">sequence</value>
+            <list name="children">
+              <record javaclass="com.wm.util.Values">
+                <record name="symbol" javaclass="com.wm.util.Values">
+                  <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+                  <value name="ncName">ServiceInitiatorKey</value>
+                </record>
+                <value name="minOccurs">1</value>
+                <value name="maxOccurs">1</value>
+                <value name="modelType">simple</value>
+              </record>
+              <record javaclass="com.wm.util.Values">
+                <record name="symbol" javaclass="com.wm.util.Values">
+                  <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+                  <value name="ncName">ServiceProviderKey</value>
+                </record>
+                <value name="minOccurs">1</value>
+                <value name="maxOccurs">1</value>
+                <value name="modelType">simple</value>
+              </record>
+              <record javaclass="com.wm.util.Values">
+                <record name="symbol" javaclass="com.wm.util.Values">
+                  <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+                  <value name="ncName">ServiceConsumerId</value>
+                </record>
+                <value name="minOccurs">1</value>
+                <value name="maxOccurs">1</value>
+                <value name="modelType">simple</value>
+              </record>
+              <record javaclass="com.wm.util.Values">
+                <record name="symbol" javaclass="com.wm.util.Values">
+                  <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+                  <value name="ncName">RqUID</value>
+                </record>
+                <value name="minOccurs">1</value>
+                <value name="maxOccurs">1</value>
+                <value name="modelType">simple</value>
+              </record>
+              <record javaclass="com.wm.util.Values">
+                <record name="symbol" javaclass="com.wm.util.Values">
+                  <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+                  <value name="ncName">Date</value>
+                </record>
+                <value name="minOccurs">1</value>
+                <value name="maxOccurs">1</value>
+                <value name="modelType">simple</value>
+              </record>
+              <record javaclass="com.wm.util.Values">
+                <record name="symbol" javaclass="com.wm.util.Values">
+                  <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+                  <value name="ncName">Lang</value>
+                </record>
+                <value name="minOccurs">1</value>
+                <value name="maxOccurs">1</value>
+                <value name="modelType">simple</value>
+              </record>
+            </list>
+          </record>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">MessageHeader_Type</value>
+            </record>
+          </array>
+          <value name="classname">com.wm.lang.schema.WmComplexType</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <record name="minLength" javaclass="com.wm.util.Values">
+            <record name="FMinLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">1</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <record name="maxLength" javaclass="com.wm.util.Values">
+            <record name="FMaxLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">2</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <value name="contentType">1</value>
+          <value name="internalType">instance</value>
+          <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+          <value name="name">NC2_Type</value>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anySimpleType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">string</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">NC2_Type</value>
+            </record>
+          </array>
+          <record name="baseType" javaclass="com.wm.util.Values">
+            <record name="whiteSpace" javaclass="com.wm.util.Values">
+              <record name="FacetWSCValue" javaclass="com.wm.util.Values">
+                <value name="cDecimalValue">3</value>
+              </record>
+              <value name="facetFixed">false</value>
+            </record>
+            <value name="contentType">1</value>
+            <value name="internalType">instance</value>
+            <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+            <value name="dataTypeVersion">dtVersion2</value>
+          </record>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <value name="classname">com.wm.lang.schema.datatypev2.WmString</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <record name="minLength" javaclass="com.wm.util.Values">
+            <record name="FMinLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">1</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <record name="maxLength" javaclass="com.wm.util.Values">
+            <record name="FMaxLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">32</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <value name="contentType">1</value>
+          <value name="internalType">instance</value>
+          <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+          <value name="name">NC32_Type</value>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anySimpleType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">string</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">NC32_Type</value>
+            </record>
+          </array>
+          <record name="baseType" javaclass="com.wm.util.Values">
+            <record name="whiteSpace" javaclass="com.wm.util.Values">
+              <record name="FacetWSCValue" javaclass="com.wm.util.Values">
+                <value name="cDecimalValue">3</value>
+              </record>
+              <value name="facetFixed">false</value>
+            </record>
+            <value name="contentType">1</value>
+            <value name="internalType">instance</value>
+            <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+            <value name="dataTypeVersion">dtVersion2</value>
+          </record>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <value name="classname">com.wm.lang.schema.datatypev2.WmString</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <record name="minLength" javaclass="com.wm.util.Values">
+            <record name="FMinLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">1</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <record name="maxLength" javaclass="com.wm.util.Values">
+            <record name="FMaxLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">64</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <value name="contentType">1</value>
+          <value name="internalType">instance</value>
+          <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+          <value name="name">C64_Type</value>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anySimpleType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">string</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">C64_Type</value>
+            </record>
+          </array>
+          <record name="baseType" javaclass="com.wm.util.Values">
+            <record name="whiteSpace" javaclass="com.wm.util.Values">
+              <record name="FacetWSCValue" javaclass="com.wm.util.Values">
+                <value name="cDecimalValue">3</value>
+              </record>
+              <value name="facetFixed">false</value>
+            </record>
+            <value name="contentType">1</value>
+            <value name="internalType">instance</value>
+            <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+            <value name="dataTypeVersion">dtVersion2</value>
+          </record>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <value name="classname">com.wm.lang.schema.datatypev2.WmString</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <record name="minLength" javaclass="com.wm.util.Values">
+            <record name="FMinLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">1</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <record name="maxLength" javaclass="com.wm.util.Values">
+            <record name="FMaxLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">128</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <value name="contentType">1</value>
+          <value name="internalType">instance</value>
+          <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+          <value name="name">C128_Type</value>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anySimpleType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">string</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">C128_Type</value>
+            </record>
+          </array>
+          <record name="baseType" javaclass="com.wm.util.Values">
+            <record name="whiteSpace" javaclass="com.wm.util.Values">
+              <record name="FacetWSCValue" javaclass="com.wm.util.Values">
+                <value name="cDecimalValue">3</value>
+              </record>
+              <value name="facetFixed">false</value>
+            </record>
+            <value name="contentType">1</value>
+            <value name="internalType">instance</value>
+            <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+            <value name="dataTypeVersion">dtVersion2</value>
+          </record>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <value name="classname">com.wm.lang.schema.datatypev2.WmString</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <record name="minLength" javaclass="com.wm.util.Values">
+            <record name="FMinLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">1</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <record name="maxLength" javaclass="com.wm.util.Values">
+            <record name="FMaxLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">3</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <value name="contentType">1</value>
+          <value name="internalType">instance</value>
+          <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+          <value name="name">NC3_Type</value>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anySimpleType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">string</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">NC3_Type</value>
+            </record>
+          </array>
+          <record name="baseType" javaclass="com.wm.util.Values">
+            <record name="whiteSpace" javaclass="com.wm.util.Values">
+              <record name="FacetWSCValue" javaclass="com.wm.util.Values">
+                <value name="cDecimalValue">3</value>
+              </record>
+              <value name="facetFixed">false</value>
+            </record>
+            <value name="contentType">1</value>
+            <value name="internalType">instance</value>
+            <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+            <value name="dataTypeVersion">dtVersion2</value>
+          </record>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <value name="classname">com.wm.lang.schema.datatypev2.WmString</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <record name="minLength" javaclass="com.wm.util.Values">
+            <record name="FMinLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">1</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <record name="maxLength" javaclass="com.wm.util.Values">
+            <record name="FMaxLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">2048</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <value name="contentType">1</value>
+          <value name="internalType">instance</value>
+          <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+          <value name="name">C2048_Type</value>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anySimpleType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">string</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">C2048_Type</value>
+            </record>
+          </array>
+          <record name="baseType" javaclass="com.wm.util.Values">
+            <record name="whiteSpace" javaclass="com.wm.util.Values">
+              <record name="FacetWSCValue" javaclass="com.wm.util.Values">
+                <value name="cDecimalValue">3</value>
+              </record>
+              <value name="facetFixed">false</value>
+            </record>
+            <value name="contentType">1</value>
+            <value name="internalType">instance</value>
+            <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+            <value name="dataTypeVersion">dtVersion2</value>
+          </record>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <value name="classname">com.wm.lang.schema.datatypev2.WmString</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <record name="minLength" javaclass="com.wm.util.Values">
+            <record name="FMinLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">1</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <record name="maxLength" javaclass="com.wm.util.Values">
+            <record name="FMaxLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">16</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <value name="contentType">1</value>
+          <value name="internalType">instance</value>
+          <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+          <value name="name">NC16_Type</value>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anySimpleType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">string</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">NC16_Type</value>
+            </record>
+          </array>
+          <record name="baseType" javaclass="com.wm.util.Values">
+            <record name="whiteSpace" javaclass="com.wm.util.Values">
+              <record name="FacetWSCValue" javaclass="com.wm.util.Values">
+                <value name="cDecimalValue">3</value>
+              </record>
+              <value name="facetFixed">false</value>
+            </record>
+            <value name="contentType">1</value>
+            <value name="internalType">instance</value>
+            <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+            <value name="dataTypeVersion">dtVersion2</value>
+          </record>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <value name="classname">com.wm.lang.schema.datatypev2.WmString</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <record name="minLength" javaclass="com.wm.util.Values">
+            <record name="FMinLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">1</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <record name="maxLength" javaclass="com.wm.util.Values">
+            <record name="FMaxLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">40</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <value name="contentType">1</value>
+          <value name="internalType">instance</value>
+          <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+          <value name="name">C40_Type</value>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anySimpleType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">string</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">C40_Type</value>
+            </record>
+          </array>
+          <record name="baseType" javaclass="com.wm.util.Values">
+            <record name="whiteSpace" javaclass="com.wm.util.Values">
+              <record name="FacetWSCValue" javaclass="com.wm.util.Values">
+                <value name="cDecimalValue">3</value>
+              </record>
+              <value name="facetFixed">false</value>
+            </record>
+            <value name="contentType">1</value>
+            <value name="internalType">instance</value>
+            <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+            <value name="dataTypeVersion">dtVersion2</value>
+          </record>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <value name="classname">com.wm.lang.schema.datatypev2.WmString</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <record name="minLength" javaclass="com.wm.util.Values">
+            <record name="FMinLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">1</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <record name="maxLength" javaclass="com.wm.util.Values">
+            <record name="FMaxLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">4</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <value name="contentType">1</value>
+          <value name="internalType">instance</value>
+          <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+          <value name="name">NC4_Type</value>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anySimpleType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">string</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">NC4_Type</value>
+            </record>
+          </array>
+          <record name="baseType" javaclass="com.wm.util.Values">
+            <record name="whiteSpace" javaclass="com.wm.util.Values">
+              <record name="FacetWSCValue" javaclass="com.wm.util.Values">
+                <value name="cDecimalValue">3</value>
+              </record>
+              <value name="facetFixed">false</value>
+            </record>
+            <value name="contentType">1</value>
+            <value name="internalType">instance</value>
+            <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+            <value name="dataTypeVersion">dtVersion2</value>
+          </record>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <value name="classname">com.wm.lang.schema.datatypev2.WmString</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <record name="minLength" javaclass="com.wm.util.Values">
+            <record name="FMinLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">1</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <record name="maxLength" javaclass="com.wm.util.Values">
+            <record name="FMaxLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">2147483647</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <value name="contentType">1</value>
+          <value name="internalType">instance</value>
+          <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+          <value name="name">C2147483647_Type</value>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anySimpleType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">string</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">C2147483647_Type</value>
+            </record>
+          </array>
+          <record name="baseType" javaclass="com.wm.util.Values">
+            <record name="whiteSpace" javaclass="com.wm.util.Values">
+              <record name="FacetWSCValue" javaclass="com.wm.util.Values">
+                <value name="cDecimalValue">3</value>
+              </record>
+              <value name="facetFixed">false</value>
+            </record>
+            <value name="contentType">1</value>
+            <value name="internalType">instance</value>
+            <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+            <value name="dataTypeVersion">dtVersion2</value>
+          </record>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <value name="classname">com.wm.lang.schema.datatypev2.WmString</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <record name="minLength" javaclass="com.wm.util.Values">
+            <record name="FMinLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">1</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <record name="maxLength" javaclass="com.wm.util.Values">
+            <record name="FMaxLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">34</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <value name="contentType">1</value>
+          <value name="internalType">instance</value>
+          <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+          <value name="name">NC34_Type</value>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anySimpleType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">string</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">NC34_Type</value>
+            </record>
+          </array>
+          <record name="baseType" javaclass="com.wm.util.Values">
+            <record name="whiteSpace" javaclass="com.wm.util.Values">
+              <record name="FacetWSCValue" javaclass="com.wm.util.Values">
+                <value name="cDecimalValue">3</value>
+              </record>
+              <value name="facetFixed">false</value>
+            </record>
+            <value name="contentType">1</value>
+            <value name="internalType">instance</value>
+            <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+            <value name="dataTypeVersion">dtVersion2</value>
+          </record>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <value name="classname">com.wm.lang.schema.datatypev2.WmString</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <value name="contentType">1</value>
+          <value name="internalType">instance</value>
+          <value name="ct_class">com.wm.lang.schema.datatypev2.WmAnyUri</value>
+          <value name="name">URL_Type</value>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anySimpleType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyURI</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">URL_Type</value>
+            </record>
+          </array>
+          <record name="baseType" javaclass="com.wm.util.Values">
+            <record name="whiteSpace" javaclass="com.wm.util.Values">
+              <record name="FacetWSCValue" javaclass="com.wm.util.Values">
+                <value name="cDecimalValue">1</value>
+              </record>
+              <value name="facetFixed">true</value>
+            </record>
+            <value name="contentType">1</value>
+            <value name="internalType">instance</value>
+            <value name="ct_class">com.wm.lang.schema.datatypev2.WmAnyUri</value>
+            <value name="dataTypeVersion">dtVersion2</value>
+          </record>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <value name="classname">com.wm.lang.schema.datatypev2.WmAnyUri</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <record name="minLength" javaclass="com.wm.util.Values">
+            <record name="FMinLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">1</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <record name="maxLength" javaclass="com.wm.util.Values">
+            <record name="FMaxLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">1</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <value name="contentType">1</value>
+          <value name="internalType">instance</value>
+          <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+          <value name="name">C1_Type</value>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anySimpleType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">string</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">C1_Type</value>
+            </record>
+          </array>
+          <record name="baseType" javaclass="com.wm.util.Values">
+            <record name="whiteSpace" javaclass="com.wm.util.Values">
+              <record name="FacetWSCValue" javaclass="com.wm.util.Values">
+                <value name="cDecimalValue">3</value>
+              </record>
+              <value name="facetFixed">false</value>
+            </record>
+            <value name="contentType">1</value>
+            <value name="internalType">instance</value>
+            <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+            <value name="dataTypeVersion">dtVersion2</value>
+          </record>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <value name="classname">com.wm.lang.schema.datatypev2.WmString</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <value name="contentType">1</value>
+          <value name="internalType">instance</value>
+          <value name="ct_class">com.wm.lang.schema.datatypev2.WmDecimal</value>
+          <value name="name">Currency_Type</value>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anySimpleType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">decimal</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">Currency_Type</value>
+            </record>
+          </array>
+          <record name="baseType" javaclass="com.wm.util.Values">
+            <record name="whiteSpace" javaclass="com.wm.util.Values">
+              <record name="FacetWSCValue" javaclass="com.wm.util.Values">
+                <value name="cDecimalValue">1</value>
+              </record>
+              <value name="facetFixed">true</value>
+            </record>
+            <value name="contentType">1</value>
+            <value name="internalType">instance</value>
+            <value name="ct_class">com.wm.lang.schema.datatypev2.WmDecimal</value>
+            <value name="dataTypeVersion">dtVersion2</value>
+          </record>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <value name="classname">com.wm.lang.schema.datatypev2.WmDecimal</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <record name="minLength" javaclass="com.wm.util.Values">
+            <record name="FMinLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">1</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <record name="maxLength" javaclass="com.wm.util.Values">
+            <record name="FMaxLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">10</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <value name="contentType">1</value>
+          <value name="internalType">instance</value>
+          <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+          <value name="name">NC10_Type</value>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anySimpleType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">string</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">NC10_Type</value>
+            </record>
+          </array>
+          <record name="baseType" javaclass="com.wm.util.Values">
+            <record name="whiteSpace" javaclass="com.wm.util.Values">
+              <record name="FacetWSCValue" javaclass="com.wm.util.Values">
+                <value name="cDecimalValue">3</value>
+              </record>
+              <value name="facetFixed">false</value>
+            </record>
+            <value name="contentType">1</value>
+            <value name="internalType">instance</value>
+            <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+            <value name="dataTypeVersion">dtVersion2</value>
+          </record>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <value name="classname">com.wm.lang.schema.datatypev2.WmString</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <record name="minLength" javaclass="com.wm.util.Values">
+            <record name="FMinLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">1</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <record name="maxLength" javaclass="com.wm.util.Values">
+            <record name="FMaxLenCValue" javaclass="com.wm.util.Values">
+              <value name="cDecimalValue">18</value>
+            </record>
+            <value name="facetFixed">false</value>
+          </record>
+          <value name="contentType">1</value>
+          <value name="internalType">instance</value>
+          <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+          <value name="name">NC18_Type</value>
+          <array name="parent-ancestors" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anySimpleType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">anyType</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://www.w3.org/2001/XMLSchema</value>
+              <value name="ncName">string</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="xmlns">http://sadad.com/schema/definition/Header/1.0</value>
+              <value name="ncName">NC18_Type</value>
+            </record>
+          </array>
+          <record name="baseType" javaclass="com.wm.util.Values">
+            <record name="whiteSpace" javaclass="com.wm.util.Values">
+              <record name="FacetWSCValue" javaclass="com.wm.util.Values">
+                <value name="cDecimalValue">3</value>
+              </record>
+              <value name="facetFixed">false</value>
+            </record>
+            <value name="contentType">1</value>
+            <value name="internalType">instance</value>
+            <value name="ct_class">com.wm.lang.schema.datatypev2.WmString</value>
+            <value name="dataTypeVersion">dtVersion2</value>
+          </record>
+          <value name="dataTypeVersion">dtVersion2</value>
+          <value name="classname">com.wm.lang.schema.datatypev2.WmString</value>
+        </record>
+      </list>
+    </record>
+    <record name="uriReferencePrefixPairs" javaclass="com.wm.util.Values">
+      <value name="http://www.w3.org/1999/XMLSchema">ns</value>
+      <value name="http://sadad.com/schema/domain/Payment/1.0">pmt</value>
+      <value name="http://schemas.xmlsoap.org/soap/encoding/">wmns1</value>
+      <value name="http://sadad.com/schema/Common/1.0">com</value>
+      <value name="http://sadad.com/schema/definition/Header/1.0">ns4</value>
+      <value name="http://sadad.com/schema/definition/MOI/1.0">moi</value>
+      <value name="http://sadad.com/wsdl/Bill/1.0">ns1</value>
+      <value name="http://sadad.com/schema/domain/Biller/1.0">bill</value>
+      <value name="http://sadad.com/schema/service/Bill/1.0">ns2</value>
+      <value name="http://www.w3.org/2001/XMLSchema">xs</value>
+      <value name="http://sadad.com/schema/error/Bill/1.0">ns3</value>
+    </record>
+    <value name="originURI">file://C:\Users\y509163\OneDrive - Software AG\Documents\Sadad_API\Sadad_API\Bill_1.wsdl</value>
+    <value name="modifiable">false</value>
+  </record>
+</Values>

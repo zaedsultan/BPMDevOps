@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--edited with XMLSpy v2008 sp1 (http://www.altova.com) by SADAD Payment System (SADAD Payment System)--><!--Copyright SADAD Paymet System, 2007-2012.
+
+Whilst every effort has been made to ensure that the SADAD message standards contained in this document are correct,
+SADAD,SAMA and any other party involved in the creation of the document
+hereby state that the document is provided without warranty, either expressed or implied, of accuracy or fitness for purpose,
+and hereby disclaim any liability, direct or indirect, for damages or loss relating to the use of this document.
+The document may be modified from time to time, subject to developments in technology, changes to the standards,
+or new legal requirements.
+
+
+Your statutory rights are not affected.
+
+SADAD Payment System
+A Saudi Arabian Monetary Agency Company
+email: info@sadad.com
+
+Version Information: Created from EMS 4.6.7 for SADAD 2.0
+Version Number     : 1.0 
+Date of creation   : Jan, 2014
+Revision History:--><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://sadad.com/schema/service/Bill/1.0" xmlns:com="http://sadad.com/schema/Common/1.0" xmlns:bill="http://sadad.com/schema/domain/Biller/1.0" targetNamespace="http://sadad.com/schema/service/Bill/1.0" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+  <xs:import namespace="http://sadad.com/schema/Common/1.0" schemaLocation="cvapplicationServices.wsd.new_wsd?xsd=xsd1"/>
+  <xs:import namespace="http://sadad.com/schema/domain/Biller/1.0" schemaLocation="cvapplicationServices.wsd.new_wsd?xsd=xsd3"/>
+  <xs:element name="LoadRq" type="LoadRq_Type"/>
+  <xs:element name="LoadRs" type="LoadRs_Type"/>
+  <!--Removed Bulk related elements as we are going to have a different service for all bulk uploads-->
+  <!--<xs:element name="BulkLoadRq" type="com:UploadMsg_Type"/>
+	<xs:element name="BulkLoadRs" type="com:Identifier_Type"/>-->
+  <!--<xs:complexType name="BulkLoadFile_Type">
+		<xs:annotation>
+			<xs:documentation>-Billers may initiate a bill upload operation at any time of their choosing by sending the BillUploadRq </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="BillCategory" type="bill:BillCategory_Type" minOccurs="0"/>
+			<xs:element name="ServiceType" type="com:ServiceType_Type" minOccurs="0"/>
+			<xs:element name="Timestamp" type="com:Date_Type"/>
+			<xs:element name="Bill" type="bill:Bill_Type" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>-->
+  <xs:complexType name="LoadRq_Type">
+    <xs:annotation>
+      <xs:documentation>-Billers may initiate a real-time bill upload operation at any time of their choosing by sending the LoadRq. 
+							LoadRq restricts single bill at this point</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="GenerationDate" type="com:Date_Type"/>
+      <xs:element name="Bill" type="bill:LoadBill_Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LoadRs_Type">
+    <xs:annotation>
+      <xs:documentation>-ping back bill info in case of success.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="BillerId" type="com:BillerId_Type"/>
+      <xs:element name="BillingAcct" type="com:BillingAcct_Type" minOccurs="0"/>
+      <xs:element name="BillCategory" type="bill:BillCategory_Type" minOccurs="0"/>
+      <xs:element name="ServiceType" type="com:ServiceType_Type" minOccurs="0"/>
+      <xs:element name="BillNumber" type="com:BillNumber_Type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
